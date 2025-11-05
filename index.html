@@ -3,44 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EKAM Karatê - Férias sem Celular: Pacotes Especiais para Crianças em Araraquara</title>
-    <meta name="description" content="Garanta as férias do seu filho com propósito na EKAM Karatê em Araraquara. Pacotes especiais com Sensei André Mendonça. Disciplina, esporte e diversão, longe do celular.">
-    <meta name="keywords" content="karatê Araraquara, aulas de karatê infantil, karatê férias, atividades infantis férias, EKAM Karatê, Sensei André Mendonça, esporte para crianças, disciplina infantil">
-    <meta name="author" content="EKAM Karatê">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="SUA_URL_DA_LANDING_PAGE_AQUI">
-    <meta property="og:title" content="EKAM Karatê - Férias sem Celular: Pacotes Especiais para Crianças em Araraquara">
-    <meta property="og:description" content="Garanta as férias do seu filho com propósito na EKAM Karatê em Araraquara. Pacotes especiais com Sensei André Mendonça. Disciplina, esporte e diversão, longe do celular.">
-    <meta property="og:image" content="https://generated-images.adapta.one/camila.angelo%40live.com/019a547f-974d-73e8-ad43-6d1b0e7760ff/2025-11-05T17-22-56-144Z_Esta_a_foto_do_dojo_que_ser_usada_na_landing_pa.png">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <title>EKAM Karatê - Disciplina, Foco e Autoconfiança</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #D32F2F; /* Vermelho */
-            --secondary-color: #000000; /* Preto */
-            --accent-color: #FFD700; /* Ouro/Dourado */
-            --text-light: #FFFFFF; /* Branco */
-            --text-dark: #333333;
-            --bg-light: #F8F8F8;
-            --bg-dark: #222222;
+            --red-color: #D32F2F; /* Um vermelho forte */
+            --black-color: #212121; /* Preto escuro */
+            --white-color: #FFFFFF;
+            --light-grey: #f4f4f4;
         }
 
+        /* Reset e Estilos Básicos */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            overflow-x: hidden;
+            color: var(--black-color);
+            background-color: var(--light-grey);
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -49,75 +36,96 @@
             padding: 0 20px;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-        }
-
-        h1 { font-size: 2.8em; }
-        h2 { font-size: 2.2em; }
-        h3 { font-size: 1.8em; }
-
-        p {
-            margin-bottom: 15px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1em;
+        section {
+            padding: 80px 0;
             text-align: center;
         }
 
-        .btn:hover {
-            background-color: #B02727; /* Tom mais escuro do vermelho */
-            transform: translateY(-3px);
+        section:nth-child(even) {
+            background-color: var(--white-color);
+        }
+
+        h1, h2, h3 {
+            color: var(--black-color);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            line-height: 1.2;
+            color: var(--white-color);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--red-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--red-color);
+            color: var(--white-color);
+            border: 2px solid var(--red-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--white-color);
+            color: var(--red-color);
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
-            background-color: var(--accent-color);
-            color: var(--secondary-color);
-            border: 2px solid var(--secondary-color);
+            background-color: var(--black-color);
+            color: var(--white-color);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
+
         .btn-secondary:hover {
-            background-color: #DAA520; /* Tom mais escuro do ouro */
-            border-color: var(--primary-color);
+            background-color: var(--red-color);
+            transform: translateY(-2px);
         }
 
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 1s forwards ease-out;
-        }
-        .fade-in-delay-1 { animation-delay: 0.3s; }
-        .fade-in-delay-2 { animation-delay: 0.6s; }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Header */
+        /* Cabeçalho e Navegação */
         header {
-            background-color: var(--bg-light);
+            background-color: var(--black-color);
+            color: var(--white-color);
             padding: 15px 0;
-            border-bottom: 1px solid #eee;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         header .container {
@@ -127,1105 +135,499 @@
         }
 
         .logo {
-            font-family: 'Montserrat', sans-serif;
             font-size: 1.8em;
-            font-weight: 700;
-            color: var(--secondary-color);
+            font-weight: bold;
+            color: var(--red-color);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-        .logo .ekam-text {
-            color: var(--secondary-color);
-        }
-        .logo .karate-text {
-            color: var(--primary-color);
-            margin-left: 5px;
-        }
-        .logo .badge {
-            background-color: var(--accent-color);
-            color: var(--secondary-color);
-            padding: 5px 8px;
-            border-radius: 5px;
-            font-size: 0.7em;
-            margin-left: 10px;
-        }
-        
-        .nav-whatsapp {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-        .nav-whatsapp:hover {
-            background-color: #B02727;
-        }
-        .nav-whatsapp img {
-            width: 20px;
-            margin-right: 8px;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), var(--secondary-color);
-            color: var(--text-light);
-            padding: 80px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
         }
-        .hero::before {
-            content: '';
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--white-color);
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--red-color);
+        }
+
+        /* Seção de Capa/Banner */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Ocupa a altura total da viewport */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white-color);
+        }
+
+        .hero-image-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://generated-images.adapta.one/camila.angelo%40live.com/019a547f-974d-73e8-ad43-6d1b0e7760ff/2025-11-05T17-22-56-144Z_Esta_a_foto_do_dojo_que_ser_usada_na_landing_pa.png');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.3;
+        }
+
+        .banner-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block; /* Remove espaço extra abaixo da imagem */
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Overlay semi-transparente para melhor leitura */
             z-index: 1;
         }
-        .hero .container {
+
+        .hero-content {
             position: relative;
             z-index: 2;
-        }
-        .hero h1 {
-            color: var(--text-light);
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-        }
-        .hero .subheadline {
-            font-size: 1.5em;
-            margin-bottom: 40px;
-            font-weight: 300;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-        }
-        .hero .cta-button {
-            padding: 20px 40px;
-            font-size: 1.4em;
-            border-radius: 10px;
-            background-color: var(--accent-color);
-            color: var(--secondary-color);
-            font-weight: 700;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .hero .cta-button:hover {
-            background-color: #FFCC00;
-            transform: translateY(-5px);
-        }
-        .hero .urgency-text {
-            margin-top: 30px;
-            font-size: 1.2em;
-            font-weight: 600;
-            color: var(--accent-color);
-            animation: bounce 2s infinite;
+            padding: 20px;
+            max-width: 900px;
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        /* Section Styling */
-        section {
-            padding: 60px 0;
-            text-align: center;
-        }
-        section:nth-of-type(even) {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-        }
-        section:nth-of-type(even) h2,
-        section:nth-of-type(even) h3 {
-            color: var(--text-light);
-        }
-
-        /* Problem Section */
-        .problem .problem-list {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-        .problem .problem-item {
-            background-color: var(--text-light);
-            color: var(--secondary-color);
-            border: 1px solid #eee;
-            border-radius: 8px;
-            padding: 25px;
-            margin: 15px;
-            flex: 0 0 calc(33% - 60px);
-            max-width: calc(33% - 60px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-        }
-        .problem .problem-item:hover {
-            transform: translateY(-5px);
-        }
-        .problem .problem-item strong {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-            color: var(--primary-color);
-        }
-
-        /* Solution Section */
-        .solution {
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-        }
-        .solution .solution-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-            text-align: left;
-        }
-        .solution .solution-text {
-            flex: 1;
-            max-width: 600px;
-        }
-        .solution .solution-text ul {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 20px;
-        }
-        .solution .solution-text ul li {
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            position: relative;
-            padding-left: 30px;
-        }
-        .solution .solution-text ul li::before {
-            content: '✓';
-            color: var(--accent-color);
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-            font-size: 1.2em;
-        }
-        .solution .solution-image {
-            flex: 0 0 350px;
-            max-width: 350px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-        }
-        .solution .solution-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Sensei Section */
-        .sensei-section {
-            background-color: var(--bg-light);
-            padding: 80px 0;
-        }
-        .sensei-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            text-align: left;
-            margin-top: 50px;
-        }
-        .sensei-photo {
-            flex: 0 0 350px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-        .sensei-photo img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .sensei-info {
-            flex: 1;
-            max-width: 600px;
-        }
-        .sensei-info h3 {
-            color: var(--primary-color);
-            font-size: 2em;
-        }
-        .sensei-info p {
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
-        .sensei-info ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .sensei-info ul li {
-            background-color: var(--secondary-color);
-            color: var(--accent-color);
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9em;
-            display: flex;
-            align-items: center;
-        }
-        .sensei-info ul li::before {
-            content: '★'; /* Star icon */
-            margin-right: 8px;
-            color: var(--accent-color);
-        }
-
-        /* Benefits Section */
-        .benefits .benefit-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .benefits .benefit-item {
-            background-color: var(--text-light);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            text-align: left;
-            transition: transform 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .benefits .benefit-item:hover {
-            transform: translateY(-8px);
-        }
-        .benefits .benefit-item::before {
-            content: '✓';
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            font-size: 2.5em;
-            color: var(--primary-color);
-            opacity: 0.1;
-            font-weight: 700;
-        }
-        .benefits .benefit-item h4 {
+        .hero-content p {
             font-size: 1.3em;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-            padding-left: 40px; /* Make space for pseudo-element */
-        }
-        .benefits .benefit-item p {
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        /* Packages Section */
-        .packages {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-        }
-        .packages .package-grid {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-        .packages .package-card {
-            background-color: var(--text-light);
-            color: var(--text-dark);
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            flex: 0 0 calc(45% - 30px);
-            max-width: calc(45% - 30px);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .packages .package-card:hover {
-            transform: translateY(-10px);
-        }
-        .packages .package-card .badge {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 8px 15px;
-            border-bottom-left-radius: 15px;
-            font-weight: 600;
-            font-size: 0.9em;
-        }
-        .packages .package-card h3 {
-            color: var(--secondary-color);
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-        .packages .package-card .price {
-            font-size: 3em;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        .packages .package-card .price small {
-            font-size: 0.5em;
-            color: #777;
-        }
-        .packages .package-card ul {
-            list-style: none;
-            padding: 0;
-            text-align: left;
             margin-bottom: 30px;
-            flex-grow: 1;
-        }
-        .packages .package-card ul li {
-            margin-bottom: 10px;
-            font-size: 1.05em;
-            position: relative;
-            padding-left: 25px;
-        }
-        .packages .package-card ul li::before {
-            content: '✓';
-            color: var(--accent-color);
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-        }
-        .packages .package-card .btn {
-            width: 100%;
-            margin-top: auto;
         }
 
-        /* FAQ Section */
-        .faq .accordion {
+        /* Seção Sobre */
+        .about-section {
+            text-align: left;
+            background-color: var(--white-color);
+        }
+
+        .about-section .content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-section .text-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-section .image-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+
+        /* Seção FAQ (Acordeão) */
+        .faq-section {
+            background-color: var(--light-grey);
+        }
+
+        .accordion {
             max-width: 800px;
-            margin: 40px auto;
+            margin: 40px auto 0;
             text-align: left;
         }
-        .faq .accordion-item {
-            background-color: var(--text-light);
-            border: 1px solid #eee;
+
+        .accordion-item {
+            margin-bottom: 10px;
+            border: 1px solid var(--red-color);
             border-radius: 8px;
-            margin-bottom: 15px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow: hidden; /* Crucial para a transição do max-height */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
-        .faq .accordion-header {
-            padding: 20px 25px;
+
+        .accordion-header {
+            background-color: var(--black-color);
+            color: var(--white-color);
+            padding: 15px 20px;
+            width: 100%;
+            text-align: left;
+            border: none;
             cursor: pointer;
+            font-size: 1.1em;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: 600;
-            color: var(--secondary-color);
-            font-size: 1.1em;
             transition: background-color 0.3s ease;
+            font-weight: bold;
         }
-        .faq .accordion-header:hover {
-            background-color: #f5f5f5;
+
+        .accordion-header:hover {
+            background-color: #333; /* Preto um pouco mais claro no hover */
         }
-        .faq .accordion-header .icon {
-            font-size: 1.5em;
-            transform: rotate(0deg);
-            transition: transform 0.3s ease;
+
+        .accordion-header .icon {
+            font-size: 1.2em;
+            transition: transform 0.3s ease-in-out;
         }
-        .faq .accordion-header.active .icon {
+
+        .accordion-header.active .icon {
             transform: rotate(180deg);
         }
-        .faq .accordion-body {
-            padding: 0 25px;
-            max-height: 0;
+
+        .accordion-content {
+            background-color: var(--white-color);
+            color: var(--black-color);
+            padding: 0 20px;
+            max-height: 0; /* Começa fechado */
             overflow: hidden;
-            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-            color: #555;
-        }
-        .faq .accordion-body p {
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-        .faq .accordion-body.active {
-            max-height: 200px; /* Adjust as needed */
-            padding-bottom: 25px;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
         }
 
-        /* Location Section */
-        .location .map-container {
-            max-width: 100%;
-            height: 400px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 40px auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .accordion-content p {
+            margin-bottom: 0; /* Remove margem inferior padrão para último p */
+            padding: 15px 0;
+            border-top: 1px solid #eee; /* Linha divisória sutil */
         }
-        .location .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
+        .accordion-header.active + .accordion-content {
+             /* max-height é definido via JS para ser dinâmico */
+            padding: 0 20px; /* Padding ajustado pelo JS */
         }
-        .location p {
-            font-size: 1.1em;
-            margin-top: 10px;
-            font-weight: 500;
-        }
-        .location .address-info {
-            font-size: 1.2em;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        /* Qualification Form Section */
-        .qualification-form {
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-            padding: 80px 0;
-        }
-        .qualification-form h2 {
-            color: var(--text-light);
-        }
-        .qualification-form .form-container {
-            max-width: 700px;
-            margin: 40px auto;
-            background-color: var(--bg-light);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        
+        /* Seção de Contato */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: left;
         }
-        .qualification-form .form-container p {
-            color: var(--text-dark);
-            margin-bottom: 25px;
-            font-size: 1.1em;
+
+        .form-group {
+            margin-bottom: 15px;
         }
-        .qualification-form .form-group {
-            margin-bottom: 20px;
-        }
-        .qualification-form label {
+
+        .form-group label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--secondary-color);
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--black-color);
         }
-        .qualification-form input[type="text"],
-        .qualification-form input[type="email"],
-        .qualification-form input[type="tel"],
-        .qualification-form input[type="number"],
-        .qualification-form select {
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1em;
-            color: var(--text-dark);
-        }
-        .qualification-form input[type="text"]:focus,
-        .qualification-form input[type="email"]:focus,
-        .qualification-form input[type="tel"]:focus,
-        .qualification-form input[type="number"]:focus,
-        .qualification-form select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.2);
-        }
-        .qualification-form .btn-submit {
-            width: 100%;
-            font-size: 1.3em;
-            padding: 15px 30px;
-            margin-top: 20px;
-        }
-        .form-message {
-            margin-top: 20px;
             padding: 10px;
-            border-radius: 5px;
-            display: none; /* Hidden by default */
-        }
-        .form-message.success {
-            background-color: #d4edda;
-            color: #155724;
-            border-color: #c3e6cb;
-            display: block;
-        }
-        .form-message.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border-color: #f5c6cb;
-            display: block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+            box-sizing: border-box;
         }
 
+        .form-group textarea {
+            resize: vertical;
+        }
 
-        /* Footer */
+        /* Rodapé */
         footer {
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-            padding: 40px 0;
+            background-color: var(--black-color);
+            color: var(--white-color);
+            padding: 30px 0;
             text-align: center;
             font-size: 0.9em;
         }
-        footer .logo-footer {
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
-        footer .logo-footer .ekam-text {
-            color: var(--text-light);
-        }
-        footer .logo-footer .karate-text {
-            color: var(--primary-color);
-        }
-        footer .social-icons {
-            margin: 20px 0;
-        }
-        footer .social-icons a {
-            color: var(--text-light);
-            font-size: 1.8em;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-            text-decoration: none; /* Ensure no underline */
-        }
-        footer .social-icons a:hover {
-            color: var(--accent-color);
-        }
-        footer .contact-info {
-            margin-bottom: 20px;
-        }
-        footer .contact-info p {
-            margin: 5px 0;
-        }
-        footer .contact-info a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        footer .contact-info a:hover {
-            color: var(--accent-color);
-        }
-        footer .privacy-link {
-            display: block;
-            margin-top: 20px;
-            color: #aaa;
-            text-decoration: none;
-        }
-        footer .privacy-link:hover {
-            color: var(--text-light);
-        }
 
-
-        /* Responsive Design */
+        /* Media Queries para Responsividade */
         @media (max-width: 992px) {
-            .hero h1 { font-size: 2.8em; }
-            .hero .subheadline { font-size: 1.3em; }
-            .solution .solution-content,
-            .sensei-content {
-                flex-direction: column;
-                text-align: center;
+            h1 {
+                font-size: 3em;
             }
-            .solution .solution-text,
-            .sensei-info {
-                max-width: 100%;
+            h2 {
+                font-size: 2.2em;
             }
-            .solution .solution-image,
-            .sensei-photo {
-                max-width: 80%;
-            }
-            .problem .problem-item {
-                flex: 0 0 calc(50% - 30px);
-                max-width: calc(50% - 30px);
-            }
-            .packages .package-card {
-                flex: 0 0 80%;
-                max-width: 80%;
-            }
-            .packages .package-grid {
-                flex-direction: column;
-                align-items: center;
-            }
-            .faq .accordion {
-                margin-left: 20px;
-                margin-right: 20px;
+            .hero-content p {
+                font-size: 1.1em;
             }
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.2em; }
-            h2 { font-size: 1.8em; }
-            .hero { padding: 60px 0; }
-            .hero h1 { font-size: 2.5em; }
-            .hero .subheadline { font-size: 1.1em; }
-            .hero .cta-button { padding: 15px 25px; font-size: 1.2em; }
-            header .container { flex-direction: column; }
-            .nav-whatsapp { margin-top: 15px; width: 100%; justify-content: center; }
-            .problem .problem-item {
-                flex: 0 0 calc(100% - 30px);
-                max-width: calc(100% - 30px);
+            h1 {
+                font-size: 2.5em;
             }
-            .sensei-info ul {
-                justify-content: center;
+            h2 {
+                font-size: 2em;
             }
-            .sensei-photo {
-                flex: 0 0 100%;
-                max-width: 100%;
+            .hero-content {
+                width: 90%;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            header .container {
+                flex-direction: column;
+            }
+            .logo {
+                margin-bottom: 15px;
+            }
+            section {
+                padding: 60px 0;
+            }
+            .about-section .content {
+                flex-direction: column;
+            }
+            .accordion-header {
+                font-size: 1em;
+                padding: 12px 15px;
+            }
+            .accordion-content p {
+                padding: 10px 0;
+            }
+            .form-group input, .form-group textarea, .btn {
+                font-size: 0.95em;
             }
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 1.8em; }
-            h2 { font-size: 1.6em; }
-            .hero h1 { font-size: 2em; }
-            .hero .subheadline { font-size: 1em; }
-            .logo { font-size: 1.5em; }
-            .packages .package-card {
-                flex: 0 0 100%;
-                max-width: 100%;
+            h1 {
+                font-size: 2em;
             }
-            .packages .package-card .price { font-size: 2.5em; }
-            .faq .accordion-header { font-size: 1em; padding: 15px 20px; }
-            .faq .accordion-body { padding: 0 20px; }
+            h2 {
+                font-size: 1.8em;
+            }
+            .btn {
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+            .hero-section {
+                height: 70vh; /* Ajusta a altura para telas menores */
+            }
+            .container {
+                padding: 0 15px;
+            }
+            .logo {
+                font-size: 1.5em;
+            }
+            nav ul li {
+                margin: 8px 0;
+            }
         }
     </style>
 </head>
 <body>
-
     <header>
         <div class="container">
-            <a href="#" class="logo">
-                <span class="ekam-text">EKAM</span><span class="karate-text">KARATÊ</span>
-                <span class="badge">Férias</span>
-            </a>
-            <a href="https://api.whatsapp.com/send?phone=5516997850320&text=Olá! Vim pela Landing Page de Férias da EKAM. Quero mais informações!" target="_blank" class="nav-whatsapp">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon">
-                Fale com a gente!
-            </a>
+            <a href="#" class="logo">EKAM Karatê</a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <section class="hero fade-in">
-        <div class="container">
-            <h1 class="fade-in-delay-1">FÉRIAS SEM CELULAR: KARATÊ EKAM</h1>
-            <p class="subheadline fade-in-delay-2">Seu filho merecia férias com propósito, não apenas scrollar redes sociais.</p>
-            <a href="#form" class="btn cta-button fade-in-delay-2">GARANTA A VAGA AGORA</a>
-            <p class="urgency-text fade-in-delay-2">⏰ Vagas limitadas (15 por horário)!</p>
-        </div>
-    </section>
-
-    <section class="problem fade-in">
-        <div class="container">
-            <h2>O Problema que Todo Pai Conhece</h2>
-            <p>Você se preocupa com:</p>
-            <div class="problem-list">
-                <div class="problem-item fade-in-delay-1">
-                    <strong>📱 Tempo Excessivo na Tela</strong>
-                    <p>Horas a fio no celular ou tablet, sem atividade física.</p>
-                </div>
-                <div class="problem-item fade-in-delay-1">
-                    <strong>🛋️ Sedentarismo e Tédio</strong>
-                    <p>Falta de movimento, energia acumulada e nada produtivo para fazer.</p>
-                </div>
-                <div class="problem-item fade-in-delay-1">
-                    <strong>🤯 Agitação ou Timidez</strong>
-                    <p>Crianças inquietas ou excessivamente fechadas, buscando um equilíbrio.</p>
-                </div>
-                <div class="problem-item fade-in-delay-2">
-                    <strong>📉 Falta de Disciplina</strong>
-                    <p>Dificuldade em seguir regras e lidar com frustrações.</p>
-                </div>
-                <div class="problem-item fade-in-delay-2">
-                    <strong>🤦‍♂️ Comportamento Impulsivo</strong>
-                    <p>Ações sem pensar nas consequências, falta de controle emocional.</p>
-                </div>
-                <div class="problem-item fade-in-delay-2">
-                    <strong>🙅‍♀️ Poucas Amizades Reais</strong>
-                    <p>Interações online substituindo o contato e a brincadeira no mundo real.</p>
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-image-container">
+                <img src="https://via.placeholder.com/1920x1080/000/fff?text=Alunos+de+Karate+treinando" alt="Alunos de Karatê treinando com Sensei" class="banner-image">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1>Descubra o Poder Transformador do Karatê!</h1>
+                    <p>Disciplina, respeito e autoconfiança para seu filho.<br>Uma jornada de crescimento físico e mental.</p>
+                    <a href="#contact" class="btn btn-primary">Matricule-se Agora!</a>
                 </div>
             </div>
-            <p style="margin-top: 30px;">Isso é NORMAL. A maioria dos pais enfrenta isso. Mas existe uma solução!</p>
-        </div>
-    </section>
+        </section>
 
-    <section class="solution fade-in">
-        <div class="container">
-            <h2>A Solução: EKAM Karatê</h2>
-            <div class="solution-content">
-                <div class="solution-text">
-                    <p>Na EKAM, transformamos as férias do seu filho em uma jornada de <strong>desenvolvimento e propósito.</strong> Longe do celular, ele aprenderá o verdadeiro Karatê Wado Ryu Kii Ku Kai, com uma filosofia que vai além da luta.</p>
-                    <p>Aqui, seu filho não apenas se exercita, mas constrói:</p>
-                    <ul>
-                        <li>Disciplina e Respeito</li>
-                        <li>Autoconfiança e Coragem</li>
-                        <li>Foco e Concentração</li>
-                        <li>Amizades Duradouras</li>
-                    </ul>
-                    <p>É um investimento no futuro do seu filho, com o legado de um Sensei com 35 anos de experiência e uma família dedicada ao Karatê.</p>
-                </div>
-                <div class="solution-image">
-                    <img src="https://generated-images.adapta.one/camila.angelo%40live.com/019a547f-974d-73e8-ad43-6d1b0e7760ff/2025-11-05T17-22-56-144Z_Esta_a_foto_do_dojo_que_ser_usada_na_landing_pa.png" alt="Crianças treinando karatê no dojo da EKAM">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="sensei-section fade-in">
-        <div class="container">
-            <h2>Conheça o Sensei André Mendonça</h2>
-            <div class="sensei-content">
-                <div class="sensei-photo">
-                    <img src="https://generated-images.adapta.one/camila.angelo%40live.com/019a547f-974d-73e8-ad43-6d1b0e7760ff/2025-11-05T17-22-56-144Z_Esta_a_foto_do_dojo_que_ser_usada_na_landing_pa.png" alt="Sensei André Mendonça na EKAM Karatê">
-                    <!-- Idealmente, uma foto do Sensei sozinho aqui -->
-                </div>
-                <div class="sensei-info">
-                    <h3>Um Legado de 35 Anos no Karatê</h3>
-                    <p>Com mais de <strong>35 anos de experiência como atleta campeão</strong> e dedicado ao karatê, o Sensei André Mendonça é a alma da EKAM.</p>
-                    <p>Sua formação como <strong>Preparador Físico e em Educação Física</strong> garante um ensino completo, seguro e adaptado para o desenvolvimento integral de cada criança.</p>
-                    <p>Na EKAM, o Karatê vai além do tatame. É uma verdadeira <strong>EScola de Karatê</strong> que forma campeões na vida!</p>
-                    <ul>
-                        <li>Atleta Campeão há 35 anos</li>
-                        <li>Formação em Preparador Físico</li>
-                        <li>Formação em Educação Física</li>
-                        <li>Estilo Wado Ryu Kii Ku Kai</li>
-                        <li>Família Campeã (Esposa Bi-Campeã Paulista 2024-2025, filhos praticam)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="benefits fade-in">
-        <div class="container">
-            <h2>Benefícios que Vão Além do Dojo</h2>
-            <p>O Karatê na EKAM desenvolve habilidades essenciais para a vida do seu filho:</p>
-            <div class="benefit-grid">
-                <div class="benefit-item fade-in-delay-1">
-                    <h4>Melhora Coordenação Motora</h4>
-                    <p>Movimentos precisos que aprimoram o equilíbrio e a agilidade.</p>
-                </div>
-                <div class="benefit-item fade-in-delay-1">
-                    <h4>Aumenta Concentração e Foco</h4>
-                    <p>Essencial para o karatê e com reflexos diretos no desempenho escolar.</p>
-                </div>
-                <div class="benefit-item fade-in-delay-1">
-                    <h4>Desenvolve Disciplina e Respeito</h4>
-                    <p>Valores fundamentais ensinados a cada treino, construindo caráter.</p>
-                </div>
-                <div class="benefit-item fade-in-delay-2">
-                    <h4>Fortalece Autoconfiança</h4>
-                    <p>Superação de desafios que elevam a autoestima e a crença em si mesmo.</p>
-                </div>
-                <div class="benefit-item fade-in-delay-2">
-                    <h4>Controla Ansiedade e Estresse</h4>
-                    <p>O esporte como válvula de escape e ferramenta de bem-estar emocional.</p>
-                </div>
-                <div class="benefit-item fade-in-delay-2">
-                    <h4>Ensina Valores Essenciais</h4>
-                    <p>Humildade, perseverança, honestidade e companheirismo.</p>
-                </div>
-                <div class="benefit-item fade-in-delay-3">
-                    <h4>Cria Amizades Reais</h4>
-                    <p>Interação e apoio mútuo em um ambiente saudável e acolhedor.</p>
-                </div>
-                <div class="benefit-item fade-in-delay-3">
-                    <h4>Promove Hábitos Saudáveis</h4>
-                    <p>Estimula a atividade física regular e uma rotina equilibrada.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="packages fade-in">
-        <div class="container">
-            <h2>Pacotes Especiais de Férias</h2>
-            <p>Aproveite os horários de férias para introduzir seu filho ao mundo do Karatê EKAM com preços e condições imperdíveis!</p>
-            <div class="package-grid">
-                <div class="package-card fade-in-delay-1">
-                    <span class="badge">Mais Popular</span>
-                    <h3>PACOTE BÁSICO</h3>
-                    <div class="price">R$ 100<small>/mês</small></div>
-                    <ul>
-                        <li>✓ 2 Aulas por Semana</li>
-                        <li>✓ Iniciação ao Karatê Wado Ryu</li>
-                        <li>✓ Desenvolvimento de Habilidades Motoras</li>
-                        <li>✓ Foco em Disciplina e Respeito</li>
-                        <li>✓ Ambiente Seguro e Profissional</li>
-                    </ul>
-                    <h4>Horários Disponíveis:</h4>
-                    <ul>
-                        <li>✓ Segunda e Quarta: 09:00</li>
-                        <li>✓ Segunda e Quarta: 15:00</li>
-                        <li>✓ Terça e Quinta: 15:00</li>
-                    </ul>
-                    <a href="#form" class="btn">ESCOLHER ESTE PACOTE</a>
-                </div>
-                <div class="package-card fade-in-delay-2">
-                    <h3>PACOTE INTENSIVO</h3>
-                    <div class="price">R$ 160<small>/mês</small></div>
-                    <ul>
-                        <li>✓ 4 Aulas por Semana</li>
-                        <li>✓ Aprendizado Acelerado</li>
-                        <li>✓ Coordenação e Resistência Aprimoradas</li>
-                        <li>✓ Maior Imersão nos Valores do Karatê</li>
-                        <li>✓ Preparação para Níveis Avançados</li>
-                    </ul>
-                     <h4>Horários Disponíveis:</h4>
-                    <ul>
-                        <li>✓ Todas as opções acima (2x na semana)</li>
-                        <li>✓ Possibilidade de combinar 4 aulas</li>
-                    </ul>
-                    <a href="#form" class="btn">ESCOLHER ESTE PACOTE</a>
-                </div>
-            </div>
-            <p style="margin-top: 40px; color: var(--accent-color); font-weight: 600;">⏰ Vagas limitadas: Apenas 15 crianças por horário!</p>
-            <p style="color: var(--accent-color); font-weight: 600;">Idade mínima: 4 anos</p>
-        </div>
-    </section>
-
-    <section class="faq fade-in">
-        <div class="container">
-            <h2>Dúvidas Frequentes</h2>
-            <div class="accordion">
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        Meu filho é muito agitado. Vai se adaptar? <span class="icon">▼</span>
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>Sobre o EKAM Karatê</h2>
+                <div class="content">
+                    <div class="text-content">
+                        <p>No EKAM Karatê, acreditamos que o Karatê vai muito além das técnicas de defesa pessoal. É uma filosofia de vida que cultiva valores essenciais como disciplina, respeito, foco e autoconfiança.</p>
+                        <p>Nossa metodologia é adaptada para crianças e adolescentes, promovendo o desenvolvimento integral. Em um ambiente seguro e acolhedor, seus filhos aprenderão não apenas a arte marcial, mas também habilidades sociais e emocionais que os acompanharão por toda a vida.</p>
+                        <p>Com instrutores experientes e apaixonados, oferecemos aulas dinâmicas e divertidas que incentivam o movimento, a concentração e a superação. Junte-se à nossa família EKAM e veja seu filho crescer forte, confiante e feliz!</p>
                     </div>
-                    <div class="accordion-body">
-                        <p>Sim! O Karatê é excelente para crianças agitadas. A disciplina e o foco exigidos nos treinos ajudam a canalizar a energia de forma positiva, melhorando a concentração e o autocontrole. O Sensei André tem vasta experiência em lidar com diferentes perfis de crianças.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        Meu filho é tímido. Vai conseguir? <span class="icon">▼</span>
-                    </div>
-                    <div class="accordion-body">
-                        <p>Com certeza! Nosso ambiente é acolhedor e incentivador. Crianças tímidas geralmente florescem no Karatê, ganhando autoconfiança, respeito por si mesmas e pelos outros. Ninguém é forçado, o desenvolvimento é individual e respeita o tempo de cada um.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        Tenho medo que se machuque. É seguro? <span class="icon">▼</span>
-                    </div>
-                    <div class="accordion-body">
-                        <p>O Karatê na EKAM é praticado com total segurança. Não focamos em luta, mas sim em técnica, disciplina e desenvolvimento pessoal. O Sensei André Mendonça, com formação em Preparador Físico, prioriza exercícios de aquecimento e alongamento para prevenir lesões. A segurança é nossa prioridade.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        As aulas vão atrapalhar os estudos do meu filho? <span class="icon">▼</span>
-                    </div>
-                    <div class="accordion-body">
-                        <p>Pelo contrário! Muitos pais relatam que o Karatê melhora a concentração, a disciplina e a organização, o que reflete positivamente no desempenho escolar. O esporte cria uma rotina saudável e ajuda a gerenciar o tempo de forma mais eficaz.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        Qual a idade mínima para participar? <span class="icon">▼</span>
-                    </div>
-                    <div class="accordion-body">
-                        <p>Aceitamos crianças a partir dos 4 anos de idade. Adaptamos as atividades para cada faixa etária, garantindo um aprendizado divertido e eficaz.</p>
-                    </div>
-                </div>
-                 <div class="accordion-item">
-                    <div class="accordion-header">
-                        Preciso comprar um kimono para as aulas de férias? <span class="icon">▼</span>
-                    </div>
-                    <div class="accordion-body">
-                        <p>Não é necessário para as primeiras aulas ou para o pacote de férias! Seu filho pode vir com roupas leves e confortáveis para o treino. Caso decida continuar após as férias, daremos as orientações para a compra do kimono.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        Como funciona o pagamento dos pacotes de férias? <span class="icon">▼</span>
-                    </div>
-                    <div class="accordion-body">
-                        <p>O pagamento é facilitado e pode ser feito via Pix ou Cartão de Crédito. Ao garantir a vaga através do nosso formulário, nossa equipe entrará em contato para finalizar a inscrição e passar todas as opções de pagamento.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        Posso cancelar a inscrição se meu filho não gostar? <span class="icon">▼</span>
-                    </div>
-                    <div class="accordion-body">
-                        <p>Para os pacotes de férias, oferecemos a flexibilidade de teste. Caso a criança não se adapte após a primeira semana, entre em contato conosco para discutirmos as opções de reembolso proporcional. Queremos que a experiência seja positiva para todos!</p>
+                    <div class="image-content">
+                        <img src="https://via.placeholder.com/600x400/D32F2F/fff?text=Treino+de+Karate" alt="Crianças treinando Karatê">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="location fade-in">
-        <div class="container">
-            <h2>Nossa Localização em Araraquara</h2>
-            <p class="address-info">Venha nos conhecer!</p>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3701.3537233636594!2d-48.1691238!3d-21.7820129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b8f060f607e4d5%3A0x6b77d61245e3f4e2!2sRua%20Jose%20Ferrari%20Secondo%2C%20720%20-%20Vila%20Velosa%2C%20Araraquara%20-%20SP%2C%2014806-045!5e0!3m2!1spt-BR!2sbr!4v1701389792019!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2>Dúvidas Frequentes</h2>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Meu filho é muito agitado. Vai se adaptar?
+                            <span class="icon">&#9660;</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Sim. Canalizamos essa energia em disciplina, foco e coordenação, com atividades lúdicas, metas claras e rotina de treinos. Em poucas semanas, os pais percebem melhora no comportamento dentro e fora do tatame.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Meu filho é tímido. Vai conseguir?
+                            <span class="icon">&#9660;</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Com certeza. Respeitamos o tempo de cada criança. Trabalhamos em grupos pequenos, com instruções positivas e progressão por faixas, fortalecendo a autoconfiança gradualmente.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Tenho medo que se machuque. É seguro?
+                            <span class="icon">&#9660;</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Sim. Segurança é prioridade. Seguimos metodologia tradicional, progressão por etapas, exercícios controlados e supervisão próxima. Usamos equipamentos quando necessário e técnicas adequadas à idade.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            As aulas vão atrapalhar os estudos do meu filho?
+                            <span class="icon">&#9660;</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Não. O Karatê tende a melhorar concentração, organização e memória, refletindo positivamente no desempenho escolar. A carga horária é equilibrada para a rotina da família.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Qual a idade mínima para participar?
+                            <span class="icon">&#9660;</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>A partir dos 4 anos (turma Kids). Em casos específicos, avaliamos crianças a partir de 3 anos e 6 meses para verificar prontidão motora e atenção.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Preciso comprar um kimono para as aulas de férias?
+                            <span class="icon">&#9660;</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Não no início. No período de férias, a criança pode começar com roupa esportiva confortável. Se decidir continuar, orientamos o karategi adequado e como adquirir.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Como funciona o pagamento dos pacotes de férias?
+                            <span class="icon">&#9660;</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>O pagamento é mensal. Cobrança por mês de atividades. Formas de pagamento: PIX, cartão ou dinheiro. Você decide a renovação mês a mês, sem taxas ocultas.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Posso cancelar a inscrição se meu filho não gostar?
+                            <span class="icon">&#9660;</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Sim, pode. No entanto, é importante deixar claro: não há devolução de valores já pagos pelo mês vigente. Você pode interromper a renovação mensal a qualquer momento. O pagamento do mês em curso não é reembolsável.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p>📍 <strong>Rua Jose Ferrari Secondo, 720, Vila Velosa, Araraquara - SP, 14806-045</strong></p>
-            <p>Próximo ao Colégio Neruda</p>
-            <p>🅿️ Estacionamento gratuito na rua</p>
-        </div>
-    </section>
+        </section>
 
-    <section id="form" class="qualification-form fade-in">
-        <div class="container">
-            <h2>Garanta a Vaga do seu Filho Agora!</h2>
-            <p>Preencha o formulário abaixo e nossa equipe entrará em contato para confirmar a inscrição e o pagamento. Vagas limitadas!</p>
-            <div class="form-container">
-                <form id="vacationForm">
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Entre em Contato</h2>
+                <p>Preencha o formulário abaixo e entraremos em contato para tirar suas dúvidas e agendar uma aula experimental!</p>
+                <form class="contact-form" action="#" method="POST">
                     <div class="form-group">
-                        <label for="childName">Nome da Criança:</label>
-                        <input type="text" id="childName" name="childName" required>
+                        <label for="name">Nome Completo:</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="parentName">Nome do Responsável:</label>
-                        <input type="text" id="parentName" name="parentName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-mail do Responsável:</label>
+                        <label for="email">E-mail:</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="phone">Telefone (WhatsApp):</label>
-                        <input type="tel" id="phone" name="phone" value="16997850320" required readonly>
-                        <small style="color: #777; display: block; margin-top: 5px;">Seu número será usado para contato via WhatsApp.</small>
+                        <label for="phone">Telefone:</label>
+                        <input type="tel" id="phone" name="phone">
                     </div>
                     <div class="form-group">
-                        <label for="childAge">Idade da Criança:</label>
-                        <input type="number" id="childAge" name="childAge" min="4" max="18" required>
+                        <label for="message">Sua Mensagem / Pergunta:</label>
+                        <textarea id="message" name="message" rows="5"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="preferredSchedule">Horário Preferido:</label>
-                        <select id="preferredSchedule" name="preferredSchedule" required>
-                            <option value="">Selecione um Horário</option>
-                            <option value="Seg-Qua 09:00">Segunda e Quarta: 09:00</option>
-                            <option value="Seg-Qua 15:00">Segunda e Quarta: 15:00</option>
-                            <option value="Ter-Qui 15:00">Terça e Quinta: 15:00</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="packageType">Pacote Preferido:</label>
-                        <select id="packageType" name="packageType" required>
-                            <option value="">Selecione um Pacote</option>
-                            <option value="Basico (2 aulas/semana - R$100)">Pacote Básico (2 aulas/semana - R$ 100)</option>
-                            <option value="Intensivo (4 aulas/semana - R$160)">Pacote Intensivo (4 aulas/semana - R$ 160)</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-submit">GARANTIR VAGA AGORA</button>
-                    <div id="formMessage" class="form-message"></div>
+                    <button type="submit" class="btn btn-secondary">Enviar Mensagem</button>
                 </form>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
-            <a href="#" class="logo-footer">
-                <span class="ekam-text">EKAM</span><span class="karate-text">KARATÊ</span>
-            </a>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/ekam.karate" target="_blank" aria-label="Instagram EKAM Karatê">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" width="30" height="30" style="vertical-align: middle;">
-                </a>
-                <a href="https://www.facebook.com/EKAMKarate" target="_blank" aria-label="Facebook EKAM Karatê">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook" width="30" height="30" style="vertical-align: middle;">
-                </a>
-            </div>
-            <div class="contact-info">
-                <p>📍 Rua Jose Ferrari Secondo, 720, Vila Velosa, Araraquara - SP, 14806-045</p>
-                <p>📞 <a href="https://api.whatsapp.com/send?phone=5516997850320" target="_blank">16 99785-0320</a></p>
-                <p>✉️ <a href="mailto:ekam.karate@gmail.com">ekam.karate@gmail.com</a></p>
-            </div>
-            <p>&copy; 2024 EKAM Karatê - Todos os direitos reservados.</p>
-            <a href="https://www.iubenda.com/privacy-policy/SUA_POLITICA_DE_PRIVACIDADE_AQUI" target="_blank" class="privacy-link">Política de Privacidade</a>
+            <p>&copy; 2023 EKAM Karatê. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scroll for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    // Seleciona o conteúdo que está abaixo do header clicado
+                    const content = header.nextElementSibling;
+
+                    // Fecha qualquer outro acordeão que esteja aberto, se houver
+                    accordionHeaders.forEach(otherHeader => {
+                        if (otherHeader !== header && otherHeader.classList.contains('active')) {
+                            otherHeader.classList.remove('active');
+                            const otherContent = otherHeader.nextElementSibling;
+                            otherContent.style.maxHeight = '0';
+                            otherContent.style.padding = '0 20px';
+                        }
+                    });
+
+                    // Alterna a classe 'active' no header clicado
+                    header.classList.toggle('active');
+
+                    // Ajusta a altura do conteúdo com base na classe 'active'
+                    if (header.classList.contains('active')) {
+                        content.style.maxHeight = content.scrollHeight + 'px'; // Expande para a altura total do conteúdo
+                        content.style.padding = '0 20px'; // Garante o padding horizontal
+                    } else {
+                        content.style.maxHeight = '0'; // Recolhe o conteúdo
+                        content.style.padding = '0 20px'; // Garante o padding horizontal
+                    }
                 });
             });
-        });
-
-        // FAQ Accordion
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const accordionItem = header.closest('.accordion-item');
-                const accordionBody = accordionItem.querySelector('.accordion-body');
-                
-                // Toggle active class on header
-                header.classList.toggle('active');
-                
-                // Toggle max-height on body for smooth animation
-                if (accordionBody.classList.contains('active')) {
-                    accordionBody.classList.remove('active');
-                } else {
-                    accordionBody.classList.add('active');
-                }
-            });
-        });
-
-        // Form submission to WhatsApp
-        document.getElementById('vacationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const childName = document.getElementById('childName').value;
-            const parentName = document.getElementById('parentName').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const childAge = document.getElementById('childAge').value;
-            const preferredSchedule = document.getElementById('preferredSchedule').value;
-            const packageType = document.getElementById('packageType').value;
-            const formMessage = document.getElementById('formMessage');
-
-                formMessage.textContent = 'Por favor, preencha todos os campos obrigatórios.';
-                formMessage.className = 'form-message error';
-                return;
-            }
-
-            const whatsappNumber = '5516997850320'; // Seu número de WhatsApp com DDI (55) + DDD (16) + número
-            const message = `Olá EKAM Karatê!%0A%0ARecebi sua oferta de férias e gostaria de garantir a vaga para meu filho(a).%0A%0ADados da Inscrição:%0A- Nome da Criança: ${childName}%0A- Nome do Responsável: ${parentName}%0A- E-mail: ${email}%0A- Idade da Criança: ${childAge} anos%0A- Horário Preferido: ${preferredSchedule}%0A- Pacote Escolhido: ${packageType}%0A%0APor favor, entre em contato para finalizarmos a inscrição e o pagamento. Obrigado!`;
-            
-            const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${message}`;
-            
-            window.open(whatsappUrl, '_blank');
-
-            formMessage.textContent = 'Seu pedido foi enviado! Estamos te redirecionando para o WhatsApp para finalizar a inscrição.';
-            formMessage.className = 'form-message success';
-            this.reset(); // Clear the form
-        });
-
-        // Add fade-in animation on scroll
-        const faders = document.querySelectorAll('.fade-in');
-        const appearOptions = {
-            threshold: 0.1, // Element is 10% in view
-            rootMargin: "0px 0px -50px 0px" // Start loading 50px before it reaches the viewport
-        };
-        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                } else {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                    appearOnScroll.unobserve(entry.target);
-                }
-            });
-        }, appearOptions);
-
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
         });
     </script>
 </body>
