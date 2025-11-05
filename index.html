@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EKAM - Karatê para Crianças</title>
     <style>
+        /* Base styles for a clean layout */
         * {
             margin: 0;
             padding: 0;
@@ -15,16 +16,7 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
-        }
-
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: #f9f9f9;
         }
 
         .container {
@@ -33,45 +25,50 @@
             padding: 0 20px;
         }
 
+        /* Header Styling */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
         header h1 {
             font-size: 28px;
-            margin-bottom: 10px;
+            margin: 0;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin-right: 20px;
+            margin-left: 25px;
             font-weight: bold;
-            transition: 0.3s;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
             color: #ffd700;
         }
 
-        .banner {
+        /* Hero Section Styling (Banner) */
+        .hero { /* Changed from .banner to .hero as per user prompt instruction */
             position: relative;
-            height: 400px;
+            height: 450px; /* Adjusted height for better visual */
             overflow: hidden;
             background: #000;
-        }
-
-        .banner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-        }
-
-        .banner-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -79,130 +76,37 @@
             color: white;
         }
 
-        .banner-overlay h2 {
-            font-size: 48px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Critical CSS for image correction */
+            object-position: center; /* Critical CSS for image correction */
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
         }
 
-        section {
-            padding: 60px 20px;
-        }
-
-        h2 {
-            font-size: 32px;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #1e3c72;
-        }
-
-        .aulas-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .aula-card {
-            background: #f4f4f4;
+        .hero-overlay {
+            position: relative; /* Changed to relative to be above img */
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.5); /* Darker overlay for text readability */
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .aula-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 12px rgba(0,0,0,0.2);
-        }
-
-        .aula-card h3 {
-            color: #1e3c72;
-            margin-bottom: 15px;
-            font-size: 20px;
-        }
-
-        .aula-card p {
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .horarios-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .horario-card {
-            background: white;
-            padding: 30px;
-            border-left: 5px solid #1e3c72;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .horario-card h3 {
-            color: #1e3c72;
-            margin-bottom: 15px;
-        }
-
-        .horario-card p {
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .faq-section {
-            background: #f9f9f9;
-        }
-
-        .faq-container {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: white;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .faq-question {
-            background: #1e3c72;
+        .hero-overlay h2 {
+            font-size: 52px; /* Larger heading */
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
             color: white;
-            padding: 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: bold;
-            transition: background 0.3s;
         }
 
-        .faq-question:hover {
-            background: #2a5298;
-        }
-
-        .faq-arrow {
-            transition: transform 0.3s;
+        .hero-overlay p {
             font-size: 20px;
-        }
-
-        .faq-arrow.active {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            padding: 20px;
-            color: #666;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .faq-answer.active {
-            max-height: 500px;
+            line-height: 1.5;
+            margin-bottom: 30px;
         }
 
         .cta-button {
@@ -214,33 +118,184 @@
             text-decoration: none;
             font-weight: bold;
             text-align: center;
-            margin-top: 20px;
-            transition: background 0.3s;
+            transition: background 0.3s ease, transform 0.3s ease;
+            font-size: 18px;
         }
 
         .cta-button:hover {
             background: #ffed4e;
+            transform: translateY(-3px);
         }
 
-        footer {
+        /* General Section Styling */
+        section {
+            padding: 80px 0;
+            background-color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        }
+
+        section:nth-of-type(even) {
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            font-size: 38px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #1e3c72;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #ffd700;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Aulas Section */
+        #aulas .aulas-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .aula-card {
+            background: #f4f4f4;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .aula-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+
+        .aula-card h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .aula-card p {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        /* Horarios Section */
+        #horarios .horarios-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .horario-card {
+            background: white;
+            padding: 30px;
+            border-left: 5px solid #1e3c72;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .horario-card h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .horario-card p {
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        /* FAQ Section */
+        #faq {
+            background-color: #f0f5f9; /* Light blue background for contrast */
+            padding-bottom: 100px; /* More padding at bottom */
+        }
+
+        .faq-container {
+            max-width: 800px; /* Wider container for FAQ */
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+            border: 1px solid #e0e0e0;
+        }
+
+        .faq-question {
             background: #1e3c72;
             color: white;
-            text-align: center;
-            padding: 30px 20px;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background 0.3s ease;
         }
 
+        .faq-question:hover {
+            background: #2a5298;
+        }
+
+        .faq-arrow {
+            font-size: 22px;
+            margin-left: 15px;
+            transition: transform 0.3s ease;
+            color: #ffd700; /* Yellow arrow for accent */
+        }
+
+        .faq-arrow.active {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px; /* Adjusted padding to be only horizontal initially */
+            color: #555;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Smooth transition for padding */
+            font-size: 16px;
+        }
+        
+        .faq-answer p {
+            padding: 20px 0; /* Apply vertical padding to the paragraph inside */
+        }
+
+        .faq-answer.active {
+            max-height: 500px; /* A sufficiently large value */
+            padding-bottom: 20px; /* Add padding when active */
+        }
+
+        /* Form Section */
         #form {
-            background: #f0f0f0;
-            padding: 60px 20px;
+            background-color: #e0eaf1; /* Another light background color */
+            padding-bottom: 100px;
         }
 
         .form-container {
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
             background: white;
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
         .form-group {
@@ -249,55 +304,132 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: #1e3c72;
             font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
             font-size: 16px;
         }
 
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
         .form-group input:focus,
-        .form-group select:focus {
+        .form-group select:focus,
+        .form-group textarea:focus {
             outline: none;
             border-color: #1e3c72;
-            box-shadow: 0 0 5px rgba(30, 60, 114, 0.3);
+            box-shadow: 0 0 8px rgba(30, 60, 114, 0.2);
         }
 
         .submit-btn {
             width: 100%;
-            padding: 12px;
+            padding: 15px;
             background: #1e3c72;
             color: white;
             border: none;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s ease, transform 0.3s ease;
         }
 
         .submit-btn:hover {
             background: #2a5298;
+            transform: translateY(-2px);
         }
 
+        /* Footer Styling */
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+        }
+
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .banner-overlay h2 {
-                font-size: 32px;
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header h1 {
+                margin-bottom: 15px;
+            }
+
+            nav a {
+                margin: 0 10px;
+            }
+
+            .hero {
+                height: 350px;
+            }
+
+            .hero-overlay h2 {
+                font-size: 38px;
+            }
+
+            .hero-overlay p {
+                font-size: 16px;
+            }
+
+            h2 {
+                font-size: 30px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .faq-question {
+                font-size: 16px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            nav a {
+                font-size: 14px;
+                margin: 0 8px;
+            }
+
+            .hero {
+                height: 280px;
+            }
+
+            .hero-overlay h2 {
+                font-size: 28px;
+            }
+
+            .hero-overlay p {
+                font-size: 14px;
             }
 
             h2 {
                 font-size: 24px;
             }
 
-            .aulas-container {
-                grid-template-columns: 1fr;
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+
+            .form-container {
+                padding: 25px;
             }
         }
     </style>
@@ -315,10 +447,12 @@
         </div>
     </header>
 
-    <section class="banner">
-        <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dba5?w=1200&h=400&fit=crop" alt="Banner Karatê">
-        <div class="banner-overlay">
-            <h2>Bem-vindo à EKAM!</h2>
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dba5?w=1200&h=450&fit=crop&q=80" alt="Crianças praticando Karatê">
+        <div class="hero-overlay">
+            <h2>Desenvolvendo Campeões na Vida!</h2>
+            <p>Junte-se à EKAM e descubra os benefícios do Karatê para o crescimento do seu filho.</p>
+            <a href="#form" class="cta-button">Inscreva-se Agora!</a>
         </div>
     </section>
 
@@ -328,18 +462,18 @@
             <div class="aulas-container">
                 <div class="aula-card">
                     <h3>🎯 Kids (4-6 anos)</h3>
-                    <p>Iniciação ao karatê com atividades lúdicas e seguras.</p>
-                    <p><strong>Objetivo:</strong> Coordenação e disciplina básica.</p>
+                    <p>Iniciação divertida ao karatê com foco em coordenação motora, disciplina e respeito.</p>
+                    <p><strong>Objetivo:</strong> Primeiros passos no mundo do karatê, desenvolvendo habilidades básicas de forma lúdica.</p>
                 </div>
                 <div class="aula-card">
                     <h3>⭐ Infantil (7-9 anos)</h3>
-                    <p>Técnicas fundamentais e progressão por faixas.</p>
-                    <p><strong>Objetivo:</strong> Desenvolvimento físico e mental.</p>
+                    <p>Aprofundamento nas técnicas, fortalecimento físico e mental, e desenvolvimento da autoconfiança.</p>
+                    <p><strong>Objetivo:</strong> Construção de uma base sólida no karatê, com ênfase em valores e disciplina.</p>
                 </div>
                 <div class="aula-card">
                     <h3>💪 Júnior (10-13 anos)</h3>
-                    <p>Técnicas avançadas e preparação para competições.</p>
-                    <p><strong>Objetivo:</strong> Excelência técnica e autoconfiança.</p>
+                    <p>Refinamento técnico, estratégias de combate e preparação para desafios maiores, incluindo competições.</p>
+                    <p><strong>Objetivo:</strong> Excelência técnica, autoconfiança elevada e preparação para transição ao nível adulto.</p>
                 </div>
             </div>
         </div>
@@ -363,18 +497,18 @@
                 </div>
                 <div class="horario-card">
                     <h3>Sábado</h3>
-                    <p><strong>Aulas:</strong> 09:00 - 11:30</p>
-                    <p>Todas as categorias com atividades integradas.</p>
+                    <p><strong>Manhã:</strong> 09:00 - 11:30</p>
+                    <p>Aulas especiais e atividades integradas para todas as categorias, focando em aprimoramento e diversão.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="faq" class="faq-section">
+    <section id="faq">
         <div class="container">
             <h2>Dúvidas Frequentes</h2>
             <div class="faq-container">
-                  <div class="faq-item">
+                <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
                         <span>Meu filho é muito agitado. Vai se adaptar?</span>
                         <span class="faq-arrow">▼</span>
@@ -440,9 +574,7 @@
                         <span class="faq-arrow">▼</span>
                     </div>
                     <div class="faq-answer">
-                        <p><strong>Cobrança:</strong> Mensal, por mês de atividades.<br>
-                        <strong>Formas de pagamento:</strong> PIX, cartão ou dinheiro.<br>
-                        <strong>Flexibilidade:</strong> Você decide a renovação mês a mês, sem taxas ocultas.</p>
+                        <p>Cobrança por mês de atividades. Formas de pagamento: PIX, cartão ou dinheiro. Você decide a renovação mês a mês, sem taxas ocultas.</p>
                     </div>
                 </div>
 
@@ -452,8 +584,7 @@
                         <span class="faq-arrow">▼</span>
                     </div>
                     <div class="faq-answer">
-                        <p><strong>Sim, pode.</strong> Você pode interromper a renovação mensal a qualquer momento.<br>
-                        <strong>Importante:</strong> Não há devolução de valores já pagos pelo mês vigente. O pagamento do mês em curso não é reembolsável.</p>
+                        <p>Sim, pode. Você pode interromper a renovação mensal a qualquer momento. No entanto, não há devolução de valores já pagos pelo mês vigente.</p>
                     </div>
                 </div>
             </div>
@@ -462,7 +593,7 @@
 
     <section id="form">
         <div class="container">
-            <h2>Inscrição</h2>
+            <h2>Inscreva Seu Filho!</h2>
             <div class="form-container">
                 <form onsubmit="handleSubmit(event)">
                     <div class="form-group">
@@ -491,7 +622,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="turma">Turma:</label>
+                        <label for="turma">Turma de Interesse:</label>
                         <select id="turma" name="turma" required>
                             <option value="">Selecione uma turma</option>
                             <option value="kids">Kids (4-6 anos)</option>
@@ -507,36 +638,49 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 EKAM - Karatê para Crianças. Todos os direitos reservados.</p>
+        <div class="container">
+            <p>&copy; 2025 EKAM - Karatê para Crianças. Todos os direitos reservados.</p>
+            <p>Endereço: Rua do Tatame, 123 - Cidade, Estado | Telefone: (XX) XXXX-XXXX</p>
+        </div>
     </footer>
 
     <script>
         function toggleFAQ(element) {
             const answer = element.nextElementSibling;
             const arrow = element.querySelector('.faq-arrow');
+            
+            // Check if the clicked answer is currently open
+            const isCurrentlyOpen = answer.classList.contains('active');
 
-            // Fecha todas as outras FAQs
+            // Close all other FAQs
             document.querySelectorAll('.faq-answer').forEach(item => {
-                if (item !== answer) {
+                if (item !== answer) { // Only close if it's not the current one
                     item.classList.remove('active');
                 }
             });
 
             document.querySelectorAll('.faq-arrow').forEach(item => {
-                if (item !== arrow) {
+                if (item !== arrow) { // Only rotate back if it's not the current one
                     item.classList.remove('active');
                 }
             });
 
-            // Abre ou fecha a FAQ clicada
-            answer.classList.toggle('active');
-            arrow.classList.toggle('active');
+            // Toggle the clicked FAQ
+            if (!isCurrentlyOpen) {
+                answer.classList.add('active');
+                arrow.classList.add('active');
+            } else {
+                answer.classList.remove('active');
+                arrow.classList.remove('active');
+            }
         }
 
         function handleSubmit(event) {
             event.preventDefault();
-            alert('Obrigado pela inscrição! Entraremos em contato em breve.');
-            document.querySelector('form').reset();
+            alert('Obrigado pela sua inscrição! Entraremos em contato em breve para confirmar.');
+            // Here you would typically send data to a server
+            // For now, let's just reset the form
+            document.querySelector('#form form').reset();
         }
     </script>
 </body>
