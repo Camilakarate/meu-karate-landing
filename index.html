@@ -1,437 +1,462 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EKAM Karatê - Férias que Transformam Vidas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>EKAM Karatê - Férias que Transformam</title>
     <style>
-        /* Variáveis de Cores */
-        :root {
-            --color-primary: #28a745; /* Verde EKAM */
-            --color-secondary: #007bff; /* Azul para detalhes, se necessário */
-            --color-text-dark: #343a40; /* Cinza escuro para texto principal */
-            --color-text-light: #6c757d; /* Cinza médio para texto secundário */
-            --color-background-light: #f8f9fa; /* Fundo claro */
-            --color-background-white: #ffffff; /* Fundo branco */
-            --color-danger: #dc3545; /* Vermelho para urgência */
-        }
-
-        /* Estilos Gerais */
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
             line-height: 1.6;
-            color: var(--color-text-dark);
-            background-color: var(--color-background-white);
-            overflow-x: hidden; /* Evita scroll horizontal */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-
         .container {
             max-width: 960px;
             margin: 0 auto;
             padding: 20px;
         }
-
-        section {
-            padding: 60px 20px;
+        .header {
+            background-color: #2c3e50; /* Dark blue/gray */
+            color: #ecf0f1; /* Light gray */
+            padding: 15px 0;
             text-align: center;
         }
-
-        h1, h2, h3 {
-            font-weight: 700;
-            margin-bottom: 20px;
+        .header img {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 10px;
         }
-
-        h1 {
-            font-size: 2.5em;
-            color: var(--color-text-dark);
+        .hero {
+            background-color: #34495e; /* Slightly lighter dark blue */
+            color: #ecf0f1;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
         }
-
-        h2 {
-            font-size: 2em;
-            color: var(--color-text-dark);
-        }
-
-        p {
+        .hero h1 {
+            font-size: 2.8em;
             margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-
-        /* Botão CTA */
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+        }
         .cta-button {
             display: inline-block;
-            background-color: var(--color-primary);
-            color: var(--color-background-white);
+            background-color: #27ae60; /* Vibrant Green */
+            color: white;
             padding: 15px 30px;
-            border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            border-radius: 5px;
             font-size: 1.2em;
+            font-weight: bold;
             transition: background-color 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-
         .cta-button:hover {
-            background-color: #218838; /* Verde mais escuro */
+            background-color: #2ecc71; /* Lighter Green */
         }
-
-        /* Header */
-        header {
-            background-color: var(--color-background-white);
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        .section {
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+            text-align: center;
         }
-
-        header .container {
+        .section:last-child {
+            border-bottom: none;
+        }
+        .section h2 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        .benefit-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .benefit-item strong {
+            display: block;
+            margin-bottom: 10px;
+            color: #e67e22; /* Orange */
+        }
+        .benefit-item.highlight {
+            border: 2px solid #e67e22;
+            background-color: #fffaf0; /* Light orange background */
+        }
+        .sensei-profile {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .sensei-profile img {
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid #e67e22;
+        }
+        .sensei-profile h3 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .sensei-profile ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .sensei-profile ul li {
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        .sensei-quote {
+            font-style: italic;
+            margin-top: 20px;
+            font-size: 1.1em;
+            max-width: 600px;
+            color: #555;
+        }
+        .schedule-pricing {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .schedule-box, .pricing-box {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 1 1 45%; /* Allows two columns on wider screens */
+            max-width: 45%;
+        }
+        .schedule-box h3, .pricing-box h3 {
+            color: #e67e22;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .schedule-box ul, .pricing-box ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+        .schedule-box ul li, .pricing-box ul li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            display: flex;
             align-items: center;
         }
-
-        .logo {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: var(--color-primary);
-            text-decoration: none;
+        .schedule-box ul li::before, .pricing-box ul li::before {
+            content: '🥋'; /* Karatê Gi emoji */
+            margin-right: 10px;
         }
-
-        .logo img {
-            max-height: 50px; /* Ajuste o tamanho do logo */
-            width: auto;
+        .testimonials {
+            background-color: #ecf0f1; /* Light gray */
+            padding: 60px 0;
         }
-
-        /* Hero Section */
-        #hero {
-            background-color: var(--color-background-light);
-            padding: 80px 20px;
+        .testimonials h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 40px;
         }
-
-        #hero h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
-
-        .urgency-badge {
-            background-color: var(--color-danger);
-            color: var(--color-background-white);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            margin-bottom: 30px;
-            display: inline-block;
+        .testimonial-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+        .testimonial-card p {
+            font-style: italic;
+            font-size: 1.05em;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        .testimonial-card strong {
+            display: block;
+            color: #2c3e50;
             font-size: 1.1em;
+        }
+        .testimonial-card span {
+            font-size: 0.9em;
+            color: #777;
+        }
+        .contact-info {
+            margin-top: 30px;
+            font-size: 1.1em;
+        }
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+        .footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+        }
+        .footer a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .section h2 {
+                font-size: 1.8em;
+            }
+            .sensei-profile img {
+                width: 120px;
+                height: 120px;
+            }
+            .schedule-box, .pricing-box {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6em;
+            }
+            .hero p {
+                font-size: 0.9em;
+            }
+            .cta-button {
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+            .section {
+                padding: 30px 0;
+            }
+            .section h2 {
+                font-size: 1.6em;
+            }
+            .testimonial-card p {
+                font-size: 0.95em;
+            }
+        }
+
+        .countdown-timer {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #f1c40f; /* Yellow */
+            margin-top: 20px;
             animation: pulse 1.5s infinite;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        /* Sensei Section */
-        #sensei {
-            background-color: var(--color-background-white);
-        }
-
-        .sensei-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .sensei-avatar {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--color-primary);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .sensei-details {
-            text-align: left;
-            font-size: 1.1em;
-        }
-
-        .sensei-details ul {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-        }
-
-        .sensei-details ul li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 25px;
-        }
-
-        .sensei-details ul li::before {
-            content: '✅';
-            position: absolute;
-            left: 0;
-            color: var(--color-primary);
-        }
-
-        .sensei-quote {
-            font-style: italic;
-            margin-top: 20px;
-            font-size: 1.2em;
-            color: var(--color-text-light);
-        }
-
-        /* Benefícios Section */
-        #beneficios {
-            background-color: var(--color-background-light);
-        }
-
-        .benefits-list {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            text-align: left;
-            margin-top: 40px;
-        }
-
-        .benefits-list li {
-            background-color: var(--color-background-white);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-            padding-left: 50px;
-            font-size: 1.1em;
-            font-weight: 600;
-        }
-        
-        .benefits-list li::before {
-            content: '💪'; /* Ícone para defesa pessoal */
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5em;
-        }
-
-        /* Ajuste específico para o primeiro benefício */
-        .benefits-list li:first-child::before {
-            content: '🛡️'; 
-            color: var(--color-primary);
-        }
-
-
-        /* Prova Social Section */
-        #prova-social {
-            background-color: var(--color-background-white);
-            padding: 60px 20px;
-        }
-
-        .testimonial-card {
-            background-color: var(--color-background-light);
-            padding: 30px;
-            border-radius: 10px;
-            margin: 20px auto;
-            max-width: 600px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            font-style: italic;
-            color: var(--color-text-light);
-        }
-
-        .testimonial-card p {
-            font-size: 1.1em;
-            margin-bottom: 15px;
-        }
-
-        .testimonial-card span {
-            display: block;
-            font-weight: 600;
-            color: var(--color-text-dark);
-            margin-top: 10px;
-        }
-
-        /* FAQ Section */
-        #faq {
-            background-color: var(--color-background-light);
-        }
-
-        .faq-item {
-            max-width: 700px;
-            margin: 0 auto 20px auto;
-            background-color: var(--color-background-white);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            text-align: left;
-        }
-
-        .faq-item h3 {
-            font-size: 1.3em;
-            color: var(--color-primary);
-            margin-bottom: 10px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--color-text-dark);
-            color: var(--color-background-white);
-            padding: 40px 20px;
-        }
-
-        footer .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 0.9em;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-            h2 {
-                font-size: 1.7em;
-            }
-            #hero {
-                padding: 60px 20px;
-            }
-            .sensei-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .sensei-details {
-                text-align: center;
-            }
-            .benefits-list {
-                grid-template-columns: 1fr;
-            }
-            .cta-button {
-                width: 90%;
-                font-size: 1.1em;
-            }
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <header class="header">
         <div class="container">
-            <a href="#" class="logo">
-                <img src="https://via.placeholder.com/150x50?text=EKAM+LOGO" alt="Logo EKAM Karatê">
-            </a>
-            <!-- Simplificado para landing page, sem navegação extensa -->
+            <!-- Placeholder for EKAM Logo -->
+            <img src="https://via.placeholder.com/150x50?text=EKAM+Logo" alt="EKAM Karatê Logo">
+            <h1>EKAM Karatê</h1>
         </div>
     </header>
 
-    <main>
-        <section id="hero">
-            <div class="container">
-                <h1 style="color: var(--color-primary);">Seu filho merece DEFESA PESSOAL + PROPÓSITO</h1>
-                <h1>Férias que transformam vidas 🥋</h1>
-                <p class="urgency-badge">⏰ VAGAS LIMITADAS - Apenas 3 restantes!</p>
-                <a href="https://wa.me/5585988887777" target="_blank" class="cta-button">
-                    🟢 AGENDAR AULA GRÁTIS (WhatsApp)
-                </a>
-            </div>
-        </section>
-
-        <section id="sensei">
-            <div class="container">
-                <h2>QUEM É O SENSEI QUE VAI TRANSFORMAR SEU FILHO?</h2>
-                <div class="sensei-content">
-                    <img src="https://via.placeholder.com/180/28a745/ffffff?text=Sensei+André" alt="Sensei André Mendonça" class="sensei-avatar">
-                    <div class="sensei-details">
-                        <ul>
-                            <li>Faixa preta desde 1997</li>
-                            <li>Atleta de alto nível</li>
-                            <li>Pai de 2 filhos</li>
-                            <li>Viveu na pele o que seu filho está vivendo</li>
-                            <li>Sabe exatamente os desafios da adolescência</li>
-                        </ul>
-                        <p class="sensei-quote">
-                            "Karatê transformou minha adolescência. Agora dedico a vida a transformar seus filhos."
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="beneficios">
-            <div class="container">
-                <h2>O QUE SEU FILHO VAI CONQUISTAR NA EKAM KARATÊ:</h2>
-                <ul class="benefits-list">
-                    <li>Defesa pessoal (segurança real)</li>
-                    <li>Propósito e direção</li>
-                    <li>Respeito e comunicação</li>
-                    <li>Confiança e autoestima</li>
-                    <li>Saúde mental e emocional</li>
-                    <li>Comunidade positiva e longe de más influências</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="prova-social" style="background-color: var(--color-background-white);">
-            <div class="container">
-                <h2>O QUE OS PAIS ESTÃO DIZENDO:</h2>
-                <div class="testimonial-card">
-                    <p>"Meu filho mudou completamente em 1 mês! Está mais focado e feliz. Recomendo muito!"</p>
-                    <span>- Pai de João, 9 anos</span>
-                </div>
-                <div class="testimonial-card">
-                    <p>"Antes ele era muito tímido. Agora tem confiança e respeito. A EKAM fez toda a diferença."</p>
-                    <span>- Mãe de Maria, 13 anos</span>
-                </div>
-                <a href="https://wa.me/5585988887777" target="_blank" class="cta-button">
-                    🟢 GARANTA A VAGA DO SEU FILHO AGORA!
-                </a>
-            </div>
-        </section>
-
-        <section id="faq">
-            <div class="container">
-                <h2>PERGUNTAS FREQUENTES:</h2>
-                <div class="faq-item">
-                    <h3>Qual a idade mínima para começar?</h3>
-                    <p>Recebemos crianças a partir de 4 anos, adaptando as aulas para cada faixa etária.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Meu filho nunca fez karatê, ele vai conseguir acompanhar?</h3>
-                    <p>Sim! Nossas turmas são planejadas para iniciantes e avançados. O Sensei André e a equipe dão atenção individualizada.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Quais horários estão disponíveis para a aula grátis?</h3>
-                    <p>Entre em contato pelo WhatsApp para verificar a disponibilidade de horários e agendar a melhor opção para seu filho.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
+    <section class="hero">
         <div class="container">
-            <a href="#" class="logo" style="color: var(--color-background-white);">EKAM Karatê</a>
-            <a href="https://wa.me/5585988887777" target="_blank" class="cta-button">
-                🟢 FALE CONOSCO NO WHATSAPP!
+            <h1>Seu filho merece <span style="color: #e67e22;">DEFESA PESSOAL</span> + <span style="color: #e67e22;">PROPÓSITO</span></h1>
+            <p style="font-size: 1.6em;">Férias que transformam vidas e constroem futuros! 🥋</p>
+            <div class="countdown-timer">
+                APENAS 3 VAGAS RESTANTES! Última chamada para inscrições!
+            </div>
+            <a href="https://wa.me/5516999785320" class="cta-button" target="_blank" style="margin-top: 30px;">
+                🟢 GARANTA A VAGA DO SEU FILHO AGORA!
             </a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Por Que Escolher EKAM Karatê?</h2>
+            <p>Mais do que golpes, ensinamos valores que seu filho levará para a vida toda.</p>
+            <div class="benefits-grid">
+                <div class="benefit-item highlight">
+                    <strong>🛡️ Defesa Pessoal Real</strong>
+                    <p>Habilidades essenciais para que seu filho se sinta seguro e confiante em qualquer situação.</p>
+                </div>
+                <div class="benefit-item">
+                    <strong>🎯 Propósito e Disciplina</strong>
+                    <p>Desenvolvemos foco, resiliência e a capacidade de alcançar objetivos, transformando o "sem celular" em "com propósito".</p>
+                </div>
+                <div class="benefit-item">
+                    <strong>🤝 Respeito e Comunicação</strong>
+                    <p>Através da filosofia do Karatê, seu filho aprenderá a valorizar o respeito ao próximo e a se comunicar de forma assertiva.</p>
+                </div>
+                <div class="benefit-item">
+                    <strong>🌟 Confiança e Autoestima</strong>
+                    <p>Vença desafios no tatame e leve essa confiança para a escola e para a vida social.</p>
+                </div>
+                <div class="benefit-item">
+                    <strong>🧠 Saúde Mental e Bem-Estar</strong>
+                    <p>O Karatê é uma ferramenta poderosa para gerenciar estresse, ansiedade e promover o equilíbrio emocional.</p>
+                </div>
+                <div class="benefit-item">
+                    <strong>👨‍👩‍👧‍👦 Comunidade Positiva</strong>
+                    <p>Seu filho fará parte de uma família unida, onde o apoio e a amizade são fundamentais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: #ecf0f1;">
+        <div class="container">
+            <h2>Conheça o Sensei André Mendonça</h2>
+            <div class="sensei-profile">
+                <!-- Placeholder for Sensei André's Photo -->
+                <img src="https://via.placeholder.com/180?text=Sensei+Andre" alt="Sensei André Mendonça">
+                <h3>André Mendonça</h3>
+                <ul>
+                    <li>✅ Faixa Preta desde 1997</li>
+                    <li>✅ Atleta de Alto Nível</li>
+                    <li>✅ Pai de 2 Filhos</li>
+                </ul>
+                <p class="sensei-quote">"Karatê transformou minha vida desde os 7 anos. Agora, dedico a vida a transformar crianças e adolescentes em líderes, com foco, disciplina e, principalmente, respeito."</p>
+                <a href="https://wa.me/5516999785320" class="cta-button" target="_blank" style="margin-top: 25px;">
+                    🟢 CONVERSE COM O SENSEI NO WHATSAPP
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Horários e Investimento</h2>
+            <div class="schedule-pricing">
+                <div class="schedule-box">
+                    <h3>🗓️ Horários Flexíveis</h3>
+                    <ul>
+                        <li><strong>Segunda e Quarta:</strong> 09:00h às 15:00h</li>
+                        <li><strong>Terça e Quinta:</strong> 15:00h</li>
+                        <li>Escolha o melhor período para seu filho!</li>
+                    </ul>
+                </div>
+                <div class="pricing-box">
+                    <h3>💰 Planos Especiais</h3>
+                    <ul>
+                        <li><strong>2 Aulas Semanais:</strong> R$ 130,00/mês</li>
+                        <li><strong>4 Aulas Semanais:</strong> R$ 200,00/mês</li>
+                        <li>Primeira aula experimental GRÁTIS!</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="https://wa.me/5516999785320" class="cta-button" target="_blank" style="margin-top: 30px;">
+                🟢 QUERO AGENDAR A AULA GRÁTIS!
+            </a>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>O Que Nossos Pais Dizem:</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"A @ekam.karate é uma família! Meu filho Lucca AMA os treinos, fez muitos amigos, ficou mais disciplinado, focado e feliz! Nos sentimos acolhidos nessa escola! É muito mais que uma escola de karatê, é uma família! ❤️"</p>
+                    <strong>Gisele</strong>
+                    <span>Mãe do Lucca, 5 anos</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>"A melhor escolha! 🔥🔥"</p>
+                    <strong>Jasiel</strong>
+                    <span>Pai da Sophia, 10 anos</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Família fora de casa @ekam.karate muito obrigado por nos receber e acolher com tanto carinho meus filhos... Mathias evoluiu muito desde que começou. Gratidão"</p>
+                    <strong>Cris Funari</strong>
+                    <span>Mãe do Mathias, 10 anos</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>"A melhor escolha que fizemos, sem dúvidas! 👏❤️"</p>
+                    <strong>Naiara Fantini</strong>
+                    <span>Mãe do Kauã, 6 anos</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Se fosse pra resumir em uma palavra a EKAM, escolho 'ACOLHIMENTO'."</p>
+                    <strong>Franciane</strong>
+                    <span>Mãe do Rafael, 10 anos</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Nesse um mês que escolhi a @ekam.karate para ajudar o Miguel no seu desenvolvimento e já posso dizer que é a melhor escolha. Obrigado André e Camila ❤️"</p>
+                    <strong>Aline Pinheiro</strong>
+                    <span>Mãe do Miguel, 8 anos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Nosso Espaço</h2>
+            <p>Um ambiente moderno, seguro e acolhedor para o desenvolvimento do seu filho.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
+                <!-- Placeholder for Dojo Photo 1 -->
+                <img src="https://via.placeholder.com/300x200?text=Dojo+Foto+1" alt="Foto do Dojo EKAM" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <!-- Placeholder for Dojo Photo 2 -->
+                <img src="https://via.placeholder.com/300x200?text=Dojo+Foto+2" alt="Foto do Dojo EKAM" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <!-- Placeholder for Dojo Photo 3 -->
+                <img src="https://via.placeholder.com/300x200?text=Dojo+Foto+3" alt="Foto do Dojo EKAM" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            </div>
+            <div class="contact-info" style="margin-top: 40px;">
+                <p><strong>📍 Nosso Endereço:</strong> Rua Jose Ferrari Secondo 720 - Vila Velosa</p>
+                <p><strong>📞 Fale Conosco:</strong> (16) 99978-5320</p>
+                <p><strong>📧 E-mail:</strong> contato@ekamkarate.com (placeholder)</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
             <p>&copy; 2023 EKAM Karatê. Todos os direitos reservados.</p>
+            <p>
+                <a href="#">Política de Privacidade</a> | 
+                <a href="#">Termos de Uso</a>
+            </p>
         </div>
     </footer>
 
 </body>
 </html>
-```
