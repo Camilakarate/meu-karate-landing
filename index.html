@@ -4,16 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EKAM - Equipe de Karatê André Mendonça | Academia de Karatê em Araraquara</title>
-    <meta name="description" content="EKAM - Equipe de Karatê André Mendonça. Karatê Wado Ryu para crianças a partir de 4 anos e adultos. Tradição, disciplina e valores em Araraquara.">
+    <meta name="description" content="EKAM - Equipe de Karatê André Mendonça. Karatê Wado Ryu para crianças a partir de 4 anos e adultos.">
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* ===== CSS RESET & VARIABLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -21,50 +17,38 @@
         }
 
         :root {
-            /* Primary Colors - Gradientes Karatê */
-            --primary-red: #ff4757;
-            --primary-gold: #ffa502;
-            --secondary-blue: #2ed573;
-            
-            /* Background Colors */
-            --bg-dark: #0c0c0c;
-            --bg-gradient: linear-gradient(135deg, #1a1a2e, #16213e, #0f4c75);
-            --hero-gradient: linear-gradient(135deg, #ff4757, #ffa502, #2ed573);
-            
-            /* Accent Colors */
-            --accent-neon: #00d4ff;
-            --accent-gold: #f39c12;
-            
-            /* Text Colors */
+            --preto-fosco: #0a0a0a;
+            --preto-bg: #0f0f0f;
+            --dourado: #d4af37;
+            --dourado-claro: #e8c547;
+            --vermelho-vivo: #e63946;
+            --vermelho-escuro: #a4161a;
             --text-light: #ffffff;
             --text-muted: rgba(255, 255, 255, 0.7);
-            
-            /* Card Colors */
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --card-border: rgba(255, 255, 255, 0.1);
-            
-            /* Fonts */
+            --card-bg: rgba(212, 175, 55, 0.08);
+            --card-border: rgba(212, 175, 55, 0.25);
             --font-display: 'Orbitron', sans-serif;
             --font-body: 'Inter', sans-serif;
         }
 
         body {
             font-family: var(--font-body);
-            background: var(--bg-dark);
+            background: var(--preto-fosco);
             color: var(--text-light);
             overflow-x: hidden;
         }
 
-        /* ===== NAVIGATION ===== */
+        /* NAV */
         .futuristic-nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(12, 12, 12, 0.95);
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.98), rgba(20, 20, 20, 0.95));
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 2px solid var(--dourado);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
         }
 
         .nav-container {
@@ -79,12 +63,12 @@
         .logo-container {
             font-family: var(--font-display);
             font-weight: 900;
-            font-size: 1.8rem;
-            background: var(--hero-gradient);
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--dourado), var(--vermelho-vivo));
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            text-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+            letter-spacing: 2px;
         }
 
         .nav-menu {
@@ -99,26 +83,10 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .nav-menu a:hover {
-            color: var(--primary-gold);
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--hero-gradient);
-            transition: width 0.3s ease;
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
+            color: var(--dourado);
         }
 
         .mobile-menu {
@@ -130,20 +98,33 @@
         .mobile-menu span {
             width: 25px;
             height: 3px;
-            background: var(--text-light);
+            background: var(--dourado);
             margin: 3px 0;
-            transition: 0.3s;
         }
 
-        /* ===== HERO SECTION ===== */
+        /* HERO */
         .hero-ekam {
             min-height: 100vh;
-            background: var(--hero-gradient);
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #0a0a0a);
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
+            margin-top: 60px;
+        }
+
+        .hero-ekam::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(230, 57, 70, 0.15), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1), transparent 50%);
+            pointer-events: none;
         }
 
         .hero-content {
@@ -158,28 +139,23 @@
             font-size: 5rem;
             font-weight: 900;
             margin-bottom: 1rem;
-            text-shadow: 
-                0 0 10px rgba(255, 255, 255, 0.5),
-                0 0 20px rgba(255, 107, 53, 0.5),
-                0 0 40px rgba(255, 107, 53, 0.3);
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 107, 53, 0.5), 0 0 40px rgba(255, 107, 53, 0.3); }
-            to { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 107, 53, 0.8), 0 0 60px rgba(255, 107, 53, 0.5); }
+            background: linear-gradient(135deg, var(--vermelho-vivo), var(--dourado));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: 3px;
         }
 
         .hero-subtitle {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            font-weight: 300;
+            color: var(--dourado);
         }
 
         .philosophy-text {
             font-size: 1.2rem;
             margin-bottom: 3rem;
-            opacity: 0.9;
+            color: var(--text-muted);
         }
 
         .cta-buttons {
@@ -201,68 +177,29 @@
         }
 
         .cta-primary {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, var(--vermelho-vivo), var(--dourado));
+            color: var(--preto-fosco);
+            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
         }
 
         .cta-primary:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.6);
+            box-shadow: 0 20px 50px rgba(230, 57, 70, 0.6);
         }
 
         .cta-secondary {
             background: transparent;
-            color: white;
-            border: 2px solid white;
+            color: var(--dourado);
+            border: 2px solid var(--dourado);
         }
 
         .cta-secondary:hover {
-            background: white;
-            color: var(--bg-dark);
+            background: var(--dourado);
+            color: var(--preto-fosco);
             transform: translateY(-5px);
         }
 
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .floating-elements::before,
-        .floating-elements::after {
-            content: '';
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-elements::before {
-            width: 200px;
-            height: 200px;
-            top: 20%;
-            right: 10%;
-            animation-delay: -2s;
-        }
-
-        .floating-elements::after {
-            width: 150px;
-            height: 150px;
-            bottom: 30%;
-            left: 15%;
-            animation-delay: -4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        /* ===== GENERAL SECTION STYLES ===== */
+        /* SEÇÕES */
         .section {
             padding: 6rem 2rem;
             max-width: 1200px;
@@ -274,10 +211,11 @@
             font-size: 3rem;
             text-align: center;
             margin-bottom: 3rem;
-            background: var(--hero-gradient);
+            background: linear-gradient(135deg, var(--dourado), var(--vermelho-vivo));
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
+            letter-spacing: 2px;
         }
 
         .section-subtitle {
@@ -290,10 +228,11 @@
             margin-right: auto;
         }
 
-        /* ===== SOBRE O SENSEI ===== */
         .sensei-section {
-            background: var(--bg-gradient);
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #0a0a0a);
             padding: 6rem 2rem;
+            border-top: 2px solid var(--dourado);
+            border-bottom: 2px solid var(--dourado);
         }
 
         .sensei-content {
@@ -305,23 +244,20 @@
             align-items: center;
         }
 
-        .sensei-image {
-            text-align: center;
-        }
-
         .sensei-image img {
             width: 100%;
             max-width: 400px;
             border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.3);
+            border: 3px solid var(--dourado);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3), 0 0 40px rgba(230, 57, 70, 0.2);
         }
 
         .sensei-bio {
-            background: var(--card-bg);
+            background: rgba(20, 20, 20, 0.8);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 3rem;
-            border: 1px solid var(--card-border);
+            border: 2px solid var(--dourado);
         }
 
         .highlight-stats {
@@ -332,12 +268,13 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, var(--primary-red), var(--primary-gold));
+            background: linear-gradient(135deg, var(--vermelho-vivo), var(--vermelho-escuro));
             padding: 1.5rem;
             border-radius: 15px;
             text-align: center;
-            color: white;
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+            color: var(--dourado);
+            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
+            border: 1px solid var(--dourado);
             flex: 1;
             min-width: 120px;
         }
@@ -346,6 +283,7 @@
             font-size: 2rem;
             font-weight: 900;
             display: block;
+            color: var(--dourado);
         }
 
         .stat-label {
@@ -353,7 +291,7 @@
             opacity: 0.9;
         }
 
-        /* ===== CARDS GRID ===== */
+        /* CARDS */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -362,40 +300,24 @@
         }
 
         .futuristic-card {
-            background: var(--card-bg);
+            background: rgba(20, 20, 20, 0.8);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 2.5rem;
-            border: 1px solid var(--card-border);
+            border: 2px solid rgba(212, 175, 55, 0.25);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .futuristic-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .futuristic-card:hover::before {
-            left: 100%;
         }
 
         .futuristic-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.2);
-            border-color: var(--primary-gold);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.25), 0 0 30px rgba(230, 57, 70, 0.1);
+            border-color: var(--dourado);
+            background: rgba(212, 175, 55, 0.12);
         }
 
         .card-icon {
             font-size: 3rem;
-            color: var(--primary-gold);
+            color: var(--dourado);
             margin-bottom: 1rem;
         }
 
@@ -403,7 +325,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--text-light);
+            color: var(--dourado);
         }
 
         .card-text {
@@ -411,13 +333,13 @@
             opacity: 0.8;
         }
 
-        /* ===== SCHEDULE SECTION ===== */
+        /* SCHEDULE */
         .schedule-container {
-            background: var(--card-bg);
+            background: rgba(20, 20, 20, 0.8);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 3rem;
-            border: 1px solid var(--card-border);
+            border: 2px solid var(--dourado);
             margin-top: 3rem;
         }
 
@@ -432,10 +354,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(135deg, var(--primary-red), var(--primary-gold));
+            background: linear-gradient(135deg, var(--vermelho-vivo), var(--vermelho-escuro));
             padding: 1.5rem;
             border-radius: 15px;
             color: white;
+            border: 1px solid var(--dourado);
         }
 
         .schedule-day {
@@ -443,12 +366,7 @@
             font-size: 1.1rem;
         }
 
-        .schedule-time {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* ===== BENEFITS GRID ===== */
+        /* BENEFITS */
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -457,23 +375,25 @@
         }
 
         .benefit-card {
-            background: var(--card-bg);
+            background: rgba(20, 20, 20, 0.8);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 2rem;
             text-align: center;
-            border: 1px solid var(--card-border);
+            border: 2px solid rgba(212, 175, 55, 0.25);
             transition: all 0.3s ease;
         }
 
         .benefit-card:hover {
             transform: translateY(-5px);
-            border-color: var(--accent-neon);
+            border-color: var(--dourado);
+            background: rgba(212, 175, 55, 0.12);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
         }
 
         .benefit-icon {
             font-size: 2.5rem;
-            color: var(--accent-neon);
+            color: var(--dourado);
             margin-bottom: 1rem;
         }
 
@@ -481,12 +401,14 @@
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
+            color: var(--dourado);
         }
 
-        /* ===== CONTACT SECTION ===== */
+        /* CONTACT */
         .contact-section {
-            background: var(--bg-gradient);
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #0a0a0a);
             padding: 6rem 2rem;
+            border-top: 2px solid var(--dourado);
         }
 
         .contact-container {
@@ -498,11 +420,11 @@
         }
 
         .contact-info {
-            background: var(--card-bg);
+            background: rgba(20, 20, 20, 0.8);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 3rem;
-            border: 1px solid var(--card-border);
+            border: 2px solid var(--dourado);
         }
 
         .contact-item {
@@ -514,7 +436,7 @@
 
         .contact-icon {
             font-size: 1.5rem;
-            color: var(--primary-gold);
+            color: var(--dourado);
             width: 40px;
         }
 
@@ -530,19 +452,22 @@
             justify-content: center;
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--primary-red), var(--primary-gold));
-            color: white;
+            background: linear-gradient(135deg, var(--vermelho-vivo), var(--vermelho-escuro));
+            color: var(--dourado);
             border-radius: 50%;
             text-decoration: none;
             transition: all 0.3s ease;
+            border: 2px solid var(--dourado);
         }
 
         .social-link:hover {
             transform: scale(1.1);
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
+            background: linear-gradient(135deg, var(--dourado), var(--vermelho-vivo));
+            color: var(--preto-fosco);
         }
 
-        /* ===== WHATSAPP FLOAT ===== */
+        /* WHATSAPP FLOAT */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -564,51 +489,29 @@
             justify-content: center;
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #25d366, #128c7e);
-            color: white;
+            background: linear-gradient(135deg, var(--vermelho-vivo), var(--vermelho-escuro));
+            color: var(--dourado);
             border-radius: 50%;
             text-decoration: none;
             font-size: 1.5rem;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 4px 20px rgba(230, 57, 70, 0.5);
             transition: all 0.3s ease;
-            position: relative;
+            border: 2px solid var(--dourado);
         }
 
         .whatsapp-float a:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+            box-shadow: 0 8px 40px rgba(212, 175, 55, 0.6);
+            background: linear-gradient(135deg, var(--dourado), var(--vermelho-vivo));
+            color: var(--preto-fosco);
         }
 
-        .whatsapp-tooltip {
-            position: absolute;
-            right: 70px;
-            background: #333;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            white-space: nowrap;
-            opacity: 0;
-            transform: translateX(10px);
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-float a:hover .whatsapp-tooltip {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* ===== FOOTER ===== */
+        /* FOOTER */
         footer {
-            background: var(--bg-dark);
+            background: var(--preto-fosco);
             padding: 3rem 2rem 1rem;
             text-align: center;
-            border-top: 1px solid var(--card-border);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+            border-top: 2px solid var(--dourado);
         }
 
         .footer-text {
@@ -616,7 +519,25 @@
             margin-bottom: 1rem;
         }
 
-        /* ===== RESPONSIVE DESIGN ===== */
+        /* AGE BANNER */
+        .age-banner {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .age-highlight {
+            background: linear-gradient(135deg, var(--vermelho-vivo), var(--dourado));
+            color: var(--preto-fosco);
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            border: 2px solid var(--dourado);
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -624,7 +545,7 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(12, 12, 12, 0.98);
+                background: linear-gradient(180deg, rgba(10, 10, 10, 0.98), rgba(20, 20, 20, 0.95));
                 flex-direction: column;
                 padding: 2rem;
                 gap: 1rem;
@@ -658,10 +579,6 @@
                 gap: 2rem;
             }
 
-            .highlight-stats {
-                justify-content: center;
-            }
-
             .schedule-grid {
                 grid-template-columns: 1fr;
             }
@@ -686,47 +603,31 @@
             .section-title {
                 font-size: 2rem;
             }
+
+            .neon-title {
+                font-size: 2.5rem;
+            }
         }
 
-        /* ===== SMOOTH SCROLLING ===== */
         html {
             scroll-behavior: smooth;
-        }
-
-        /* ===== AGE BANNER ===== */
-        .age-banner {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .age-highlight {
-            background: linear-gradient(135deg, var(--primary-red), var(--primary-gold));
-            color: white;
-            padding: 1rem 3rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            display: inline-block;
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- NAVIGATION -->
     <nav class="futuristic-nav">
         <div class="nav-container">
-            <div class="logo-container">
-                EKAM
-            </div>
+            <div class="logo-container">EKAM</div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#inicio">INÍCIO</a></li>
-                <li><a href="#sensei">SOBRE O SENSEI</a></li>
+                <li><a href="#sensei">SENSEI</a></li>
                 <li><a href="#associacao">ASSOCIAÇÃO</a></li>
                 <li><a href="#federacao">FEDERAÇÃO</a></li>
                 <li><a href="#wado-ryu">WADO RYU</a></li>
-                <li><a href="#infantil">KARATÊ INFANTIL</a></li>
-                <li><a href="#adulto">KARATÊ ADULTO</a></li>
-                <li><a href="#competicao">KARATÊ COMPETIÇÃO</a></li>
+                <li><a href="#infantil">INFANTIL</a></li>
+                <li><a href="#adulto">ADULTO</a></li>
+                <li><a href="#competicao">COMPETIÇÃO</a></li>
                 <li><a href="#contato">CONTATO</a></li>
             </ul>
             <div class="mobile-menu" id="mobileMenu">
@@ -737,7 +638,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- HERO -->
     <section class="hero-ekam" id="inicio">
         <div class="hero-content">
             <h1 class="neon-title">EKAM</h1>
@@ -750,14 +651,13 @@
                 <a href="#sensei" class="cta-secondary">Conheça Nossa História</a>
             </div>
         </div>
-        <div class="floating-elements"></div>
     </section>
 
-    <!-- Sobre o Sensei -->
+    <!-- SOBRE O SENSEI -->
     <section class="sensei-section" id="sensei">
         <div class="sensei-content">
             <div class="sensei-image">
-                <img src="https://via.placeholder.com/400x500/1a1a2e/ffffff?text=Sensei+André" alt="Sensei André Mendonça">
+                <img src="https://via.placeholder.com/400x500/1a1a2e/d4af37?text=Sensei+André" alt="Sensei André Mendonça">
             </div>
             <div class="sensei-bio">
                 <h2 class="section-title">Sensei André Mendonça</h2>
@@ -782,13 +682,13 @@
                     Bacharel em Educação Física há mais de 15 anos, combina conhecimento científico com vasta experiência prática, aplicando métodos avançados na preparação de grandes atletas.
                 </p>
                 <p style="line-height: 1.6;">
-                    <strong>Legado Familiar:</strong> Sua esposa é Bi-Campeã Paulista (2024 e 2025), e seus filhos André (8 anos) e Yuri já vivenciam o karatê desde cedo, demonstrando que na EKAM, o karatê é verdadeiramente um estilo de vida familiar.
+                    <strong>Legado Familiar:</strong> Sua esposa é Bi-Campeã Paulista (2024 e 2025), e seus filhos já vivenciam o karatê, demonstrando que na EKAM, o karatê é um estilo de vida familiar.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Associação Kii Kuu Kai -->
+    <!-- ASSOCIAÇÃO -->
     <section class="section" id="associacao">
         <h2 class="section-title">Associação Kii Kuu Kai Wado Ryu</h2>
         <p class="section-subtitle">
@@ -799,74 +699,72 @@
                 <div class="card-icon">🏛️</div>
                 <h3 class="card-title">Fundação (1977)</h3>
                 <p class="card-text">
-                    Fundada pelos Mestres Susumu Suzuki e Takeo Kikutake, a Kii Kuu Kai nasceu com o objetivo de resgatar a essência autêntica do Wado-Ryu, transformando-o em uma "grande família" unida pelo budô.
+                    Fundada pelos Mestres Susumu Suzuki e Takeo Kikutake, nasceu com o objetivo de resgatar a essência autêntica do Wado-Ryu, transformando-o em uma "grande família" unida pelo budô.
                 </p>
             </div>
             <div class="futuristic-card">
                 <div class="card-icon">🎯</div>
                 <h3 class="card-title">Inovações Técnicas</h3>
                 <p class="card-text">
-                    Introduziu técnicas pioneiras como o "Shadô" e "Ohyio Kumite", misturando tradições do Shindo Yoshin Ryu Jiu Jitsu com karatê, criando um método único de treinamento.
+                    Introduziu técnicas pioneiras como o "Shadô" e "Ohyio Kumite", criando um método único de treinamento que revolucionou o karatê.
                 </p>
             </div>
             <div class="futuristic-card">
                 <div class="card-icon">🌎</div>
                 <h3 class="card-title">Expansão Continental</h3>
                 <p class="card-text">
-                    Expandiu por todo o Brasil e América do Sul, com professores graduados levando o Wado-Ryu para São Paulo, Minas Gerais, Rio de Janeiro, Sul do país e Chile.
+                    Expandiu por todo o Brasil e América do Sul, com professores levando o Wado-Ryu para São Paulo, Minas Gerais, Rio de Janeiro e Chile.
                 </p>
             </div>
             <div class="futuristic-card">
                 <div class="card-icon">🏆</div>
                 <h3 class="card-title">Legado Atual</h3>
                 <p class="card-text">
-                    Atualmente dirigida por Ivon Dedé e Antonio, mantém tradições como o gashuku anual, planejando retomar competições e participações em eventos nacionais e internacionais.
+                    Atualmente dirigida por Ivon Dedé e Antonio, mantém tradições e planeja retomar competições e participações em eventos nacionais e internacionais.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Federação FPK -->
-    <section class="sensei-section" id="federacao">
-        <div class="section">
-            <h2 class="section-title">Federação Paulista de Karatê (FPK)</h2>
-            <p class="section-subtitle">
-                A Maior Federação de Karatê da América Latina - 50 Anos de Excelência
-            </p>
-            <div class="cards-grid">
-                <div class="futuristic-card">
-                    <div class="card-icon">📊</div>
-                    <h3 class="card-title">Recordes Impressionantes</h3>
-                    <p class="card-text">
-                        Em recente campeonato: 2.800 atletas de 125 cidades diferentes, demonstrando a capilaridade e alcance da FPK em todo o estado de São Paulo.
-                    </p>
-                </div>
-                <div class="futuristic-card">
-                    <div class="card-icon">🏛️</div>
-                    <h3 class="card-title">História Sólida</h3>
-                    <p class="card-text">
-                        Fundada em 13 de setembro de 1974, completou 50 anos em 2024, sendo uma instituição que moldou gerações de atletas e mestres no Brasil.
-                    </p>
-                </div>
-                <div class="futuristic-card">
-                    <div class="card-icon">👑</div>
-                    <h3 class="card-title">Liderança Atual</h3>
-                    <p class="card-text">
-                        Liderada pelo Presidente José Carlos Gomes de Oliveira (Mestre Zeca), mantém sua sede em São Paulo como centro nevrálgico de decisões e atividades.
-                    </p>
-                </div>
-                <div class="futuristic-card">
-                    <div class="card-icon">🌟</div>
-                    <h3 class="card-title">Maior da América Latina</h3>
-                    <p class="card-text">
-                        Consolidada como a maior e mais influente federação de karatê de todo o continente, referência em organização e qualidade técnica.
-                    </p>
-                </div>
+    <!-- FEDERAÇÃO -->
+    <section class="section" id="federacao">
+        <h2 class="section-title">Federação Paulista de Karatê (FPK)</h2>
+        <p class="section-subtitle">
+            A Maior Federação de Karatê da América Latina - 50 Anos de Excelência
+        </p>
+        <div class="cards-grid">
+            <div class="futuristic-card">
+                <div class="card-icon">📊</div>
+                <h3 class="card-title">Recordes Impressionantes</h3>
+                <p class="card-text">
+                    2.800 atletas de 125 cidades diferentes em recente campeonato, demonstrando a capilaridade e alcance em todo o estado.
+                </p>
+            </div>
+            <div class="futuristic-card">
+                <div class="card-icon">🏛️</div>
+                <h3 class="card-title">História Sólida</h3>
+                <p class="card-text">
+                    Fundada em 13 de setembro de 1974, completou 50 anos em 2024, moldando gerações de atletas e mestres no Brasil.
+                </p>
+            </div>
+            <div class="futuristic-card">
+                <div class="card-icon">👑</div>
+                <h3 class="card-title">Liderança Atual</h3>
+                <p class="card-text">
+                    Liderada pelo Presidente José Carlos Gomes de Oliveira (Mestre Zeca), mantém sua sede em São Paulo como centro nevrálgico.
+                </p>
+            </div>
+            <div class="futuristic-card">
+                <div class="card-icon">🌟</div>
+                <h3 class="card-title">Maior da América Latina</h3>
+                <p class="card-text">
+                    Consolidada como a maior e mais influente federação de karatê de todo o continente, referência em organização.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Wado Ryu -->
+    <!-- WADO RYU -->
     <section class="section" id="wado-ryu">
         <h2 class="section-title">Wado Ryu</h2>
         <p class="section-subtitle">
@@ -877,100 +775,98 @@
                 <div class="card-icon">🎭</div>
                 <h3 class="card-title">Fundador Visionário</h3>
                 <p class="card-text">
-                    Criado por Hironori Otsuka (1892-1982), mestre em Shindo Yoshin Ryu Jiu-Jitsu e aluno de Gichin Funakoshi, combinando o melhor das artes marciais japonesas e de Okinawa.
+                    Criado por Hironori Otsuka (1892-1982), mestre em Shindo Yoshin Ryu Jiu-Jitsu, combinando o melhor das artes marciais.
                 </p>
             </div>
             <div class="futuristic-card">
                 <div class="card-icon">🌊</div>
                 <h3 class="card-title">Movimentos Fluidos</h3>
                 <p class="card-text">
-                    Caracterizado por movimentos fluidos, desvios e evasões. Redireciona a força do oponente utilizando o movimento corporal, economizando energia e maximizando eficácia.
+                    Caracterizado por movimentos fluidos e desvios que redirecionam a força, economizando energia e maximizando eficácia.
                 </p>
             </div>
             <div class="futuristic-card">
                 <div class="card-icon">🥋</div>
                 <h3 class="card-title">Defesa Completa</h3>
                 <p class="card-text">
-                    Incorpora técnicas de controle, projeção e imobilização do jiu-jitsu, oferecendo uma dimensão completa de defesa pessoal além dos golpes de impacto.
+                    Incorpora técnicas de controle, projeção e imobilização, oferecendo defesa pessoal completa além dos golpes.
                 </p>
             </div>
             <div class="futuristic-card">
                 <div class="card-icon">☯️</div>
                 <h3 class="card-title">Filosofia de Paz</h3>
                 <p class="card-text">
-                    Mais que um sistema de luta, é um caminho de vida. Promove paz, harmonia e autocontrole. O combate é último recurso; a vitória vem da técnica superior e inteligência.
+                    Mais que um sistema de luta, é um caminho de vida. Promove paz, harmonia e autocontrole.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Karatê Infantil -->
-    <section class="sensei-section" id="infantil">
-        <div class="section">
-            <h2 class="section-title">Karatê Infantil</h2>
-            <div class="age-banner">
-                <span class="age-highlight">A PARTIR DOS 4 ANOS DE IDADE</span>
+    <!-- KARATÊ INFANTIL -->
+    <section class="section" id="infantil">
+        <h2 class="section-title">Karatê Infantil</h2>
+        <div class="age-banner">
+            <span class="age-highlight">A PARTIR DOS 4 ANOS DE IDADE</span>
+        </div>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">⚖️</div>
+                <h3 class="benefit-title">Coordenação Motora</h3>
+                <p>Melhora do equilíbrio e coordenação</p>
             </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚖️</div>
-                    <h3 class="benefit-title">Coordenação Motora</h3>
-                    <p>Melhora do equilíbrio e coordenação</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🧠</div>
-                    <h3 class="benefit-title">Concentração</h3>
-                    <p>Aumento do foco e atenção</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎯</div>
-                    <h3 class="benefit-title">Disciplina</h3>
-                    <p>Desenvolvimento de respeito e postura</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">💪</div>
-                    <h3 class="benefit-title">Autoconfiança</h3>
-                    <p>Fortalecimento da autoestima</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">😌</div>
-                    <h3 class="benefit-title">Controle Emocional</h3>
-                    <p>Gestão de ansiedade e energia</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🤝</div>
-                    <h3 class="benefit-title">Socialização</h3>
-                    <p>Novas amizades e trabalho em equipe</p>
-                </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🧠</div>
+                <h3 class="benefit-title">Concentração</h3>
+                <p>Aumento do foco e atenção</p>
             </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🎯</div>
+                <h3 class="benefit-title">Disciplina</h3>
+                <p>Desenvolvimento de respeito e postura</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">💪</div>
+                <h3 class="benefit-title">Autoconfiança</h3>
+                <p>Fortalecimento da autoestima</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">😌</div>
+                <h3 class="benefit-title">Controle Emocional</h3>
+                <p>Gestão de ansiedade e energia</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🤝</div>
+                <h3 class="benefit-title">Socialização</h3>
+                <p>Novas amizades e trabalho em equipe</p>
+            </div>
+        </div>
 
-            <div class="schedule-container">
-                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary-gold);">
-                    Horários das Aulas Infantis
-                </h3>
-                <div class="schedule-grid">
-                    <div class="schedule-item">
-                        <span class="schedule-day">SEG/QUA</span>
-                        <span class="schedule-time">19:20</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="schedule-day">TER/QUI</span>
-                        <span class="schedule-time">09:00 • 15:00 • 18:30</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="schedule-day">SÁBADO</span>
-                        <span class="schedule-time">09:00 (Aula Extra)</span>
-                    </div>
+        <div class="schedule-container">
+            <h3 style="text-align: center; margin-bottom: 2rem; color: var(--dourado);">
+                Horários das Aulas Infantis
+            </h3>
+            <div class="schedule-grid">
+                <div class="schedule-item">
+                    <span class="schedule-day">SEG/QUA</span>
+                    <span>19:20</span>
                 </div>
-                <p style="text-align: center; margin-top: 2rem; font-style: italic; opacity: 0.8;">
-                    *Sábado: Aula extra - somente quando não houver competição ou evento relacionado ao karatê
-                </p>
+                <div class="schedule-item">
+                    <span class="schedule-day">TER/QUI</span>
+                    <span>09:00 • 15:00 • 18:30</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="schedule-day">SÁBADO</span>
+                    <span>09:00 (Extra)</span>
+                </div>
             </div>
+            <p style="text-align: center; margin-top: 2rem; font-style: italic; opacity: 0.8;">
+                *Sábado: Aula extra - somente quando não houver competição ou evento relacionado ao karatê
+            </p>
         </div>
     </section>
 
-    <!-- Karatê Adulto -->
+    <!-- KARATÊ ADULTO -->
     <section class="section" id="adulto">
         <h2 class="section-title">Karatê Adulto</h2>
         <p class="section-subtitle">
@@ -981,74 +877,72 @@
                 <div class="card-icon">🌱</div>
                 <h3 class="card-title">Para Iniciantes</h3>
                 <p class="card-text">
-                    Aulas acessíveis e adaptadas para quem nunca pisou em um dojô. Aprenda os fundamentos do Wado Ryu de forma gradual e segura, no seu próprio ritmo.
+                    Aulas acessíveis e adaptadas para quem nunca pisou em um dojô. Aprenda os fundamentos de forma gradual e segura.
                 </p>
             </div>
             <div class="futuristic-card">
                 <div class="card-icon">🏆</div>
                 <h3 class="card-title">Para Avançados</h3>
                 <p class="card-text">
-                    Aprofundamento técnico, katas avançados, kumite competitivo. Prepare-se para competições locais, estaduais e nacionais com orientação especializada.
+                    Aprofundamento técnico, katas avançados, kumite competitivo. Prepare-se para competições locais e estaduais.
                 </p>
             </div>
             <div class="futuristic-card">
                 <div class="card-icon">💪</div>
                 <h3 class="card-title">Condicionamento Físico</h3>
                 <p class="card-text">
-                    Melhora da força, resistência, flexibilidade e coordenação. Uma atividade física completa que transforma seu corpo e mente.
+                    Melhora de força, resistência, flexibilidade. Uma atividade física completa que transforma seu corpo e mente.
                 </p>
             </div>
             <div class="futuristic-card">
                 <div class="card-icon">🧘</div>
                 <h3 class="card-title">Bem-estar Mental</h3>
                 <p class="card-text">
-                    Redução do estresse, aumento da autoconfiança, desenvolvimento de disciplina e controle emocional para enfrentar desafios da vida.
+                    Redução do estresse, aumento da autoconfiança, desenvolvimento de disciplina e controle emocional.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Karatê Competição -->
-    <section class="sensei-section" id="competicao">
-        <div class="section">
-            <h2 class="section-title">Karatê Competição</h2>
-            <p class="section-subtitle">
-                Preparação de Alto Nível para Atletas de Competição
-            </p>
-            <div class="cards-grid">
-                <div class="futuristic-card">
-                    <div class="card-icon">🎯</div>
-                    <h3 class="card-title">Treinamento Especializado</h3>
-                    <p class="card-text">
-                        Preparação física e técnica específica para competições, com foco em estratégias de luta, condicionamento físico e preparação mental para grandes eventos.
-                    </p>
-                </div>
-                <div class="futuristic-card">
-                    <div class="card-icon">📊</div>
-                    <h3 class="card-title">Análise Técnica</h3>
-                    <p class="card-text">
-                        Estudo detalhado de katas competitivos, técnicas de kumite e análise de adversários. Preparação científica baseada na experiência do Sensei André.
-                    </p>
-                </div>
-                <div class="futuristic-card">
-                    <div class="card-icon">🏅</div>
-                    <h3 class="card-title">Competições</h3>
-                    <p class="card-text">
-                        Participação em campeonatos municipais, estaduais e nacionais. Experiência em competições da FPK, a maior federação da América Latina.
-                    </p>
-                </div>
-                <div class="futuristic-card">
-                    <div class="card-icon">🧠</div>
-                    <h3 class="card-title">Preparação Mental</h3>
-                    <p class="card-text">
-                        Desenvolvimento de força mental, controle da ansiedade competitiva e estratégias psicológicas para máximo desempenho em competições.
-                    </p>
-                </div>
+    <!-- KARATÊ COMPETIÇÃO -->
+    <section class="section" id="competicao">
+        <h2 class="section-title">Karatê Competição</h2>
+        <p class="section-subtitle">
+            Preparação de Alto Nível para Atletas de Competição
+        </p>
+        <div class="cards-grid">
+            <div class="futuristic-card">
+                <div class="card-icon">🎯</div>
+                <h3 class="card-title">Treinamento Especializado</h3>
+                <p class="card-text">
+                    Preparação física e técnica específica para competições, com foco em estratégias de luta e condicionamento físico.
+                </p>
+            </div>
+            <div class="futuristic-card">
+                <div class="card-icon">📊</div>
+                <h3 class="card-title">Análise Técnica</h3>
+                <p class="card-text">
+                    Estudo detalhado de katas competitivos e análise de adversários baseada na experiência do Sensei André.
+                </p>
+            </div>
+            <div class="futuristic-card">
+                <div class="card-icon">🏅</div>
+                <h3 class="card-title">Competições</h3>
+                <p class="card-text">
+                    Participação em campeonatos municipais, estaduais e nacionais da FPK, a maior federação da América Latina.
+                </p>
+            </div>
+            <div class="futuristic-card">
+                <div class="card-icon">🧠</div>
+                <h3 class="card-title">Preparação Mental</h3>
+                <p class="card-text">
+                    Desenvolvimento de força mental, controle da ansiedade competitiva e estratégias para máximo desempenho.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Contato -->
+    <!-- CONTATO -->
     <section class="contact-section" id="contato">
         <div class="contact-container">
             <div class="contact-info">
@@ -1093,31 +987,31 @@
             </div>
             
             <div class="contact-info">
-                <h3 style="color: var(--primary-gold); margin-bottom: 2rem;">Aula Experimental Gratuita</h3>
+                <h3 style="color: var(--dourado); margin-bottom: 2rem;">Aula Experimental Gratuita</h3>
                 <p style="margin-bottom: 2rem; line-height: 1.6;">
                     Conheça nossa metodologia e ambiente antes de se comprometer. Oferecemos uma aula experimental gratuita para que você vivencie o verdadeiro espírito do Karatê na EKAM.
                 </p>
                 <a href="https://wa.me/5516997850320?text=Olá! Gostaria de agendar uma aula experimental gratuita na EKAM." 
                    target="_blank" 
                    class="cta-primary" 
-                   style="display: inline-block; text-decoration: none;">
+                   style="display: inline-block;">
                     Agendar Aula Experimental
                 </a>
                 
-                <div style="margin-top: 3rem; padding: 1.5rem; background: rgba(255, 165, 2, 0.1); border-radius: 15px; border: 1px solid rgba(255, 165, 2, 0.3);">
-                    <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Localização Privilegiada</h4>
+                <div style="margin-top: 3rem; padding: 1.5rem; background: rgba(212, 175, 55, 0.1); border-radius: 15px; border: 1px solid rgba(212, 175, 55, 0.3);">
+                    <h4 style="color: var(--dourado); margin-bottom: 1rem;">Localização Privilegiada</h4>
                     <p style="line-height: 1.6; font-size: 0.9rem;">
                         A EKAM está localizada em um dos bairros mais nobres de Araraquara, com fácil acesso. 
-                        Apesar de não oferecer estacionamento privado, há muitas vagas disponíveis nas proximidades.
+                        Há muitas vagas disponíveis nas proximidades.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
+        <div style="max-width: 1200px; margin: 0 auto;">
             <p class="footer-text">
                 &copy; 2024 EKAM - Equipe de Karatê André Mendonça. Todos os direitos reservados.
             </p>
@@ -1127,16 +1021,15 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
+    <!-- WHATSAPP FLOAT -->
     <div class="whatsapp-float" id="whatsappFloat">
         <a href="https://wa.me/5516997850320?text=Olá! Vim pelo site da EKAM e gostaria de saber mais informações." target="_blank">
             <i class="fab fa-whatsapp"></i>
-            <span class="whatsapp-tooltip">Fale Conosco</span>
         </a>
     </div>
 
     <script>
-        // Mobile Menu Toggle
+        // Mobile Menu
         const mobileMenu = document.getElementById('mobileMenu');
         const navMenu = document.getElementById('navMenu');
 
@@ -1144,92 +1037,25 @@
             navMenu.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
             });
         });
 
-        // WhatsApp Float Button
-        class WhatsAppFloat {
-            constructor() {
-                this.button = document.getElementById('whatsappFloat');
-                this.attachEvents();
-            }
-            
-            attachEvents() {
-                window.addEventListener('scroll', this.handleScroll.bind(this));
-                // Show button after page loads
-                setTimeout(() => {
-                    this.button.classList.add('visible');
-                }, 1000);
-            }
-            
-            handleScroll() {
-                const scrolled = window.pageYOffset;
-                
-                if (scrolled > 300) {
-                    this.button.classList.add('visible');
-                } else if (scrolled < 100) {
-                    this.button.classList.remove('visible');
-                }
-            }
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Initialize WhatsApp Float
-        document.addEventListener('DOMContentLoaded', () => {
-            new WhatsAppFloat();
-        });
-
-        // Add scroll effect to navigation
+        // WhatsApp Float
+        const whatsappFloat = document.getElementById('whatsappFloat');
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.futuristic-nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(12, 12, 12, 0.98)';
+            if (window.pageYOffset > 300) {
+                whatsappFloat.classList.add('visible');
             } else {
-                nav.style.background = 'rgba(12, 12, 12, 0.95)';
+                whatsappFloat.classList.remove('visible');
             }
         });
 
-        // Animate cards on scroll (simple version)
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.futuristic-card, .benefit-card').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(card);
-            });
-        });
+        setTimeout(() => {
+            whatsappFloat.classList.add('visible');
+        }, 1000);
     </script>
 </body>
 </html>
