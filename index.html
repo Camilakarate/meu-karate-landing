@@ -1,1061 +1,1158 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EKAM - Equipe de Karatê André Mendonça | Academia de Karatê em Araraquara</title>
-    <meta name="description" content="EKAM - Equipe de Karatê André Mendonça. Karatê Wado Ryu para crianças a partir de 4 anos e adultos.">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --preto-fosco: #0a0a0a;
-            --preto-bg: #0f0f0f;
-            --dourado: #d4af37;
-            --dourado-claro: #e8c547;
-            --vermelho-vivo: #e63946;
-            --vermelho-escuro: #a4161a;
-            --text-light: #ffffff;
-            --text-muted: rgba(255, 255, 255, 0.7);
-            --card-bg: rgba(212, 175, 55, 0.08);
-            --card-border: rgba(212, 175, 55, 0.25);
-            --font-display: 'Orbitron', sans-serif;
-            --font-body: 'Inter', sans-serif;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background: var(--preto-fosco);
-            color: var(--text-light);
-            overflow-x: hidden;
-        }
-
-        /* NAV */
-        .futuristic-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: linear-gradient(180deg, rgba(10, 10, 10, 0.98), rgba(20, 20, 20, 0.95));
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--dourado);
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .logo-container {
-            font-family: var(--font-display);
-            font-weight: 900;
-            font-size: 2rem;
-            background: linear-gradient(135deg, var(--dourado), var(--vermelho-vivo));
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            letter-spacing: 2px;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-menu a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            color: var(--dourado);
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background: var(--dourado);
-            margin: 3px 0;
-        }
-
-        /* HERO */
-        .hero-ekam {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #0a0a0a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            margin-top: 60px;
-        }
-
-        .hero-ekam::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(230, 57, 70, 0.15), transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1), transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            text-align: center;
-            z-index: 2;
-            max-width: 800px;
-            padding: 2rem;
-        }
-
-        .neon-title {
-            font-family: var(--font-display);
-            font-size: 5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--vermelho-vivo), var(--dourado));
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            letter-spacing: 3px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dourado);
-        }
-
-        .philosophy-text {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            color: var(--text-muted);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-primary, .cta-secondary {
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .cta-primary {
-            background: linear-gradient(135deg, var(--vermelho-vivo), var(--dourado));
-            color: var(--preto-fosco);
-            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(230, 57, 70, 0.6);
-        }
-
-        .cta-secondary {
-            background: transparent;
-            color: var(--dourado);
-            border: 2px solid var(--dourado);
-        }
-
-        .cta-secondary:hover {
-            background: var(--dourado);
-            color: var(--preto-fosco);
-            transform: translateY(-5px);
-        }
-
-        /* SEÇÕES */
-        .section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, var(--dourado), var(--vermelho-vivo));
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            letter-spacing: 2px;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            text-align: center;
-            margin-bottom: 4rem;
-            opacity: 0.8;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .sensei-section {
-            background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #0a0a0a);
-            padding: 6rem 2rem;
-            border-top: 2px solid var(--dourado);
-            border-bottom: 2px solid var(--dourado);
-        }
-
-        .sensei-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .sensei-image img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 20px;
-            border: 3px solid var(--dourado);
-            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3), 0 0 40px rgba(230, 57, 70, 0.2);
-        }
-
-        .sensei-bio {
-            background: rgba(20, 20, 20, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            border: 2px solid var(--dourado);
-        }
-
-        .highlight-stats {
-            display: flex;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, var(--vermelho-vivo), var(--vermelho-escuro));
-            padding: 1.5rem;
-            border-radius: 15px;
-            text-align: center;
-            color: var(--dourado);
-            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
-            border: 1px solid var(--dourado);
-            flex: 1;
-            min-width: 120px;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 900;
-            display: block;
-            color: var(--dourado);
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* CARDS */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .futuristic-card {
-            background: rgba(20, 20, 20, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2.5rem;
-            border: 2px solid rgba(212, 175, 55, 0.25);
-            transition: all 0.3s ease;
-        }
-
-        .futuristic-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.25), 0 0 30px rgba(230, 57, 70, 0.1);
-            border-color: var(--dourado);
-            background: rgba(212, 175, 55, 0.12);
-        }
-
-        .card-icon {
-            font-size: 3rem;
-            color: var(--dourado);
-            margin-bottom: 1rem;
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--dourado);
-        }
-
-        .card-text {
-            line-height: 1.6;
-            opacity: 0.8;
-        }
-
-        /* SCHEDULE */
-        .schedule-container {
-            background: rgba(20, 20, 20, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            border: 2px solid var(--dourado);
-            margin-top: 3rem;
-        }
-
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .schedule-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(135deg, var(--vermelho-vivo), var(--vermelho-escuro));
-            padding: 1.5rem;
-            border-radius: 15px;
-            color: white;
-            border: 1px solid var(--dourado);
-        }
-
-        .schedule-day {
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        /* BENEFITS */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-
-        .benefit-card {
-            background: rgba(20, 20, 20, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            border: 2px solid rgba(212, 175, 55, 0.25);
-            transition: all 0.3s ease;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--dourado);
-            background: rgba(212, 175, 55, 0.12);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
-        }
-
-        .benefit-icon {
-            font-size: 2.5rem;
-            color: var(--dourado);
-            margin-bottom: 1rem;
-        }
-
-        .benefit-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--dourado);
-        }
-
-        /* CONTACT */
-        .contact-section {
-            background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #0a0a0a);
-            padding: 6rem 2rem;
-            border-top: 2px solid var(--dourado);
-        }
-
-        .contact-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-info {
-            background: rgba(20, 20, 20, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            border: 2px solid var(--dourado);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            color: var(--dourado);
-            width: 40px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--vermelho-vivo), var(--vermelho-escuro));
-            color: var(--dourado);
-            border-radius: 50%;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 2px solid var(--dourado);
-        }
-
-        .social-link:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
-            background: linear-gradient(135deg, var(--dourado), var(--vermelho-vivo));
-            color: var(--preto-fosco);
-        }
-
-        /* WHATSAPP FLOAT */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            opacity: 0;
-            transform: translateY(100px);
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-float.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .whatsapp-float a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--vermelho-vivo), var(--vermelho-escuro));
-            color: var(--dourado);
-            border-radius: 50%;
-            text-decoration: none;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 20px rgba(230, 57, 70, 0.5);
-            transition: all 0.3s ease;
-            border: 2px solid var(--dourado);
-        }
-
-        .whatsapp-float a:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 40px rgba(212, 175, 55, 0.6);
-            background: linear-gradient(135deg, var(--dourado), var(--vermelho-vivo));
-            color: var(--preto-fosco);
-        }
-
-        /* FOOTER */
-        footer {
-            background: var(--preto-fosco);
-            padding: 3rem 2rem 1rem;
-            text-align: center;
-            border-top: 2px solid var(--dourado);
-        }
-
-        .footer-text {
-            opacity: 0.7;
-            margin-bottom: 1rem;
-        }
-
-        /* AGE BANNER */
-        .age-banner {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .age-highlight {
-            background: linear-gradient(135deg, var(--vermelho-vivo), var(--dourado));
-            color: var(--preto-fosco);
-            padding: 1rem 3rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            display: inline-block;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-            border: 2px solid var(--dourado);
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: linear-gradient(180deg, rgba(10, 10, 10, 0.98), rgba(20, 20, 20, 0.95));
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1rem;
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            .neon-title {
-                font-size: 3rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .sensei-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .schedule-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .whatsapp-float a {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-
-            .section {
-                padding: 4rem 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .neon-title {
-                font-size: 2.5rem;
-            }
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
-</head>
-<body>
-    <!-- NAVIGATION -->
-    <nav class="futuristic-nav">
-        <div class="nav-container">
-            <div class="logo-container">EKAM</div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#inicio">INÍCIO</a></li>
-                <li><a href="#sensei">SENSEI</a></li>
-                <li><a href="#associacao">ASSOCIAÇÃO</a></li>
-                <li><a href="#federacao">FEDERAÇÃO</a></li>
-                <li><a href="#wado-ryu">WADO RYU</a></li>
-                <li><a href="#infantil">INFANTIL</a></li>
-                <li><a href="#adulto">ADULTO</a></li>
-                <li><a href="#competicao">COMPETIÇÃO</a></li>
-                <li><a href="#contato">CONTATO</a></li>
-            </ul>
-            <div class="mobile-menu" id="mobileMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO -->
-    <section class="hero-ekam" id="inicio">
-        <div class="hero-content">
-            <h1 class="neon-title">EKAM</h1>
-            <p class="hero-subtitle">Equipe de Karatê André Mendonça</p>
-            <p class="philosophy-text">Tradição Ancestral • Valores Modernos • Excelência no Karatê</p>
-            <div class="cta-buttons">
-                <a href="https://wa.me/5516997850320?text=Olá! Gostaria de agendar uma aula experimental gratuita." class="cta-primary" target="_blank">
-                    Aula Experimental Gratuita
-                </a>
-                <a href="#sensei" class="cta-secondary">Conheça Nossa História</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOBRE O SENSEI -->
-    <section class="sensei-section" id="sensei">
-        <div class="sensei-content">
-            <div class="sensei-image">
-                <img src="https://via.placeholder.com/400x500/1a1a2e/d4af37?text=Sensei+André" alt="Sensei André Mendonça">
-            </div>
-            <div class="sensei-bio">
-                <h2 class="section-title">Sensei André Mendonça</h2>
-                <div class="highlight-stats">
-                    <div class="stat-card">
-                        <span class="stat-number">40+</span>
-                        <span class="stat-label">Anos de Experiência</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">1997</span>
-                        <span class="stat-label">Faixa Preta</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label">Anos Ed. Física</span>
-                    </div>
-                </div>
-                <p style="margin-bottom: 1.5rem; line-height: 1.6;">
-                    O Sensei André Mendonça é uma figura singular no universo do Karatê brasileiro. Sua jornada começou aos sete anos de idade, e com mais de 40 anos de experiência dedicados ao Karatê, conquistou a faixa preta em 1997 e mantém-se como atleta de alto rendimento.
-                </p>
-                <p style="margin-bottom: 1.5rem; line-height: 1.6;">
-                    Bacharel em Educação Física há mais de 15 anos, combina conhecimento científico com vasta experiência prática, aplicando métodos avançados na preparação de grandes atletas.
-                </p>
-                <p style="line-height: 1.6;">
-                    <strong>Legado Familiar:</strong> Sua esposa é Bi-Campeã Paulista (2024 e 2025), e seus filhos já vivenciam o karatê, demonstrando que na EKAM, o karatê é um estilo de vida familiar.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ASSOCIAÇÃO -->
-    <section class="section" id="associacao">
-        <h2 class="section-title">Associação Kii Kuu Kai Wado Ryu</h2>
-        <p class="section-subtitle">
-            "Escola do Karatê e da Flor Tatibana" - Uma história de tradição e harmonia desde 1977
-        </p>
-        <div class="cards-grid">
-            <div class="futuristic-card">
-                <div class="card-icon">🏛️</div>
-                <h3 class="card-title">Fundação (1977)</h3>
-                <p class="card-text">
-                    Fundada pelos Mestres Susumu Suzuki e Takeo Kikutake, nasceu com o objetivo de resgatar a essência autêntica do Wado-Ryu, transformando-o em uma "grande família" unida pelo budô.
-                </p>
-            </div>
-            <div class="futuristic-card">
-                <div class="card-icon">🎯</div>
-                <h3 class="card-title">Inovações Técnicas</h3>
-                <p class="card-text">
-                    Introduziu técnicas pioneiras como o "Shadô" e "Ohyio Kumite", criando um método único de treinamento que revolucionou o karatê.
-                </p>
-            </div>
-            <div class="futuristic-card">
-                <div class="card-icon">🌎</div>
-                <h3 class="card-title">Expansão Continental</h3>
-                <p class="card-text">
-                    Expandiu por todo o Brasil e América do Sul, com professores levando o Wado-Ryu para São Paulo, Minas Gerais, Rio de Janeiro e Chile.
-                </p>
-            </div>
-            <div class="futuristic-card">
-                <div class="card-icon">🏆</div>
-                <h3 class="card-title">Legado Atual</h3>
-                <p class="card-text">
-                    Atualmente dirigida por Ivon Dedé e Antonio, mantém tradições e planeja retomar competições e participações em eventos nacionais e internacionais.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FEDERAÇÃO -->
-    <section class="section" id="federacao">
-        <h2 class="section-title">Federação Paulista de Karatê (FPK)</h2>
-        <p class="section-subtitle">
-            A Maior Federação de Karatê da América Latina - 50 Anos de Excelência
-        </p>
-        <div class="cards-grid">
-            <div class="futuristic-card">
-                <div class="card-icon">📊</div>
-                <h3 class="card-title">Recordes Impressionantes</h3>
-                <p class="card-text">
-                    2.800 atletas de 125 cidades diferentes em recente campeonato, demonstrando a capilaridade e alcance em todo o estado.
-                </p>
-            </div>
-            <div class="futuristic-card">
-                <div class="card-icon">🏛️</div>
-                <h3 class="card-title">História Sólida</h3>
-                <p class="card-text">
-                    Fundada em 13 de setembro de 1974, completou 50 anos em 2024, moldando gerações de atletas e mestres no Brasil.
-                </p>
-            </div>
-            <div class="futuristic-card">
-                <div class="card-icon">👑</div>
-                <h3 class="card-title">Liderança Atual</h3>
-                <p class="card-text">
-                    Liderada pelo Presidente José Carlos Gomes de Oliveira (Mestre Zeca), mantém sua sede em São Paulo como centro nevrálgico.
-                </p>
-            </div>
-            <div class="futuristic-card">
-                <div class="card-icon">🌟</div>
-                <h3 class="card-title">Maior da América Latina</h3>
-                <p class="card-text">
-                    Consolidada como a maior e mais influente federação de karatê de todo o continente, referência em organização.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- WADO RYU -->
-    <section class="section" id="wado-ryu">
-        <h2 class="section-title">Wado Ryu</h2>
-        <p class="section-subtitle">
-            O "Caminho da Paz" - Estilo único que combina tradição japonesa com eficiência moderna
-        </p>
-        <div class="cards-grid">
-            <div class="futuristic-card">
-                <div class="card-icon">🎭</div>
-                <h3 class="card-title">Fundador Visionário</h3>
-                <p class="card-text">
-                    Criado por Hironori Otsuka (1892-1982), mestre em Shindo Yoshin Ryu Jiu-Jitsu, combinando o melhor das artes marciais.
-                </p>
-            </div>
-            <div class="futuristic-card">
-                <div class="card-icon">🌊</div>
-                <h3 class="card-title">Movimentos Fluidos</h3>
-                <p class="card-text">
-                    Caracterizado por movimentos fluidos e desvios que redirecionam a força, economizando energia e maximizando eficácia.
-                </p>
-            </div>
-            <div class="futuristic-card">
-                <div class="card-icon">🥋</div>
-                <h3 class="card-title">Defesa Completa</h3>
-                <p class="card-text">
-                    Incorpora técnicas de controle, projeção e imobilização, oferecendo defesa pessoal completa além dos golpes.
-                </p>
-            </div>
-            <div class="futuristic-card">
-                <div class="card-icon">☯️</div>
-                <h3 class="card-title">Filosofia de Paz</h3>
-                <p class="card-text">
-                    Mais que um sistema de luta, é um caminho de vida. Promove paz, harmonia e autocontrole.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- KARATÊ INFANTIL -->
-    <section class="section" id="infantil">
-        <h2 class="section-title">Karatê Infantil</h2>
-        <div class="age-banner">
-            <span class="age-highlight">A PARTIR DOS 4 ANOS DE IDADE</span>
-        </div>
-        
-        <div class="benefits-grid">
-            <div class="benefit-card">
-                <div class="benefit-icon">⚖️</div>
-                <h3 class="benefit-title">Coordenação Motora</h3>
-                <p>Melhora do equilíbrio e coordenação</p>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">🧠</div>
-                <h3 class="benefit-title">Concentração</h3>
-                <p>Aumento do foco e atenção</p>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">🎯</div>
-                <h3 class="benefit-title">Disciplina</h3>
-                <p>Desenvolvimento de respeito e postura</p>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">💪</div>
-                <h3 class="benefit-title">Autoconfiança</h3>
-                <p>Fortalecimento da autoestima</p>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">😌</div>
-                <h3 class="benefit-title">Controle Emocional</h3>
-                <p>Gestão de ansiedade e energia</p>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">🤝</div>
-                <h3 class="benefit-title">Socialização</h3>
-                <p>Novas amizades e trabalho em equipe</p>
-            </div>
-        </div>
-
-        <div class="schedule-container">
-            <h3 style="text-align: center; margin-bottom: 2rem; color: var(--dourado);">
-                Horários das Aulas Infantis
-            </h3>
-            <div class="schedule-grid">
-                <div class="schedule-item">
-                    <span class="schedule-day">SEG/QUA</span>
-                    <span>19:20</span>
-                </div>
-                <div class="schedule-item">
-                    <span class="schedule-day">TER/QUI</span>
-                    <span>09:00 • 15:00 • 18:30</span>
-                </div>
-                <div class="schedule-item">
-                    <span class="schedule-day">SÁBADO</span>
-                    <span>09:00 (Extra)</span>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 2rem; font-style: italic; opacity: 0.8;">
-                *Sábado: Aula extra - somente quando não houver competição ou evento relacionado ao karatê
-            </p>
-        </div>
-    </section>
-
-    <!-- KARATÊ ADULTO -->
-    <section class="section" id="adulto">
-        <h2 class="section-title">Karatê Adulto</h2>
-        <p class="section-subtitle">
-            Do Iniciante ao Avançado - Nunca é Tarde Demais para Realizar Seu Sonho
-        </p>
-        <div class="cards-grid">
-            <div class="futuristic-card">
-                <div class="card-icon">🌱</div>
-                <h3 class="card-title">Para Iniciantes</h3>
-                <p class="card-text">
-                    Aulas acessíveis e adaptadas para quem nunca pisou em um dojô. Aprenda os fundamentos de forma gradual e segura.
-                </p>
-            </div>
-            <div class="futuristic-card">
-                <div class="card-icon">🏆</div>
-                <h3 class="card-title">Para Avançados</h3>
-                <p class="card-text">
-                    Aprofundamento técnico, katas avançados, kumite competitivo. Prepare-se para competições locais e estaduais.
-                </p>
-            </div>
-            <div class="futuristic-card">
-                <div class="card-icon">💪</div>
-                <h3 class="card-title">Condicionamento Físico</h3>
-                <p class="card-text">
-                    Melhora de força, resistência, flexibilidade. Uma atividade física completa que transforma seu corpo e mente.
-                </p>
-            </div>
-            <div class="futuristic-card">
-                <div class="card-icon">🧘</div>
-                <h3 class="card-title">Bem-estar Mental</h3>
-                <p class="card-text">
-                    Redução do estresse, aumento da autoconfiança, desenvolvimento de disciplina e controle emocional.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- KARATÊ COMPETIÇÃO -->
-    <section class="section" id="competicao">
-        <h2 class="section-title">Karatê Competição</h2>
-        <p class="section-subtitle">
-            Preparação de Alto Nível para Atletas de Competição
-        </p>
-        <div class="cards-grid">
-            <div class="futuristic-card">
-                <div class="card-icon">🎯</div>
-                <h3 class="card-title">Treinamento Especializado</h3>
-                <p class="card-text">
-                    Preparação física e técnica específica para competições, com foco em estratégias de luta e condicionamento físico.
-                </p>
-            </div>
-            <div class="futuristic-card">
-                <div class="card-icon">📊</div>
-                <h3 class="card-title">Análise Técnica</h3>
-                <p class="card-text">
-                    Estudo detalhado de katas competitivos e análise de adversários baseada na experiência do Sensei André.
-                </p>
-            </div>
-            <div class="futuristic-card">
-                <div class="card-icon">🏅</div>
-                <h3 class="card-title">Competições</h3>
-                <p class="card-text">
-                    Participação em campeonatos municipais, estaduais e nacionais da FPK, a maior federação da América Latina.
-                </p>
-            </div>
-            <div class="futuristic-card">
-                <div class="card-icon">🧠</div>
-                <h3 class="card-title">Preparação Mental</h3>
-                <p class="card-text">
-                    Desenvolvimento de força mental, controle da ansiedade competitiva e estratégias para máximo desempenho.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section class="contact-section" id="contato">
-        <div class="contact-container">
-            <div class="contact-info">
-                <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Entre em Contato</h2>
-                
-                <div class="contact-item">
-                    <i class="fas fa-phone contact-icon"></i>
-                    <div>
-                        <strong>Telefone:</strong><br>
-                        (16) 9 9785-0320
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="fab fa-whatsapp contact-icon"></i>
-                    <div>
-                        <strong>WhatsApp:</strong><br>
-                        (16) 9 9785-0320
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt contact-icon"></i>
-                    <div>
-                        <strong>Endereço:</strong><br>
-                        Rua José Ferrari Secondo, 720<br>
-                        Vila Velosa - Araraquara/SP
-                    </div>
-                </div>
-                
-                <div class="social-links">
-                    <a href="https://instagram.com/ekam.karate" target="_blank" class="social-link">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://facebook.com/ekamkarateararaquara" target="_blank" class="social-link">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://wa.me/5516997850320" target="_blank" class="social-link">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="contact-info">
-                <h3 style="color: var(--dourado); margin-bottom: 2rem;">Aula Experimental Gratuita</h3>
-                <p style="margin-bottom: 2rem; line-height: 1.6;">
-                    Conheça nossa metodologia e ambiente antes de se comprometer. Oferecemos uma aula experimental gratuita para que você vivencie o verdadeiro espírito do Karatê na EKAM.
-                </p>
-                <a href="https://wa.me/5516997850320?text=Olá! Gostaria de agendar uma aula experimental gratuita na EKAM." 
-                   target="_blank" 
-                   class="cta-primary" 
-                   style="display: inline-block;">
-                    Agendar Aula Experimental
-                </a>
-                
-                <div style="margin-top: 3rem; padding: 1.5rem; background: rgba(212, 175, 55, 0.1); border-radius: 15px; border: 1px solid rgba(212, 175, 55, 0.3);">
-                    <h4 style="color: var(--dourado); margin-bottom: 1rem;">Localização Privilegiada</h4>
-                    <p style="line-height: 1.6; font-size: 0.9rem;">
-                        A EKAM está localizada em um dos bairros mais nobres de Araraquara, com fácil acesso. 
-                        Há muitas vagas disponíveis nas proximidades.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <p class="footer-text">
-                &copy; 2024 EKAM - Equipe de Karatê André Mendonça. Todos os direitos reservados.
-            </p>
-            <p class="footer-text">
-                Wado Ryu Kii Kuu Kai | Tradição • Disciplina • Excelência
-            </p>
-        </div>
-    </footer>
-
-    <!-- WHATSAPP FLOAT -->
-    <div class="whatsapp-float" id="whatsappFloat">
-        <a href="https://wa.me/5516997850320?text=Olá! Vim pelo site da EKAM e gostaria de saber mais informações." target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
-
-    <script>
-        // Mobile Menu
-        const mobileMenu = document.getElementById('mobileMenu');
-        const navMenu = document.getElementById('navMenu');
-
-        mobileMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // WhatsApp Float
-        const whatsappFloat = document.getElementById('whatsappFloat');
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                whatsappFloat.classList.add('visible');
-            } else {
-                whatsappFloat.classList.remove('visible');
-            }
-        });
-
-        setTimeout(() => {
-            whatsappFloat.classList.add('visible');
-        }, 1000);
-    </script>
-</body>
-</html>
+/* ========================================
+   EKAM KARATÊ - LANDING PAGE CSS
+   Design: Elegante, Futurista, Minimalista
+======================================== */
+
+/* ========== VARIÁVEIS CSS (Design Tokens) ========== */
+:root {
+  /* Cores */
+  --color-black: #0a0a0a;
+  --color-black-light: #1a1a1a;
+  --color-gold: #D4AF37;
+  --color-gold-light: #F4E4C1;
+  --color-white: #FFFFFF;
+  --color-red: #C41E3A;
+  --color-gray: #808080;
+  --color-overlay: rgba(10, 10, 10, 0.85);
+
+  /* Tipografia */
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-cta: 'Rajdhani', sans-serif;
+
+  /* Espaçamentos */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 48px;
+  --spacing-xl: 80px;
+  --spacing-2xl: 120px;
+
+  /* Outros */
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+  --container-max: 1400px;
+}
+
+/* ========== RESET E BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--color-white);
+  background: var(--color-black);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ========== TIPOGRAFIA GLOBAL ========== */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.section-title {
+  font-size: 48px;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-gold);
+}
+
+.section-title--center {
+  text-align: center;
+}
+
+.section-title--light {
+  color: var(--color-white);
+}
+
+.section-subtitle {
+  font-size: 32px;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-gold);
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--color-black) 0%, var(--color-black-light) 50%, var(--color-black) 100%);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: var(--spacing-md);
+}
+
+.hero__bg-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 50px, var(--color-gold) 50px, var(--color-gold) 51px),
+    repeating-linear-gradient(-45deg, transparent, transparent 50px, var(--color-gold) 50px, var(--color-gold) 51px);
+  pointer-events: none;
+}
+
+.hero__container {
+  max-width: var(--container-max);
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Navegação */
+.hero__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.hero__logo-text {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--color-gold);
+  letter-spacing: 4px;
+}
+
+.hero__social {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.hero__social-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-black-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  transition: var(--transition);
+}
+
+.hero__social-link:hover {
+  background: var(--color-gold);
+  color: var(--color-black);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+}
+
+/* Conteúdo Hero */
+.hero__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.hero__text {
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero__headline {
+  font-size: 64px;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-white);
+  line-height: 1.1;
+}
+
+.hero__subheadline {
+  font-size: 20px;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-gray);
+  max-width: 600px;
+}
+
+.hero__cta {
+  display: inline-block;
+  padding: 18px 48px;
+  background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-gold-light) 50%, var(--color-gold) 100%);
+  background-size: 200% 100%;
+  color: var(--color-black);
+  font-family: var(--font-cta);
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+  transition: var(--transition);
+  margin-bottom: var(--spacing-md);
+}
+
+.hero__cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(212, 175, 55, 0.6);
+  background-position: 100% 0;
+}
+
+.hero__social-proof {
+  font-size: 16px;
+  color: var(--color-gray);
+}
+
+/* Mascote Animado */
+.hero__mascot {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInRight 1s ease-out;
+}
+
+.mascot {
+  width: 100%;
+  max-width: 500px;
+  animation: float 4s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
+  filter: drop-shadow(0 10px 30px rgba(212, 175, 55, 0.3));
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(-1deg);
+  }
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 10px 30px rgba(212, 175, 55, 0.3)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+  }
+  to {
+    filter: drop-shadow(0 10px 40px rgba(212, 175, 55, 0.5)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.3));
+  }
+}
+
+.mascot-flames {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(196, 30, 58, 0.2) 0%, transparent 70%);
+  animation: flicker 2s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* Credenciais */
+.hero__credentials {
+  text-align: center;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.credentials__logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.credentials__logo {
+  height: 60px;
+  width: auto;
+  filter: grayscale(100%) brightness(0.7);
+  transition: var(--transition);
+}
+
+.credentials__logo:hover {
+  filter: grayscale(0%) brightness(1);
+  transform: translateY(-3px);
+}
+
+.credentials__text {
+  font-size: 14px;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Animações de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ========== SEÇÃO: SOBRE ========== */
+.about {
+  padding: var(--spacing-2xl) var(--spacing-md);
+  background: var(--color-black-light);
+}
+
+.about__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.about__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.about__description {
+  font-size: 18px;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.8;
+}
+
+.about__image {
+  position: relative;
+}
+
+.about__img {
+  width: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+
+.about__ekam {
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.1);
+}
+
+.about__features {
+  display: grid;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+}
+
+.feature__icon {
+  width: 28px;
+  height: 28px;
+  background: var(--color-gold);
+  color: var(--color-black);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.feature__text {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ========== SEÇÃO: SENSEI ========== */
+.sensei {
+  padding: var(--spacing-2xl) var(--spacing-md);
+  background: var(--color-black);
+}
+
+.sensei__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.sensei__image {
+  position: relative;
+}
+
+.sensei__img {
+  width: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: 0 16px 48px rgba(212, 175, 55, 0.2);
+}
+
+.sensei__badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: var(--color-gold);
+  color: var(--color-black);
+  padding: 12px 24px;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.sensei__credentials {
+  margin-bottom: var(--spacing-lg);
+}
+
+.sensei__credentials li {
+  font-size: 18px;
+  margin-bottom: var(--spacing-sm);
+  padding-left: var(--spacing-md);
+  position: relative;
+}
+
+.sensei__credentials li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+.sensei__bio {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-gray);
+}
+
+.sensei__lineage {
+  background: var(--color-black-light);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+}
+
+.sensei__lineage-title {
+  font-size: 20px;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-gold);
+}
+
+.lineage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.lineage__item {
+  text-align: center;
+  flex: 1;
+  min-width: 140px;
+}
+
+.lineage__year {
+  font-size: 14px;
+  color: var(--color-gold);
+  margin-bottom: 8px;
+}
+
+.lineage__name {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.lineage__desc {
+  font-size: 13px;
+  color: var(--color-gray);
+}
+
+.lineage__arrow {
+  font-size: 24px;
+  color: var(--color-gold);
+}
+
+/* ========== SEÇÃO: TURMAS ========== */
+.classes {
+  padding: var(--spacing-2xl) var(--spacing-md);
+  background: var(--color-black-light);
+}
+
+.classes__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.classes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.class-card {
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.class-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(212, 175, 55, 0.25);
+  border-color: var(--color-gold);
+}
+
+.class-card__icon {
+  font-size: 48px;
+  margin-bottom: var(--spacing-md);
+}
+
+.class-card__title {
+  font-size: 24px;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-gold);
+}
+
+.class-card__age {
+  font-size: 14px;
+  color: var(--color-gray);
+  margin-bottom: var(--spacing-md);
+}
+
+.class-card__description {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ========== SEÇÃO: BENEFÍCIOS ========== */
+.benefits {
+  padding: var(--spacing-2xl) var(--spacing-md);
+  background: var(--color-black);
+}
+
+.benefits__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.benefit-card {
+  background: var(--color-black-light);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+}
+
+.benefit-card__title {
+  font-size: 24px;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-gold);
+  text-align: center;
+}
+
+.benefit-card__list li {
+  font-size: 16px;
+  margin-bottom: var(--spacing-sm);
+  padding-left: var(--spacing-md);
+  position: relative;
+}
+
+.benefit-card__list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+/* ========== SEÇÃO: DEPOIMENTOS ========== */
+.testimonials {
+  padding: var(--spacing-2xl) var(--spacing-md);
+  background: var(--color-black-light);
+}
+
+.testimonials__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.testimonial-card {
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  transition: var(--transition);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(212, 175, 55, 0.2);
+}
+
+.testimonial-card--featured {
+  border-color: var(--color-gold);
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.3);
+}
+
+.testimonial-card__stars {
+  color: var(--color-gold);
+  margin-bottom: var(--spacing-md);
+  font-size: 18px;
+}
+
+.testimonial-card__text {
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.8;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-gray);
+}
+
+.testimonial-card__name {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.testimonial-card__detail {
+  font-size: 14px;
+  color: var(--color-gold);
+}
+
+/* ========== SEÇÃO: AULA EXPERIMENTAL ========== */
+.trial {
+  position: relative;
+  padding: var(--spacing-2xl) var(--spacing-md);
+  background: url('dojo-background.jpg') center/cover no-repeat;
+  background-attachment: fixed;
+}
+
+.trial__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-overlay);
+}
+
+.trial__container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.trial__content {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-xl);
+  text-align: center;
+  box-shadow: 0 16px 64px rgba(0, 0, 0, 0.5);
+}
+
+.trial__description {
+  font-size: 18px;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.8;
+}
+
+.trial__includes-title {
+  font-size: 20px;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-gold);
+}
+
+.trial__includes-list {
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto var(--spacing-lg);
+}
+
+.trial__includes-list li {
+  font-size: 16px;
+  margin-bottom: var(--spacing-sm);
+  padding-left: var(--spacing-md);
+  position: relative;
+}
+
+.trial__includes-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+.trial__cta-text {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: var(--color-gold);
+}
+
+.trial__cta-subtext {
+  font-size: 16px;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-gray);
+}
+
+.trial__cta {
+  display: inline-block;
+  padding: 20px 60px;
+  background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-gold-light) 50%, var(--color-gold) 100%);
+  background-size: 200% 100%;
+  color: var(--color-black);
+  font-family: var(--font-cta);
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: var(--border-radius);
+  box-shadow: 0 12px 36px rgba(212, 175, 55, 0.5);
+  transition: var(--transition);
+}
+
+.trial__cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(212, 175, 55, 0.7);
+  background-position: 100% 0;
+}
+
+/* ========== SEÇÃO: FAQ ========== */
+.faq {
+  padding: var(--spacing-2xl) var(--spacing-md);
+  background: var(--color-black);
+}
+
+.faq__container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.faq-item {
+  background: var(--color-black-light);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq-item:hover {
+  border-color: var(--color-gold);
+}
+
+.faq-item__question {
+  width: 100%;
+  padding: var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.faq-item__question:hover {
+  color: var(--color-gold);
+}
+
+.faq-item__icon {
+  font-size: 24px;
+  color: var(--color-gold);
+  transition: var(--transition);
+}
+
+.faq-item__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item__answer p {
+  padding: 0 var(--spacing-md) var(--spacing-md);
+  color: var(--color-gray);
+  line-height: 1.8;
+}
+
+/* ========== SEÇÃO: CONTATO ========== */
+.contact {
+  padding: var(--spacing-2xl) var(--spacing-md);
+  background: var(--color-black-light);
+}
+
+.contact__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.contact__content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--spacing-xl);
+}
+
+.contact__map iframe {
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.contact__item {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+}
+
+.contact__item-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.contact__item-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: var(--color-gold);
+}
+
+.contact__item-text p,
+.contact__link {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.contact__link {
+  color: var(--color-gold);
+  text-decoration: underline;
+}
+
+.contact__link:hover {
+  color: var(--color-gold-light);
+}
+
+.contact__cta {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--color-gold);
+  color: var(--color-black);
+  font-family: var(--font-cta);
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: var(--border-radius);
+  text-align: center;
+  transition: var(--transition);
+  margin-top: var(--spacing-md);
+}
+
+.contact__cta:hover {
+  background: var(--color-gold-light);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  background: var(--color-black);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  padding: var(--spacing-xl) var(--spacing-md) var(--spacing-md);
+}
+
+.footer__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+.footer__logo {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--color-gold);
+  letter-spacing: 3px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer__tagline {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--color-gray);
+}
+
+.footer__title {
+  font-size: 18px;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-gold);
+}
+
+.footer__links li {
+  margin-bottom: 8px;
+}
+
+.footer__links a {
+  font-size: 14px;
+  color: var(--color-gray);
+}
+
+.footer__links a:hover {
+  color: var(--color-gold);
+}
+
+.footer__col p {
+  font-size: 14px;
+  color: var(--color-gray);
+  margin-bottom: 8px;
+}
+
+.footer__credentials {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.footer__logo-img {
+  height: 40px;
+  width: auto;
+  filter: grayscale(100%) brightness(0.6);
+  transition: var(--transition);
+}
+
+.footer__logo-img:hover {
+  filter: grayscale(0%) brightness(1);
+}
+
+.footer__bottom {
+  text-align: center;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.footer__bottom p {
+  font-size: 13px;
+  color: var(--color-gray);
+  margin-bottom: 4px;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+
+/* Tablet (768px - 1023px) */
+@media (max-width: 1023px) {
+  .hero__headline {
+    font-size: 48px;
+  }
+
+  .section-title {
+    font-size: 36px;
+  }
+
+  .hero__content,
+  .about__content,
+  .sensei__container,
+  .contact__content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .classes__grid,
+  .benefits__grid,
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lineage {
+    flex-direction: column;
+  }
+
+  .lineage__arrow {
+    transform: rotate(90deg);
+  }
+
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile (&lt; 768px) */
+@media (max-width: 767px) {
+  :root {
+    --spacing-xl: 40px;
+    --spacing-2xl: 60px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .hero__logo-text {
+    font-size: 24px;
+  }
+
+  .hero__headline {
+    font-size: 36px;
+  }
+
+  .hero__subheadline {
+    font-size: 16px;
+  }
+
+  .hero__cta {
+    width: 100%;
+    text-align: center;
+    padding: 16px 24px;
+    font-size: 16px;
+  }
+
+  .hero__content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero__mascot {
+    order: -1;
+  }
+
+  .mascot {
+    max-width: 300px;
+  }
+
+  .credentials__logos {
+    gap: var(--spacing-md);
+  }
+
+  .credentials__logo {
+    height: 40px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .section-subtitle {
+    font-size: 24px;
+  }
+
+  .class-card__icon {
+    font-size: 36px;
+  }
+
+  .trial__content {
+    padding: var(--spacing-lg);
+  }
+
+  .trial__cta {
+    width: 100%;
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+
+  .faq-item__question {
+    font-size: 16px;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+}
