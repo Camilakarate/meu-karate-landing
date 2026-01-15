@@ -4,24 +4,1108 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EKAM Karatê | Tradição Wado Ryu em Araraquara</title>
-  <meta name="description" content="Academia de Karatê Wado Ryu em Araraquara. Única filiada à FPK. Ensino tradicional com mais de 40 anos de experiência. Aula experimental gratuita.">
+  <meta name="description" content="Academia de Karatê Wado Ryu em Araraquara. Única filiada à FPK. Ensino tradicional com mais de 40 anos de experiência.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ========== VARIÁVEIS E RESET ========== */
+    :root {
+      --color-black: #0a0a0a;
+      --color-black-light: #1a1a1a;
+      --color-gold: #D4AF37;
+      --color-gold-light: #F4E4C1;
+      --color-white: #FFFFFF;
+      --color-gray: #808080;
+      --font-heading: 'Orbitron', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-cta: 'Rajdhani', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--color-white);
+      background: var(--color-black);
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .section-title {
+      font-size: 48px;
+      margin-bottom: 48px;
+      color: var(--color-gold);
+    }
+
+    .section-title--center {
+      text-align: center;
+    }
+
+    .section-title--light {
+      color: var(--color-white);
+    }
+
+    /* ========== HERO SECTION ========== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--color-black) 0%, var(--color-black-light) 50%, var(--color-black) 100%);
+      display: flex;
+      align-items: center;
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .hero__bg-decoration {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.03;
+      background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 50px, var(--color-gold) 50px, var(--color-gold) 51px),
+        repeating-linear-gradient(-45deg, transparent, transparent 50px, var(--color-gold) 50px, var(--color-gold) 51px);
+      pointer-events: none;
+    }
+
+    .hero__container {
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero__nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .hero__logo-text {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--color-gold);
+      letter-spacing: 4px;
+    }
+
+    .hero__social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .hero__social-link {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--color-black-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gold);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .hero__social-link:hover {
+      background: var(--color-gold);
+      color: var(--color-black);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+    }
+
+    .hero__content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .hero__text {
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero__headline {
+      font-size: 56px;
+      margin-bottom: 24px;
+      color: var(--color-white);
+      line-height: 1.1;
+    }
+
+    .hero__subheadline {
+      font-size: 20px;
+      margin-bottom: 48px;
+      color: var(--color-gray);
+      max-width: 600px;
+    }
+
+    .hero__cta {
+      display: inline-block;
+      padding: 18px 48px;
+      background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-gold-light) 50%, var(--color-gold) 100%);
+      background-size: 200% 100%;
+      color: var(--color-black);
+      font-family: var(--font-cta);
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+      transition: all 0.3s ease;
+      margin-bottom: 16px;
+    }
+
+    .hero__cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(212, 175, 55, 0.6);
+      background-position: 100% 0;
+    }
+
+    .hero__social-proof {
+      font-size: 16px;
+      color: var(--color-gray);
+    }
+
+    .hero__mascot {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeInRight 1s ease-out;
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .mascot {
+      width: 100%;
+      max-width: 500px;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0 10px 30px rgba(212, 175, 55, 0.4));
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-15px) rotate(1deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(0deg);
+      }
+      75% {
+        transform: translateY(-15px) rotate(-1deg);
+      }
+    }
+
+    .mascot-flames {
+      position: absolute;
+      width: 120%;
+      height: 120%;
+      top: -10%;
+      left: -10%;
+      background: radial-gradient(circle, rgba(196, 30, 58, 0.2) 0%, transparent 70%);
+      animation: flicker 2s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @keyframes flicker {
+      0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+      }
+    }
+
+    .hero__credentials {
+      text-align: center;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    .credentials__logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .credentials__logo {
+      height: 60px;
+      width: auto;
+      filter: grayscale(100%) brightness(0.7);
+      transition: all 0.3s ease;
+    }
+
+    .credentials__logo:hover {
+      filter: grayscale(0%) brightness(1);
+      transform: translateY(-3px);
+    }
+
+    .credentials__text {
+      font-size: 14px;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* ========== SEÇÃO ABOUT ========== */
+    .about {
+      padding: 120px 24px;
+      background: var(--color-black-light);
+    }
+
+    .about__container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .about__content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .about__description {
+      font-size: 18px;
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+
+    .about__img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+    }
+
+    .about__ekam {
+      background: rgba(26, 26, 26, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 8px;
+      padding: 48px;
+      box-shadow: 0 8px 32px rgba(212, 175, 55, 0.1);
+    }
+
+    .section-subtitle {
+      font-size: 32px;
+      margin-bottom: 24px;
+      color: var(--color-gold);
+    }
+
+    .about__features {
+      display: grid;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .feature__icon {
+      width: 28px;
+      height: 28px;
+      background: var(--color-gold);
+      color: var(--color-black);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .feature__text {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ========== SEÇÃO SENSEI ========== */
+    .sensei {
+      padding: 120px 24px;
+      background: var(--color-black);
+    }
+
+    .sensei__container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .sensei__image {
+      position: relative;
+    }
+
+    .sensei__img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 16px 48px rgba(212, 175, 55, 0.2);
+    }
+
+    .sensei__badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: var(--color-gold);
+      color: var(--color-black);
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .sensei__credentials {
+      margin-bottom: 48px;
+    }
+
+    .sensei__credentials li {
+      font-size: 18px;
+      margin-bottom: 16px;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .sensei__credentials li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--color-gold);
+      font-weight: 700;
+    }
+
+    .sensei__bio {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 48px;
+      color: var(--color-gray);
+    }
+
+    .sensei__lineage {
+      background: var(--color-black-light);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 8px;
+      padding: 48px;
+    }
+
+    .sensei__lineage-title {
+      font-size: 20px;
+      margin-bottom: 24px;
+      color: var(--color-gold);
+    }
+
+    .lineage {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .lineage__item {
+      text-align: center;
+      flex: 1;
+      min-width: 140px;
+    }
+
+    .lineage__year {
+      font-size: 14px;
+      color: var(--color-gold);
+      margin-bottom: 8px;
+    }
+
+    .lineage__name {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .lineage__desc {
+      font-size: 13px;
+      color: var(--color-gray);
+    }
+
+    .lineage__arrow {
+      font-size: 24px;
+      color: var(--color-gold);
+    }
+
+    /* ========== SEÇÃO TURMAS ========== */
+    .classes {
+      padding: 120px 24px;
+      background: var(--color-black-light);
+    }
+
+    .classes__container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .classes__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+
+    .class-card {
+      background: rgba(26, 26, 26, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 8px;
+      padding: 48px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .class-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(212, 175, 55, 0.25);
+      border-color: var(--color-gold);
+    }
+
+    .class-card__icon {
+      font-size: 48px;
+      margin-bottom: 24px;
+    }
+
+    .class-card__title {
+      font-size: 24px;
+      margin-bottom: 16px;
+      color: var(--color-gold);
+    }
+
+    .class-card__age {
+      font-size: 14px;
+      color: var(--color-gray);
+      margin-bottom: 24px;
+    }
+
+    .class-card__description {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ========== SEÇÃO BENEFÍCIOS ========== */
+    .benefits {
+      padding: 120px 24px;
+      background: var(--color-black);
+    }
+
+    .benefits__container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .benefits__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+
+    .benefit-card {
+      background: var(--color-black-light);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 8px;
+      padding: 48px;
+    }
+
+    .benefit-card__title {
+      font-size: 24px;
+      margin-bottom: 24px;
+      color: var(--color-gold);
+      text-align: center;
+    }
+
+    .benefit-card__list li {
+      font-size: 16px;
+      margin-bottom: 16px;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .benefit-card__list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--color-gold);
+      font-weight: 700;
+    }
+
+    /* ========== SEÇÃO DEPOIMENTOS ========== */
+    .testimonials {
+      padding: 120px 24px;
+      background: var(--color-black-light);
+    }
+
+    .testimonials__container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+
+    .testimonial-card {
+      background: rgba(26, 26, 26, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 8px;
+      padding: 48px;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px rgba(212, 175, 55, 0.2);
+    }
+
+    .testimonial-card--featured {
+      border-color: var(--color-gold);
+      box-shadow: 0 8px 32px rgba(212, 175, 55, 0.3);
+    }
+
+    .testimonial-card__stars {
+      color: var(--color-gold);
+      margin-bottom: 24px;
+      font-size: 18px;
+    }
+
+    .testimonial-card__text {
+      font-size: 16px;
+      font-style: italic;
+      line-height: 1.8;
+      margin-bottom: 48px;
+      color: var(--color-gray);
+    }
+
+    .testimonial-card__name {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .testimonial-card__detail {
+      font-size: 14px;
+      color: var(--color-gold);
+    }
+
+    /* ========== SEÇÃO AULA EXPERIMENTAL ========== */
+    .trial {
+      position: relative;
+      padding: 120px 24px;
+      background: var(--color-black);
+    }
+
+    .trial__container {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .trial__content {
+      background: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 8px;
+      padding: 80px;
+      text-align: center;
+      box-shadow: 0 16px 64px rgba(0, 0, 0, 0.5);
+    }
+
+    .trial__description {
+      font-size: 18px;
+      margin-bottom: 48px;
+      line-height: 1.8;
+    }
+
+    .trial__includes-title {
+      font-size: 20px;
+      margin-bottom: 24px;
+      color: var(--color-gold);
+    }
+
+    .trial__includes-list {
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
+
+    .trial__includes-list li {
+      font-size: 16px;
+      margin-bottom: 16px;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .trial__includes-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--color-gold);
+      font-weight: 700;
+    }
+
+    .trial__cta-text {
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: var(--color-gold);
+    }
+
+    .trial__cta-subtext {
+      font-size: 16px;
+      margin-bottom: 48px;
+      color: var(--color-gray);
+    }
+
+    .trial__cta {
+      display: inline-block;
+      padding: 20px 60px;
+      background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-gold-light) 50%, var(--color-gold) 100%);
+      background-size: 200% 100%;
+      color: var(--color-black);
+      font-family: var(--font-cta);
+      font-size: 20px;
+      font-weight: 700;
+      border-radius: 8px;
+      box-shadow: 0 12px 36px rgba(212, 175, 55, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .trial__cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(212, 175, 55, 0.7);
+      background-position: 100% 0;
+    }
+
+    /* ========== SEÇÃO FAQ ========== */
+    .faq {
+      padding: 120px 24px;
+      background: var(--color-black);
+    }
+
+    .faq__container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq__list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .faq-item {
+      background: var(--color-black-light);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      border-color: var(--color-gold);
+    }
+
+    .faq-item__question {
+      width: 100%;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-white);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item__question:hover {
+      color: var(--color-gold);
+    }
+
+    .faq-item__icon {
+      font-size: 24px;
+      color: var(--color-gold);
+      transition: all 0.3s ease;
+    }
+
+    .faq-item__answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-item__answer p {
+      padding: 0 24px 24px;
+      color: var(--color-gray);
+      line-height: 1.8;
+    }
+
+    /* ========== SEÇÃO CONTATO ========== */
+    .contact {
+      padding: 120px 24px;
+      background: var(--color-black-light);
+    }
+
+    .contact__container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .contact__content {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 80px;
+    }
+
+    .contact__map iframe {
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .contact__info {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .contact__item {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .contact__item-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .contact__item-title {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: var(--color-gold);
+    }
+
+    .contact__item-text p,
+    .contact__link {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .contact__link {
+      color: var(--color-gold);
+      text-decoration: underline;
+    }
+
+    .contact__link:hover {
+      color: var(--color-gold-light);
+    }
+
+    .contact__cta {
+      display: inline-block;
+      padding: 16px 40px;
+      background: var(--color-gold);
+      color: var(--color-black);
+      font-family: var(--font-cta);
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 8px;
+      text-align: center;
+      transition: all 0.3s ease;
+      margin-top: 24px;
+    }
+
+    .contact__cta:hover {
+      background: var(--color-gold-light);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: var(--color-black);
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 80px 24px 24px;
+    }
+
+    .footer__container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 80px;
+      margin-bottom: 48px;
+    }
+
+    .footer__logo {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--color-gold);
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+    }
+
+    .footer__tagline {
+      font-size: 14px;
+      font-style: italic;
+      color: var(--color-gray);
+    }
+
+    .footer__title {
+      font-size: 18px;
+      margin-bottom: 24px;
+      color: var(--color-gold);
+    }
+
+    .footer__links li {
+      margin-bottom: 8px;
+    }
+
+    .footer__links a {
+      font-size: 14px;
+      color: var(--color-gray);
+    }
+
+    .footer__links a:hover {
+      color: var(--color-gold);
+    }
+
+    .footer__col p {
+      font-size: 14px;
+      color: var(--color-gray);
+      margin-bottom: 8px;
+    }
+
+    .footer__credentials {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer__logo-img {
+      height: 40px;
+      width: auto;
+      filter: grayscale(100%) brightness(0.6);
+      transition: all 0.3s ease;
+    }
+
+    .footer__logo-img:hover {
+      filter: grayscale(0%) brightness(1);
+    }
+
+    .footer__bottom {
+      text-align: center;
+      padding-top: 48px;
+      border-top: 1px solid rgba(212, 175, 55, 0.1);
+    }
+
+    .footer__bottom p {
+      font-size: 13px;
+      color: var(--color-gray);
+      margin-bottom: 4px;
+    }
+
+    /* ========== RESPONSIVO ========== */
+    @media (max-width: 1023px) {
+      .hero__headline {
+        font-size: 48px;
+      }
+
+      .section-title {
+        font-size: 36px;
+      }
+
+      .hero__content,
+      .about__content,
+      .sensei__container,
+      .contact__content {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .classes__grid,
+      .benefits__grid,
+      .testimonials__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lineage {
+        flex-direction: column;
+      }
+
+      .lineage__arrow {
+        transform: rotate(90deg);
+      }
+
+      .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 767px) {
+      body {
+        font-size: 16px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 48px 24px;
+      }
+
+      .hero__logo-text {
+        font-size: 24px;
+      }
+
+      .hero__headline {
+        font-size: 32px;
+      }
+
+      .hero__subheadline {
+        font-size: 16px;
+      }
+
+      .hero__cta {
+        width: 100%;
+        text-align: center;
+        padding: 16px 24px;
+        font-size: 16px;
+      }
+
+      .hero__content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero__mascot {
+        order: -1;
+      }
+
+      .mascot {
+        max-width: 280px;
+      }
+
+      .credentials__logos {
+        gap: 24px;
+      }
+
+      .credentials__logo {
+        height: 40px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .trial__content {
+        padding: 48px 24px;
+      }
+
+      .trial__cta {
+        width: 100%;
+        padding: 16px 32px;
+        font-size: 16px;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- ========== HERO SECTION ========== -->
+  <!-- HERO -->
   <header class="hero">
     <div class="hero__container">
       
-      <!-- Logo e Navegação -->
       <nav class="hero__nav">
         <div class="hero__logo">
           <h1 class="hero__logo-text">EKAM</h1>
@@ -40,10 +1124,7 @@
         </div>
       </nav>
 
-      <!-- Conteúdo Principal Hero -->
       <div class="hero__content">
-        
-        <!-- Texto -->
         <div class="hero__text">
           <h2 class="hero__headline">EKAM Karatê — Tradição Wado Ryu em Araraquara</h2>
           <p class="hero__subheadline">Academia filiada à Federação Paulista de Karatê (FPK) e à Associação Kii Kuu Kai Wado Ryu. Ensino tradicional com mais de 40 anos de experiência do Sensei André Mendonça.</p>
@@ -55,39 +1136,31 @@
           <p class="hero__social-proof">⭐ Mais de 300 alunos formados desde 1984</p>
         </div>
 
-        <!-- Mascote Animado -->
         <div class="hero__mascot">
-          <img src="https://i.imgur.com/placeholder-mascote.png" alt="Mascote EKAM - Pássaro guerreiro" class="mascot">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500' viewBox='0 0 400 500'%3E%3Crect fill='%231a1a1a' width='400' height='500'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='%23D4AF37' text-anchor='middle' dy='.3em' font-family='Arial'%3EMASCOTE EKAM%3C/text%3E%3C/svg%3E" alt="Mascote EKAM" class="mascot">
           <div class="mascot-flames"></div>
         </div>
-
       </div>
 
-      <!-- Logos de Credibilidade -->
       <div class="hero__credentials">
         <div class="credentials__logos">
-          <img src="https://via.placeholder.com/120x60/D4AF37/0a0a0a?text=FPK" alt="Federação Paulista de Karatê" class="credentials__logo">
-          <img src="https://via.placeholder.com/120x60/D4AF37/0a0a0a?text=CBK" alt="Confederação Brasileira de Karatê" class="credentials__logo">
-          <img src="https://via.placeholder.com/120x60/D4AF37/0a0a0a?text=Kii+Kuu+Kai" alt="Kii Kuu Kai Wado Ryu" class="credentials__logo">
-          <img src="https://via.placeholder.com/120x60/D4AF37/0a0a0a?text=WKF" alt="World Karate Federation" class="credentials__logo">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60' viewBox='0 0 120 60'%3E%3Crect fill='%23D4AF37' width='120' height='60'/%3E%3Ctext x='50%25' y='50%25' font-size='16' fill='%230a0a0a' text-anchor='middle' dy='.3em' font-family='Arial' font-weight='bold'%3EFPK%3C/text%3E%3C/svg%3E" alt="FPK" class="credentials__logo">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60' viewBox='0 0 120 60'%3E%3Crect fill='%23D4AF37' width='120' height='60'/%3E%3Ctext x='50%25' y='50%25' font-size='16' fill='%230a0a0a' text-anchor='middle' dy='.3em' font-family='Arial' font-weight='bold'%3ECBK%3C/text%3E%3C/svg%3E" alt="CBK" class="credentials__logo">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60' viewBox='0 0 120 60'%3E%3Crect fill='%23D4AF37' width='120' height='60'/%3E%3Ctext x='50%25' y='50%25' font-size='12' fill='%230a0a0a' text-anchor='middle' dy='.3em' font-family='Arial' font-weight='bold'%3EKii Kuu Kai%3C/text%3E%3C/svg%3E" alt="Kii Kuu Kai" class="credentials__logo">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60' viewBox='0 0 120 60'%3E%3Crect fill='%23D4AF37' width='120' height='60'/%3E%3Ctext x='50%25' y='50%25' font-size='16' fill='%230a0a0a' text-anchor='middle' dy='.3em' font-family='Arial' font-weight='bold'%3EWKF%3C/text%3E%3C/svg%3E" alt="WKF" class="credentials__logo">
         </div>
         <p class="credentials__text">Única academia de Araraquara filiada à FPK</p>
       </div>
 
     </div>
-
-    <!-- Elementos decorativos de fundo -->
     <div class="hero__bg-decoration"></div>
-
   </header>
 
-  <!-- ========== SEÇÃO: SOBRE O WADO RYU ========== -->
+  <!-- SOBRE -->
   <section class="about" id="sobre">
     <div class="about__container">
       
       <div class="about__content">
-        
-        <!-- Texto -->
         <div class="about__text">
           <h2 class="section-title">O que é o Wado Ryu?</h2>
           <p class="about__description">
@@ -98,14 +1171,11 @@
           </p>
         </div>
 
-        <!-- Imagem -->
         <div class="about__image">
-          <img src="https://via.placeholder.com/600x400/1a1a1a/D4AF37?text=Dojo+EKAM" alt="Dojo EKAM Karatê" class="about__img">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%231a1a1a' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='%23D4AF37' text-anchor='middle' dy='.3em' font-family='Arial'%3EDojo EKAM%3C/text%3E%3C/svg%3E" alt="Dojo EKAM" class="about__img">
         </div>
-
       </div>
 
-      <!-- EKAM em Araraquara -->
       <div class="about__ekam">
         <h3 class="section-subtitle">A EKAM em Araraquara</h3>
         <p class="about__description">
@@ -135,17 +1205,15 @@
     </div>
   </section>
 
-  <!-- ========== SEÇÃO: SENSEI ANDRÉ MENDONÇA ========== -->
+  <!-- SENSEI -->
   <section class="sensei" id="sensei">
     <div class="sensei__container">
       
-      <!-- Imagem do Sensei -->
       <div class="sensei__image">
-        <img src="https://via.placeholder.com/500x600/1a1a1a/D4AF37?text=Sensei+André" alt="Sensei André Mendonça" class="sensei__img">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='600' viewBox='0 0 500 600'%3E%3Crect fill='%231a1a1a' width='500' height='600'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='%23D4AF37' text-anchor='middle' dy='.3em' font-family='Arial'%3ESensei André%3C/text%3E%3C/svg%3E" alt="Sensei André" class="sensei__img">
         <div class="sensei__badge">41 anos de experiência</div>
       </div>
 
-      <!-- Texto -->
       <div class="sensei__text">
         <h2 class="section-title">Sensei André Mendonça</h2>
         
@@ -160,7 +1228,6 @@
           Sensei André começou no karatê ainda criança e passou por todas as fases: aluno, atleta competitivo e professor. Hoje, compartilha essa experiência com alunos de todas as idades.
         </p>
 
-        <!-- Timeline de Linhagem -->
         <div class="sensei__lineage">
           <h3 class="sensei__lineage-title">Linhagem Wado Ryu</h3>
           <div class="lineage">
@@ -189,7 +1256,7 @@
     </div>
   </section>
 
-  <!-- ========== SEÇÃO: TURMAS ========== -->
+  <!-- TURMAS -->
   <section class="classes" id="turmas">
     <div class="classes__container">
       
@@ -197,7 +1264,6 @@
 
       <div class="classes__grid">
         
-        <!-- Karatê Infantil -->
         <div class="class-card">
           <div class="class-card__icon">👶</div>
           <h3 class="class-card__title">Karatê Infantil</h3>
@@ -207,7 +1273,6 @@
           </p>
         </div>
 
-        <!-- Karatê Adulto -->
         <div class="class-card">
           <div class="class-card__icon">🥋</div>
           <h3 class="class-card__title">Karatê Adulto</h3>
@@ -217,7 +1282,6 @@
           </p>
         </div>
 
-        <!-- Karatê Competição -->
         <div class="class-card">
           <div class="class-card__icon">🏆</div>
           <h3 class="class-card__title">Karatê Competição</h3>
@@ -232,7 +1296,7 @@
     </div>
   </section>
 
-  <!-- ========== SEÇÃO: BENEFÍCIOS ========== -->
+  <!-- BENEFÍCIOS -->
   <section class="benefits" id="beneficios">
     <div class="benefits__container">
       
@@ -240,7 +1304,6 @@
 
       <div class="benefits__grid">
         
-        <!-- Para Crianças -->
         <div class="benefit-card">
           <h3 class="benefit-card__title">Para Crianças</h3>
           <ul class="benefit-card__list">
@@ -251,7 +1314,6 @@
           </ul>
         </div>
 
-        <!-- Para Adultos -->
         <div class="benefit-card">
           <h3 class="benefit-card__title">Para Adultos</h3>
           <ul class="benefit-card__list">
@@ -262,7 +1324,6 @@
           </ul>
         </div>
 
-        <!-- Para Famílias -->
         <div class="benefit-card">
           <h3 class="benefit-card__title">Para Famílias</h3>
           <ul class="benefit-card__list">
@@ -277,7 +1338,7 @@
     </div>
   </section>
 
-  <!-- ========== SEÇÃO: DEPOIMENTOS ========== -->
+  <!-- DEPOIMENTOS -->
   <section class="testimonials" id="depoimentos">
     <div class="testimonials__container">
       
@@ -285,7 +1346,6 @@
 
       <div class="testimonials__grid">
         
-        <!-- Testemunho 1 -->
         <div class="testimonial-card">
           <div class="testimonial-card__stars">⭐⭐⭐⭐⭐</div>
           <p class="testimonial-card__text">
@@ -297,7 +1357,6 @@
           </div>
         </div>
 
-        <!-- Testemunho 2 -->
         <div class="testimonial-card">
           <div class="testimonial-card__stars">⭐⭐⭐⭐⭐</div>
           <p class="testimonial-card__text">
@@ -309,7 +1368,6 @@
           </div>
         </div>
 
-        <!-- Testemunho 3 -->
         <div class="testimonial-card testimonial-card--featured">
           <div class="testimonial-card__stars">⭐⭐⭐⭐⭐</div>
           <p class="testimonial-card__text">
@@ -326,9 +1384,8 @@
     </div>
   </section>
 
-  <!-- ========== SEÇÃO: AULA EXPERIMENTAL ========== -->
+  <!-- AULA EXPERIMENTAL -->
   <section class="trial" id="aula-experimental">
-    <div class="trial__overlay"></div>
     <div class="trial__container">
       
       <div class="trial__content">
@@ -357,7 +1414,7 @@
     </div>
   </section>
 
-  <!-- ========== SEÇÃO: FAQ ========== -->
+  <!-- FAQ -->
   <section class="faq" id="faq">
     <div class="faq__container">
       
@@ -365,7 +1422,6 @@
 
       <div class="faq__list">
         
-        <!-- FAQ Item 1 -->
         <div class="faq-item">
           <button class="faq-item__question" aria-expanded="false">
             Qual a idade mínima para começar?
@@ -376,7 +1432,6 @@
           </div>
         </div>
 
-        <!-- FAQ Item 2 -->
         <div class="faq-item">
           <button class="faq-item__question" aria-expanded="false">
             Nunca pratiquei karatê. Posso começar adulto?
@@ -387,7 +1442,6 @@
           </div>
         </div>
 
-        <!-- FAQ Item 3 -->
         <div class="faq-item">
           <button class="faq-item__question" aria-expanded="false">
             É necessário algum equipamento especial?
@@ -398,7 +1452,6 @@
           </div>
         </div>
 
-        <!-- FAQ Item 4 -->
         <div class="faq-item">
           <button class="faq-item__question" aria-expanded="false">
             Qual a frequência das aulas?
@@ -409,7 +1462,6 @@
           </div>
         </div>
 
-        <!-- FAQ Item 5 -->
         <div class="faq-item">
           <button class="faq-item__question" aria-expanded="false">
             A EKAM prepara para competições?
@@ -420,7 +1472,6 @@
           </div>
         </div>
 
-        <!-- FAQ Item 6 -->
         <div class="faq-item">
           <button class="faq-item__question" aria-expanded="false">
             Quanto custa?
@@ -436,7 +1487,7 @@
     </div>
   </section>
 
-  <!-- ========== SEÇÃO: LOCALIZAÇÃO E CONTATO ========== -->
+  <!-- CONTATO -->
   <section class="contact" id="contato">
     <div class="contact__container">
       
@@ -444,12 +1495,10 @@
 
       <div class="contact__content">
         
-        <!-- Mapa -->
         <div class="contact__map">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.5!2d-48.1757!3d-21.7844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDQ3JzAzLjgiUyA0OMKwMTAnMzIuNSJX!5e0!3m2!1spt-BR!2sbr!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
-        <!-- Informações de Contato -->
         <div class="contact__info">
           
           <div class="contact__item">
@@ -495,19 +1544,17 @@
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__container">
       
       <div class="footer__grid">
         
-        <!-- Coluna 1: Logo e Tagline -->
         <div class="footer__col">
           <h2 class="footer__logo">EKAM</h2>
           <p class="footer__tagline">"Tradição, Disciplina e Excelência no Karatê"</p>
         </div>
 
-        <!-- Coluna 2: Links Rápidos -->
         <div class="footer__col">
           <h3 class="footer__title">Links Rápidos</h3>
           <ul class="footer__links">
@@ -519,7 +1566,6 @@
           </ul>
         </div>
 
-        <!-- Coluna 3: Horários -->
         <div class="footer__col">
           <h3 class="footer__title">Horários</h3>
           <p>Segunda a Sexta: 15h - 21h</p>
@@ -527,19 +1573,17 @@
           <p>Domingo: Fechado</p>
         </div>
 
-        <!-- Coluna 4: Credenciais -->
         <div class="footer__col">
           <h3 class="footer__title">Credenciais</h3>
           <div class="footer__credentials">
-            <img src="https://via.placeholder.com/80x40/D4AF37/0a0a0a?text=FPK" alt="FPK" class="footer__logo-img">
-            <img src="https://via.placeholder.com/80x40/D4AF37/0a0a0a?text=CBK" alt="CBK" class="footer__logo-img">
-            <img src="https://via.placeholder.com/80x40/D4AF37/0a0a0a?text=Kii" alt="Kii Kuu Kai" class="footer__logo-img">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Crect fill='%23D4AF37' width='80' height='40'/%3E%3Ctext x='50%25' y='50%25' font-size='12' fill='%230a0a0a' text-anchor='middle' dy='.3em' font-family='Arial' font-weight='bold'%3EFPK%3C/text%3E%3C/svg%3E" alt="FPK" class="footer__logo-img">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Crect fill='%23D4AF37' width='80' height='40'/%3E%3Ctext x='50%25' y='50%25' font-size='12' fill='%230a0a0a' text-anchor='middle' dy='.3em' font-family='Arial' font-weight='bold'%3ECBK%3C/text%3E%3C/svg%3E" alt="CBK" class="footer__logo-img">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Crect fill='%23D4AF37' width='80' height='40'/%3E%3Ctext x='50%25' y='50%25' font-size='10' fill='%230a0a0a' text-anchor='middle' dy='.3em' font-family='Arial' font-weight='bold'%3EKii Kuu Kai%3C/text%3E%3C/svg%3E" alt="Kii" class="footer__logo-img">
           </div>
         </div>
 
       </div>
 
-      <!-- Copyright -->
       <div class="footer__bottom">
         <p>&copy; 2026 EKAM - Equipe de Karatê André Mendonça. Todos os direitos reservados.</p>
         <p>Responsável Técnico: André Mendonça</p>
@@ -548,7 +1592,6 @@
     </div>
   </footer>
 
-  <!-- JavaScript para FAQ Accordion -->
   <script>
     // FAQ Accordion
     const faqItems = document.querySelectorAll('.faq-item');
@@ -561,14 +1604,12 @@
       question.addEventListener('click', () => {
         const isOpen = question.getAttribute('aria-expanded') === 'true';
         
-        // Fechar todos os outros itens
         faqItems.forEach(otherItem => {
           otherItem.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
           otherItem.querySelector('.faq-item__answer').style.maxHeight = null;
           otherItem.querySelector('.faq-item__icon').textContent = '+';
         });
         
-        // Toggle item atual
         if (!isOpen) {
           question.setAttribute('aria-expanded', 'true');
           answer.style.maxHeight = answer.scrollHeight + 'px';
