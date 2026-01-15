@@ -1,1158 +1,582 @@
-/* ========================================
-   EKAM KARATÊ - LANDING PAGE CSS
-   Design: Elegante, Futurista, Minimalista
-======================================== */
-
-/* ========== VARIÁVEIS CSS (Design Tokens) ========== */
-:root {
-  /* Cores */
-  --color-black: #0a0a0a;
-  --color-black-light: #1a1a1a;
-  --color-gold: #D4AF37;
-  --color-gold-light: #F4E4C1;
-  --color-white: #FFFFFF;
-  --color-red: #C41E3A;
-  --color-gray: #808080;
-  --color-overlay: rgba(10, 10, 10, 0.85);
-
-  /* Tipografia */
-  --font-heading: 'Orbitron', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-cta: 'Rajdhani', sans-serif;
-
-  /* Espaçamentos */
-  --spacing-xs: 8px;
-  --spacing-sm: 16px;
-  --spacing-md: 24px;
-  --spacing-lg: 48px;
-  --spacing-xl: 80px;
-  --spacing-2xl: 120px;
-
-  /* Outros */
-  --border-radius: 8px;
-  --transition: all 0.3s ease;
-  --container-max: 1400px;
-}
-
-/* ========== RESET E BASE ========== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-body);
-  font-size: 18px;
-  line-height: 1.7;
-  color: var(--color-white);
-  background: var(--color-black);
-  overflow-x: hidden;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: var(--transition);
-}
-
-ul {
-  list-style: none;
-}
-
-button {
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-/* ========== TIPOGRAFIA GLOBAL ========== */
-h1, h2, h3 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-.section-title {
-  font-size: 48px;
-  margin-bottom: var(--spacing-lg);
-  color: var(--color-gold);
-}
-
-.section-title--center {
-  text-align: center;
-}
-
-.section-title--light {
-  color: var(--color-white);
-}
-
-.section-subtitle {
-  font-size: 32px;
-  margin-bottom: var(--spacing-md);
-  color: var(--color-gold);
-}
-
-/* ========== HERO SECTION ========== */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  background: linear-gradient(135deg, var(--color-black) 0%, var(--color-black-light) 50%, var(--color-black) 100%);
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  padding: var(--spacing-md);
-}
-
-.hero__bg-decoration {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.03;
-  background-image: 
-    repeating-linear-gradient(45deg, transparent, transparent 50px, var(--color-gold) 50px, var(--color-gold) 51px),
-    repeating-linear-gradient(-45deg, transparent, transparent 50px, var(--color-gold) 50px, var(--color-gold) 51px);
-  pointer-events: none;
-}
-
-.hero__container {
-  max-width: var(--container-max);
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-/* Navegação */
-.hero__nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--spacing-xl);
-}
-
-.hero__logo-text {
-  font-size: 36px;
-  font-weight: 900;
-  color: var(--color-gold);
-  letter-spacing: 4px;
-}
-
-.hero__social {
-  display: flex;
-  gap: var(--spacing-sm);
-}
-
-.hero__social-link {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--color-black-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-gold);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  transition: var(--transition);
-}
-
-.hero__social-link:hover {
-  background: var(--color-gold);
-  color: var(--color-black);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
-}
-
-/* Conteúdo Hero */
-.hero__content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-xl);
-  align-items: center;
-  margin-bottom: var(--spacing-xl);
-}
-
-.hero__text {
-  animation: fadeInUp 1s ease-out;
-}
-
-.hero__headline {
-  font-size: 64px;
-  margin-bottom: var(--spacing-md);
-  color: var(--color-white);
-  line-height: 1.1;
-}
-
-.hero__subheadline {
-  font-size: 20px;
-  margin-bottom: var(--spacing-lg);
-  color: var(--color-gray);
-  max-width: 600px;
-}
-
-.hero__cta {
-  display: inline-block;
-  padding: 18px 48px;
-  background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-gold-light) 50%, var(--color-gold) 100%);
-  background-size: 200% 100%;
-  color: var(--color-black);
-  font-family: var(--font-cta);
-  font-size: 18px;
-  font-weight: 700;
-  border-radius: var(--border-radius);
-  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
-  transition: var(--transition);
-  margin-bottom: var(--spacing-md);
-}
-
-.hero__cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(212, 175, 55, 0.6);
-  background-position: 100% 0;
-}
-
-.hero__social-proof {
-  font-size: 16px;
-  color: var(--color-gray);
-}
-
-/* Mascote Animado */
-.hero__mascot {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: fadeInRight 1s ease-out;
-}
-
-.mascot {
-  width: 100%;
-  max-width: 500px;
-  animation: float 4s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
-  filter: drop-shadow(0 10px 30px rgba(212, 175, 55, 0.3));
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-15px) rotate(1deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(0deg);
-  }
-  75% {
-    transform: translateY(-15px) rotate(-1deg);
-  }
-}
-
-@keyframes glow {
-  from {
-    filter: drop-shadow(0 10px 30px rgba(212, 175, 55, 0.3)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
-  }
-  to {
-    filter: drop-shadow(0 10px 40px rgba(212, 175, 55, 0.5)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.3));
-  }
-}
-
-.mascot-flames {
-  position: absolute;
-  width: 120%;
-  height: 120%;
-  top: -10%;
-  left: -10%;
-  background: radial-gradient(circle, rgba(196, 30, 58, 0.2) 0%, transparent 70%);
-  animation: flicker 2s ease-in-out infinite;
-  pointer-events: none;
-  z-index: -1;
-}
-
-@keyframes flicker {
-  0%, 100% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
-}
-
-/* Credenciais */
-.hero__credentials {
-  text-align: center;
-  animation: fadeInUp 1.2s ease-out;
-}
-
-.credentials__logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--spacing-lg);
-  margin-bottom: var(--spacing-sm);
-  flex-wrap: wrap;
-}
-
-.credentials__logo {
-  height: 60px;
-  width: auto;
-  filter: grayscale(100%) brightness(0.7);
-  transition: var(--transition);
-}
-
-.credentials__logo:hover {
-  filter: grayscale(0%) brightness(1);
-  transform: translateY(-3px);
-}
-
-.credentials__text {
-  font-size: 14px;
-  color: var(--color-gold);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-/* Animações de entrada */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* ========== SEÇÃO: SOBRE ========== */
-.about {
-  padding: var(--spacing-2xl) var(--spacing-md);
-  background: var(--color-black-light);
-}
-
-.about__container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-}
-
-.about__content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-xl);
-  align-items: center;
-  margin-bottom: var(--spacing-xl);
-}
-
-.about__description {
-  font-size: 18px;
-  margin-bottom: var(--spacing-md);
-  line-height: 1.8;
-}
-
-.about__image {
-  position: relative;
-}
-
-.about__img {
-  width: 100%;
-  border-radius: var(--border-radius);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
-}
-
-.about__ekam {
-  background: rgba(26, 26, 26, 0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: var(--border-radius);
-  padding: var(--spacing-lg);
-  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.1);
-}
-
-.about__features {
-  display: grid;
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-lg);
-}
-
-.feature {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--spacing-sm);
-}
-
-.feature__icon {
-  width: 28px;
-  height: 28px;
-  background: var(--color-gold);
-  color: var(--color-black);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.feature__text {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* ========== SEÇÃO: SENSEI ========== */
-.sensei {
-  padding: var(--spacing-2xl) var(--spacing-md);
-  background: var(--color-black);
-}
-
-.sensei__container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: var(--spacing-xl);
-  align-items: center;
-}
-
-.sensei__image {
-  position: relative;
-}
-
-.sensei__img {
-  width: 100%;
-  border-radius: var(--border-radius);
-  box-shadow: 0 16px 48px rgba(212, 175, 55, 0.2);
-}
-
-.sensei__badge {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  background: var(--color-gold);
-  color: var(--color-black);
-  padding: 12px 24px;
-  border-radius: var(--border-radius);
-  font-weight: 700;
-  font-size: 14px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-
-.sensei__credentials {
-  margin-bottom: var(--spacing-lg);
-}
-
-.sensei__credentials li {
-  font-size: 18px;
-  margin-bottom: var(--spacing-sm);
-  padding-left: var(--spacing-md);
-  position: relative;
-}
-
-.sensei__credentials li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--color-gold);
-  font-weight: 700;
-}
-
-.sensei__bio {
-  font-size: 16px;
-  line-height: 1.8;
-  margin-bottom: var(--spacing-lg);
-  color: var(--color-gray);
-}
-
-.sensei__lineage {
-  background: var(--color-black-light);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: var(--border-radius);
-  padding: var(--spacing-lg);
-}
-
-.sensei__lineage-title {
-  font-size: 20px;
-  margin-bottom: var(--spacing-md);
-  color: var(--color-gold);
-}
-
-.lineage {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--spacing-md);
-  flex-wrap: wrap;
-}
-
-.lineage__item {
-  text-align: center;
-  flex: 1;
-  min-width: 140px;
-}
-
-.lineage__year {
-  font-size: 14px;
-  color: var(--color-gold);
-  margin-bottom: 8px;
-}
-
-.lineage__name {
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 4px;
-}
-
-.lineage__desc {
-  font-size: 13px;
-  color: var(--color-gray);
-}
-
-.lineage__arrow {
-  font-size: 24px;
-  color: var(--color-gold);
-}
-
-/* ========== SEÇÃO: TURMAS ========== */
-.classes {
-  padding: var(--spacing-2xl) var(--spacing-md);
-  background: var(--color-black-light);
-}
-
-.classes__container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-}
-
-.classes__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-lg);
-}
-
-.class-card {
-  background: rgba(26, 26, 26, 0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: var(--border-radius);
-  padding: var(--spacing-lg);
-  text-align: center;
-  transition: var(--transition);
-}
-
-.class-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 48px rgba(212, 175, 55, 0.25);
-  border-color: var(--color-gold);
-}
-
-.class-card__icon {
-  font-size: 48px;
-  margin-bottom: var(--spacing-md);
-}
-
-.class-card__title {
-  font-size: 24px;
-  margin-bottom: var(--spacing-sm);
-  color: var(--color-gold);
-}
-
-.class-card__age {
-  font-size: 14px;
-  color: var(--color-gray);
-  margin-bottom: var(--spacing-md);
-}
-
-.class-card__description {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* ========== SEÇÃO: BENEFÍCIOS ========== */
-.benefits {
-  padding: var(--spacing-2xl) var(--spacing-md);
-  background: var(--color-black);
-}
-
-.benefits__container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-}
-
-.benefits__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-lg);
-}
-
-.benefit-card {
-  background: var(--color-black-light);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: var(--border-radius);
-  padding: var(--spacing-lg);
-}
-
-.benefit-card__title {
-  font-size: 24px;
-  margin-bottom: var(--spacing-md);
-  color: var(--color-gold);
-  text-align: center;
-}
-
-.benefit-card__list li {
-  font-size: 16px;
-  margin-bottom: var(--spacing-sm);
-  padding-left: var(--spacing-md);
-  position: relative;
-}
-
-.benefit-card__list li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--color-gold);
-  font-weight: 700;
-}
-
-/* ========== SEÇÃO: DEPOIMENTOS ========== */
-.testimonials {
-  padding: var(--spacing-2xl) var(--spacing-md);
-  background: var(--color-black-light);
-}
-
-.testimonials__container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-}
-
-.testimonials__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-lg);
-}
-
-.testimonial-card {
-  background: rgba(26, 26, 26, 0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: var(--border-radius);
-  padding: var(--spacing-lg);
-  transition: var(--transition);
-}
-
-.testimonial-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 36px rgba(212, 175, 55, 0.2);
-}
-
-.testimonial-card--featured {
-  border-color: var(--color-gold);
-  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.3);
-}
-
-.testimonial-card__stars {
-  color: var(--color-gold);
-  margin-bottom: var(--spacing-md);
-  font-size: 18px;
-}
-
-.testimonial-card__text {
-  font-size: 16px;
-  font-style: italic;
-  line-height: 1.8;
-  margin-bottom: var(--spacing-lg);
-  color: var(--color-gray);
-}
-
-.testimonial-card__name {
-  font-size: 16px;
-  margin-bottom: 4px;
-}
-
-.testimonial-card__detail {
-  font-size: 14px;
-  color: var(--color-gold);
-}
-
-/* ========== SEÇÃO: AULA EXPERIMENTAL ========== */
-.trial {
-  position: relative;
-  padding: var(--spacing-2xl) var(--spacing-md);
-  background: url('dojo-background.jpg') center/cover no-repeat;
-  background-attachment: fixed;
-}
-
-.trial__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--color-overlay);
-}
-
-.trial__container {
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.trial__content {
-  background: rgba(26, 26, 26, 0.8);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: var(--border-radius);
-  padding: var(--spacing-xl);
-  text-align: center;
-  box-shadow: 0 16px 64px rgba(0, 0, 0, 0.5);
-}
-
-.trial__description {
-  font-size: 18px;
-  margin-bottom: var(--spacing-lg);
-  line-height: 1.8;
-}
-
-.trial__includes-title {
-  font-size: 20px;
-  margin-bottom: var(--spacing-md);
-  color: var(--color-gold);
-}
-
-.trial__includes-list {
-  text-align: left;
-  max-width: 600px;
-  margin: 0 auto var(--spacing-lg);
-}
-
-.trial__includes-list li {
-  font-size: 16px;
-  margin-bottom: var(--spacing-sm);
-  padding-left: var(--spacing-md);
-  position: relative;
-}
-
-.trial__includes-list li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--color-gold);
-  font-weight: 700;
-}
-
-.trial__cta-text {
-  font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 8px;
-  color: var(--color-gold);
-}
-
-.trial__cta-subtext {
-  font-size: 16px;
-  margin-bottom: var(--spacing-lg);
-  color: var(--color-gray);
-}
-
-.trial__cta {
-  display: inline-block;
-  padding: 20px 60px;
-  background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-gold-light) 50%, var(--color-gold) 100%);
-  background-size: 200% 100%;
-  color: var(--color-black);
-  font-family: var(--font-cta);
-  font-size: 20px;
-  font-weight: 700;
-  border-radius: var(--border-radius);
-  box-shadow: 0 12px 36px rgba(212, 175, 55, 0.5);
-  transition: var(--transition);
-}
-
-.trial__cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 48px rgba(212, 175, 55, 0.7);
-  background-position: 100% 0;
-}
-
-/* ========== SEÇÃO: FAQ ========== */
-.faq {
-  padding: var(--spacing-2xl) var(--spacing-md);
-  background: var(--color-black);
-}
-
-.faq__container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.faq__list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.faq-item {
-  background: var(--color-black-light);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  transition: var(--transition);
-}
-
-.faq-item:hover {
-  border-color: var(--color-gold);
-}
-
-.faq-item__question {
-  width: 100%;
-  padding: var(--spacing-md);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: left;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--color-white);
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.faq-item__question:hover {
-  color: var(--color-gold);
-}
-
-.faq-item__icon {
-  font-size: 24px;
-  color: var(--color-gold);
-  transition: var(--transition);
-}
-
-.faq-item__answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.faq-item__answer p {
-  padding: 0 var(--spacing-md) var(--spacing-md);
-  color: var(--color-gray);
-  line-height: 1.8;
-}
-
-/* ========== SEÇÃO: CONTATO ========== */
-.contact {
-  padding: var(--spacing-2xl) var(--spacing-md);
-  background: var(--color-black-light);
-}
-
-.contact__container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-}
-
-.contact__content {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: var(--spacing-xl);
-}
-
-.contact__map iframe {
-  border-radius: var(--border-radius);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-.contact__info {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
-}
-
-.contact__item {
-  display: flex;
-  gap: var(--spacing-md);
-  align-items: flex-start;
-}
-
-.contact__item-icon {
-  font-size: 28px;
-  flex-shrink: 0;
-}
-
-.contact__item-title {
-  font-size: 18px;
-  margin-bottom: 8px;
-  color: var(--color-gold);
-}
-
-.contact__item-text p,
-.contact__link {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.contact__link {
-  color: var(--color-gold);
-  text-decoration: underline;
-}
-
-.contact__link:hover {
-  color: var(--color-gold-light);
-}
-
-.contact__cta {
-  display: inline-block;
-  padding: 16px 40px;
-  background: var(--color-gold);
-  color: var(--color-black);
-  font-family: var(--font-cta);
-  font-size: 18px;
-  font-weight: 700;
-  border-radius: var(--border-radius);
-  text-align: center;
-  transition: var(--transition);
-  margin-top: var(--spacing-md);
-}
-
-.contact__cta:hover {
-  background: var(--color-gold-light);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
-}
-
-/* ========== FOOTER ========== */
-.footer {
-  background: var(--color-black);
-  border-top: 1px solid rgba(212, 175, 55, 0.2);
-  padding: var(--spacing-xl) var(--spacing-md) var(--spacing-md);
-}
-
-.footer__container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-}
-
-.footer__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-xl);
-  margin-bottom: var(--spacing-lg);
-}
-
-.footer__logo {
-  font-family: var(--font-heading);
-  font-size: 28px;
-  font-weight: 900;
-  color: var(--color-gold);
-  letter-spacing: 3px;
-  margin-bottom: var(--spacing-sm);
-}
-
-.footer__tagline {
-  font-size: 14px;
-  font-style: italic;
-  color: var(--color-gray);
-}
-
-.footer__title {
-  font-size: 18px;
-  margin-bottom: var(--spacing-md);
-  color: var(--color-gold);
-}
-
-.footer__links li {
-  margin-bottom: 8px;
-}
-
-.footer__links a {
-  font-size: 14px;
-  color: var(--color-gray);
-}
-
-.footer__links a:hover {
-  color: var(--color-gold);
-}
-
-.footer__col p {
-  font-size: 14px;
-  color: var(--color-gray);
-  margin-bottom: 8px;
-}
-
-.footer__credentials {
-  display: flex;
-  gap: var(--spacing-md);
-  flex-wrap: wrap;
-}
-
-.footer__logo-img {
-  height: 40px;
-  width: auto;
-  filter: grayscale(100%) brightness(0.6);
-  transition: var(--transition);
-}
-
-.footer__logo-img:hover {
-  filter: grayscale(0%) brightness(1);
-}
-
-.footer__bottom {
-  text-align: center;
-  padding-top: var(--spacing-lg);
-  border-top: 1px solid rgba(212, 175, 55, 0.1);
-}
-
-.footer__bottom p {
-  font-size: 13px;
-  color: var(--color-gray);
-  margin-bottom: 4px;
-}
-
-/* ========== RESPONSIVIDADE ========== */
-
-/* Tablet (768px - 1023px) */
-@media (max-width: 1023px) {
-  .hero__headline {
-    font-size: 48px;
-  }
-
-  .section-title {
-    font-size: 36px;
-  }
-
-  .hero__content,
-  .about__content,
-  .sensei__container,
-  .contact__content {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-  }
-
-  .classes__grid,
-  .benefits__grid,
-  .testimonials__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .lineage {
-    flex-direction: column;
-  }
-
-  .lineage__arrow {
-    transform: rotate(90deg);
-  }
-
-  .footer__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Mobile (&lt; 768px) */
-@media (max-width: 767px) {
-  :root {
-    --spacing-xl: 40px;
-    --spacing-2xl: 60px;
-  }
-
-  body {
-    font-size: 16px;
-  }
-
-  .hero {
-    min-height: auto;
-    padding: var(--spacing-lg) var(--spacing-md);
-  }
-
-  .hero__logo-text {
-    font-size: 24px;
-  }
-
-  .hero__headline {
-    font-size: 36px;
-  }
-
-  .hero__subheadline {
-    font-size: 16px;
-  }
-
-  .hero__cta {
-    width: 100%;
-    text-align: center;
-    padding: 16px 24px;
-    font-size: 16px;
-  }
-
-  .hero__content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .hero__mascot {
-    order: -1;
-  }
-
-  .mascot {
-    max-width: 300px;
-  }
-
-  .credentials__logos {
-    gap: var(--spacing-md);
-  }
-
-  .credentials__logo {
-    height: 40px;
-  }
-
-  .section-title {
-    font-size: 28px;
-  }
-
-  .section-subtitle {
-    font-size: 24px;
-  }
-
-  .class-card__icon {
-    font-size: 36px;
-  }
-
-  .trial__content {
-    padding: var(--spacing-lg);
-  }
-
-  .trial__cta {
-    width: 100%;
-    padding: 16px 32px;
-    font-size: 16px;
-  }
-
-  .faq-item__question {
-    font-size: 16px;
-  }
-
-  .footer__grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-  }
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EKAM Karatê | Tradição Wado Ryu em Araraquara</title>
+  <meta name="description" content="Academia de Karatê Wado Ryu em Araraquara. Única filiada à FPK. Ensino tradicional com mais de 40 anos de experiência. Aula experimental gratuita.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ========== HERO SECTION ========== -->
+  <header class="hero">
+    <div class="hero__container">
+      
+      <!-- Logo e Navegação -->
+      <nav class="hero__nav">
+        <div class="hero__logo">
+          <h1 class="hero__logo-text">EKAM</h1>
+        </div>
+        <div class="hero__social">
+          <a href="https://instagram.com/ekam.karate" target="_blank" class="hero__social-link" aria-label="Instagram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/5516996662194" target="_blank" class="hero__social-link" aria-label="WhatsApp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Conteúdo Principal Hero -->
+      <div class="hero__content">
+        
+        <!-- Texto -->
+        <div class="hero__text">
+          <h2 class="hero__headline">EKAM Karatê — Tradição Wado Ryu em Araraquara</h2>
+          <p class="hero__subheadline">Academia filiada à Federação Paulista de Karatê (FPK) e à Associação Kii Kuu Kai Wado Ryu. Ensino tradicional com mais de 40 anos de experiência do Sensei André Mendonça.</p>
+          
+          <a href="https://wa.me/5516996662194?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20gratuita." target="_blank" class="hero__cta">
+            AGENDE UMA AULA EXPERIMENTAL GRATUITA
+          </a>
+
+          <p class="hero__social-proof">⭐ Mais de 300 alunos formados desde 1984</p>
+        </div>
+
+        <!-- Mascote Animado -->
+        <div class="hero__mascot">
+          <img src="https://i.imgur.com/placeholder-mascote.png" alt="Mascote EKAM - Pássaro guerreiro" class="mascot">
+          <div class="mascot-flames"></div>
+        </div>
+
+      </div>
+
+      <!-- Logos de Credibilidade -->
+      <div class="hero__credentials">
+        <div class="credentials__logos">
+          <img src="https://via.placeholder.com/120x60/D4AF37/0a0a0a?text=FPK" alt="Federação Paulista de Karatê" class="credentials__logo">
+          <img src="https://via.placeholder.com/120x60/D4AF37/0a0a0a?text=CBK" alt="Confederação Brasileira de Karatê" class="credentials__logo">
+          <img src="https://via.placeholder.com/120x60/D4AF37/0a0a0a?text=Kii+Kuu+Kai" alt="Kii Kuu Kai Wado Ryu" class="credentials__logo">
+          <img src="https://via.placeholder.com/120x60/D4AF37/0a0a0a?text=WKF" alt="World Karate Federation" class="credentials__logo">
+        </div>
+        <p class="credentials__text">Única academia de Araraquara filiada à FPK</p>
+      </div>
+
+    </div>
+
+    <!-- Elementos decorativos de fundo -->
+    <div class="hero__bg-decoration"></div>
+
+  </header>
+
+  <!-- ========== SEÇÃO: SOBRE O WADO RYU ========== -->
+  <section class="about" id="sobre">
+    <div class="about__container">
+      
+      <div class="about__content">
+        
+        <!-- Texto -->
+        <div class="about__text">
+          <h2 class="section-title">O que é o Wado Ryu?</h2>
+          <p class="about__description">
+            O Wado Ryu ("Caminho da Paz") foi fundado em 1932 pelo Mestre Hironori Otsuka no Japão. É um dos quatro estilos principais de karatê reconhecidos pela World Karate Federation (WKF).
+          </p>
+          <p class="about__description">
+            Em 1977, o Mestre Susumu Suzuki trouxe o estilo ao Brasil através da Associação Kii Kuu Kai, onde formou diversos professores até seu falecimento em 1996.
+          </p>
+        </div>
+
+        <!-- Imagem -->
+        <div class="about__image">
+          <img src="https://via.placeholder.com/600x400/1a1a1a/D4AF37?text=Dojo+EKAM" alt="Dojo EKAM Karatê" class="about__img">
+        </div>
+
+      </div>
+
+      <!-- EKAM em Araraquara -->
+      <div class="about__ekam">
+        <h3 class="section-subtitle">A EKAM em Araraquara</h3>
+        <p class="about__description">
+          A Equipe de Karatê André Mendonça (EKAM) foi fundada para perpetuar o ensino tradicional do Wado Ryu na região de Araraquara.
+        </p>
+
+        <div class="about__features">
+          <div class="feature">
+            <div class="feature__icon">✓</div>
+            <p class="feature__text">Única academia da cidade filiada à <strong>Federação Paulista de Karatê (FPK)</strong></p>
+          </div>
+          <div class="feature">
+            <div class="feature__icon">✓</div>
+            <p class="feature__text">Membro oficial da <strong>Associação Kii Kuu Kai Wado Ryu</strong></p>
+          </div>
+          <div class="feature">
+            <div class="feature__icon">✓</div>
+            <p class="feature__text">Caminho oficial para competições estaduais, nacionais e mundiais (FPK → CBK → WKF)</p>
+          </div>
+          <div class="feature">
+            <div class="feature__icon">✓</div>
+            <p class="feature__text">Ensino baseado na linhagem: <strong>Otsuka → Suzuki → Mendonça</strong></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== SEÇÃO: SENSEI ANDRÉ MENDONÇA ========== -->
+  <section class="sensei" id="sensei">
+    <div class="sensei__container">
+      
+      <!-- Imagem do Sensei -->
+      <div class="sensei__image">
+        <img src="https://via.placeholder.com/500x600/1a1a1a/D4AF37?text=Sensei+André" alt="Sensei André Mendonça" class="sensei__img">
+        <div class="sensei__badge">41 anos de experiência</div>
+      </div>
+
+      <!-- Texto -->
+      <div class="sensei__text">
+        <h2 class="section-title">Sensei André Mendonça</h2>
+        
+        <ul class="sensei__credentials">
+          <li><strong>41 anos de prática</strong> (iniciou aos 7 anos)</li>
+          <li><strong>Faixa preta desde 1997</strong></li>
+          <li><strong>Bacharel em Educação Física</strong> (15+ anos de formação)</li>
+          <li><strong>Família praticante:</strong> Esposa Camila (Bi-Campeã Paulista 2024/2025), filhos André Junior (8 anos) e Yuri (3 anos)</li>
+        </ul>
+
+        <p class="sensei__bio">
+          Sensei André começou no karatê ainda criança e passou por todas as fases: aluno, atleta competitivo e professor. Hoje, compartilha essa experiência com alunos de todas as idades.
+        </p>
+
+        <!-- Timeline de Linhagem -->
+        <div class="sensei__lineage">
+          <h3 class="sensei__lineage-title">Linhagem Wado Ryu</h3>
+          <div class="lineage">
+            <div class="lineage__item">
+              <div class="lineage__year">1932</div>
+              <div class="lineage__name">Hironori Otsuka</div>
+              <div class="lineage__desc">Fundador do Wado Ryu</div>
+            </div>
+            <div class="lineage__arrow">→</div>
+            <div class="lineage__item">
+              <div class="lineage__year">1977</div>
+              <div class="lineage__name">Susumu Suzuki</div>
+              <div class="lineage__desc">Trouxe ao Brasil</div>
+            </div>
+            <div class="lineage__arrow">→</div>
+            <div class="lineage__item">
+              <div class="lineage__year">2026</div>
+              <div class="lineage__name">André Mendonça</div>
+              <div class="lineage__desc">Guardião em Araraquara</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== SEÇÃO: TURMAS ========== -->
+  <section class="classes" id="turmas">
+    <div class="classes__container">
+      
+      <h2 class="section-title section-title--center">Para Quem São as Aulas?</h2>
+
+      <div class="classes__grid">
+        
+        <!-- Karatê Infantil -->
+        <div class="class-card">
+          <div class="class-card__icon">👶</div>
+          <h3 class="class-card__title">Karatê Infantil</h3>
+          <p class="class-card__age">(a partir de 4 anos)</p>
+          <p class="class-card__description">
+            Desenvolvimento de coordenação motora, disciplina, concentração e autoconfiança através de exercícios adaptados para cada faixa etária.
+          </p>
+        </div>
+
+        <!-- Karatê Adulto -->
+        <div class="class-card">
+          <div class="class-card__icon">🥋</div>
+          <h3 class="class-card__title">Karatê Adulto</h3>
+          <p class="class-card__age">(iniciantes e avançados)</p>
+          <p class="class-card__description">
+            Condicionamento físico, defesa pessoal, controle emocional e bem-estar mental. Aceita-se qualquer idade para início.
+          </p>
+        </div>
+
+        <!-- Karatê Competição -->
+        <div class="class-card">
+          <div class="class-card__icon">🏆</div>
+          <h3 class="class-card__title">Karatê Competição</h3>
+          <p class="class-card__age">(seletivo)</p>
+          <p class="class-card__description">
+            Preparação técnica e tática para atletas que desejam competir em nível estadual, nacional ou mundial através da estrutura FPK/CBK/WKF.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== SEÇÃO: BENEFÍCIOS ========== -->
+  <section class="benefits" id="beneficios">
+    <div class="benefits__container">
+      
+      <h2 class="section-title section-title--center">Benefícios do Karatê Wado Ryu</h2>
+
+      <div class="benefits__grid">
+        
+        <!-- Para Crianças -->
+        <div class="benefit-card">
+          <h3 class="benefit-card__title">Para Crianças</h3>
+          <ul class="benefit-card__list">
+            <li>Melhora da coordenação motora e equilíbrio</li>
+            <li>Desenvolvimento de disciplina e foco</li>
+            <li>Aumento da autoconfiança</li>
+            <li>Socialização em ambiente respeitoso</li>
+          </ul>
+        </div>
+
+        <!-- Para Adultos -->
+        <div class="benefit-card">
+          <h3 class="benefit-card__title">Para Adultos</h3>
+          <ul class="benefit-card__list">
+            <li>Condicionamento físico completo</li>
+            <li>Redução de estresse</li>
+            <li>Aprendizado de defesa pessoal</li>
+            <li>Prática de uma arte marcial tradicional</li>
+          </ul>
+        </div>
+
+        <!-- Para Famílias -->
+        <div class="benefit-card">
+          <h3 class="benefit-card__title">Para Famílias</h3>
+          <ul class="benefit-card__list">
+            <li>Possibilidade de treinar juntos (pais e filhos)</li>
+            <li>Valores compartilhados (respeito, disciplina, persistência)</li>
+            <li>Atividade saudável em comum</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== SEÇÃO: DEPOIMENTOS ========== -->
+  <section class="testimonials" id="depoimentos">
+    <div class="testimonials__container">
+      
+      <h2 class="section-title section-title--center">O que dizem nossos alunos</h2>
+
+      <div class="testimonials__grid">
+        
+        <!-- Testemunho 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-card__text">
+            "Miguel está na EKAM há 8 meses e percebemos mudanças claras: mais foco nos estudos, mais organizado em casa e mais confiante socialmente. Começamos a treinar junto com ele aos sábados e virou um momento especial da família."
+          </p>
+          <div class="testimonial-card__author">
+            <p class="testimonial-card__name"><strong>Família Silva</strong></p>
+            <p class="testimonial-card__detail">Miguel, 9 anos</p>
+          </div>
+        </div>
+
+        <!-- Testemunho 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-card__text">
+            "Tentamos outras atividades antes, mas foi no karatê que a Sofia realmente se engajou. Ela pede para ir às aulas e já notamos melhora no comportamento e nas notas da escola. O Sensei André tem uma didática excelente com crianças."
+          </p>
+          <div class="testimonial-card__author">
+            <p class="testimonial-card__name"><strong>Família Andrade</strong></p>
+            <p class="testimonial-card__detail">Sofia, 7 anos</p>
+          </div>
+        </div>
+
+        <!-- Testemunho 3 -->
+        <div class="testimonial-card testimonial-card--featured">
+          <div class="testimonial-card__stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-card__text">
+            "Comecei a treinar aos 35 anos sem experiência prévia. Com a orientação do Sensei André, em 3 anos me tornei Bi-Campeã Paulista 2024/2025 pela FPK. O método funciona para qualquer idade, desde que haja dedicação."
+          </p>
+          <div class="testimonial-card__author">
+            <p class="testimonial-card__name"><strong>Camila Mendonça</strong></p>
+            <p class="testimonial-card__detail">Bi-Campeã Paulista 2024/2025</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== SEÇÃO: AULA EXPERIMENTAL ========== -->
+  <section class="trial" id="aula-experimental">
+    <div class="trial__overlay"></div>
+    <div class="trial__container">
+      
+      <div class="trial__content">
+        <h2 class="section-title section-title--light">Aula Experimental Gratuita</h2>
+        <p class="trial__description">
+          Oferecemos uma aula experimental completa (90 minutos) sem compromisso para que você conheça nossa metodologia e estrutura.
+        </p>
+
+        <div class="trial__includes">
+          <h3 class="trial__includes-title">O que está incluso:</h3>
+          <ul class="trial__includes-list">
+            <li>Participação em uma aula real (aquecimento, técnica, filosofia)</li>
+            <li>Conversa com Sensei André sobre objetivos e desenvolvimento</li>
+            <li>Esclarecimento de dúvidas sobre a prática</li>
+          </ul>
+        </div>
+
+        <p class="trial__cta-text">Como agendar:</p>
+        <p class="trial__cta-subtext">Clique no botão abaixo e envie mensagem pelo WhatsApp escolhendo o melhor horário.</p>
+
+        <a href="https://wa.me/5516996662194?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20gratuita." target="_blank" class="trial__cta">
+          AGENDAR AULA EXPERIMENTAL
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== SEÇÃO: FAQ ========== -->
+  <section class="faq" id="faq">
+    <div class="faq__container">
+      
+      <h2 class="section-title section-title--center">Perguntas Frequentes</h2>
+
+      <div class="faq__list">
+        
+        <!-- FAQ Item 1 -->
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            Qual a idade mínima para começar?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Aceitamos crianças a partir de 4 anos em turmas adaptadas.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            Nunca pratiquei karatê. Posso começar adulto?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Sim. Temos turmas para iniciantes de qualquer idade.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            É necessário algum equipamento especial?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Nas primeiras aulas, roupa confortável é suficiente. Após a matrícula, orientamos sobre o kimono oficial.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            Qual a frequência das aulas?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Oferecemos turmas de 2x ou 3x por semana, conforme disponibilidade e objetivo do aluno.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            A EKAM prepara para competições?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Sim. Somos filiados à FPK, o que permite acesso a campeonatos oficiais (estaduais, nacionais e mundiais). Temos turma específica para competição.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 6 -->
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            Quanto custa?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Os valores variam conforme frequência e turma. Entre em contato para informações detalhadas sobre planos mensais.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== SEÇÃO: LOCALIZAÇÃO E CONTATO ========== -->
+  <section class="contact" id="contato">
+    <div class="contact__container">
+      
+      <h2 class="section-title section-title--center">Visite-nos</h2>
+
+      <div class="contact__content">
+        
+        <!-- Mapa -->
+        <div class="contact__map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.5!2d-48.1757!3d-21.7844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDQ3JzAzLjgiUyA0OMKwMTAnMzIuNSJX!5e0!3m2!1spt-BR!2sbr!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <!-- Informações de Contato -->
+        <div class="contact__info">
+          
+          <div class="contact__item">
+            <div class="contact__item-icon">📍</div>
+            <div class="contact__item-text">
+              <h3 class="contact__item-title">Endereço</h3>
+              <p>Rua José Ferrari Secondo, 720<br>Vila Velosa, Araraquara/SP</p>
+            </div>
+          </div>
+
+          <div class="contact__item">
+            <div class="contact__item-icon">🕐</div>
+            <div class="contact__item-text">
+              <h3 class="contact__item-title">Horários de Atendimento</h3>
+              <p>Segunda a Sexta: 15h - 21h<br>Sábado: 9h - 12h</p>
+            </div>
+          </div>
+
+          <div class="contact__item">
+            <div class="contact__item-icon">📱</div>
+            <div class="contact__item-text">
+              <h3 class="contact__item-title">WhatsApp</h3>
+              <a href="https://wa.me/5516996662194" target="_blank" class="contact__link">(16) 99666-2194</a>
+            </div>
+          </div>
+
+          <div class="contact__item">
+            <div class="contact__item-icon">📸</div>
+            <div class="contact__item-text">
+              <h3 class="contact__item-title">Instagram</h3>
+              <a href="https://instagram.com/ekam.karate" target="_blank" class="contact__link">@ekam.karate</a>
+            </div>
+          </div>
+
+          <a href="https://wa.me/5516996662194?text=Olá!%20Gostaria%20de%20mais%20informações." target="_blank" class="contact__cta">
+            ENTRE EM CONTATO
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer__container">
+      
+      <div class="footer__grid">
+        
+        <!-- Coluna 1: Logo e Tagline -->
+        <div class="footer__col">
+          <h2 class="footer__logo">EKAM</h2>
+          <p class="footer__tagline">"Tradição, Disciplina e Excelência no Karatê"</p>
+        </div>
+
+        <!-- Coluna 2: Links Rápidos -->
+        <div class="footer__col">
+          <h3 class="footer__title">Links Rápidos</h3>
+          <ul class="footer__links">
+            <li><a href="#sobre">Sobre o Wado Ryu</a></li>
+            <li><a href="#sensei">Sensei André Mendonça</a></li>
+            <li><a href="#turmas">Turmas</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Horários -->
+        <div class="footer__col">
+          <h3 class="footer__title">Horários</h3>
+          <p>Segunda a Sexta: 15h - 21h</p>
+          <p>Sábado: 9h - 12h</p>
+          <p>Domingo: Fechado</p>
+        </div>
+
+        <!-- Coluna 4: Credenciais -->
+        <div class="footer__col">
+          <h3 class="footer__title">Credenciais</h3>
+          <div class="footer__credentials">
+            <img src="https://via.placeholder.com/80x40/D4AF37/0a0a0a?text=FPK" alt="FPK" class="footer__logo-img">
+            <img src="https://via.placeholder.com/80x40/D4AF37/0a0a0a?text=CBK" alt="CBK" class="footer__logo-img">
+            <img src="https://via.placeholder.com/80x40/D4AF37/0a0a0a?text=Kii" alt="Kii Kuu Kai" class="footer__logo-img">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer__bottom">
+        <p>&copy; 2026 EKAM - Equipe de Karatê André Mendonça. Todos os direitos reservados.</p>
+        <p>Responsável Técnico: André Mendonça</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JavaScript para FAQ Accordion -->
+  <script>
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-item__question');
+      const answer = item.querySelector('.faq-item__answer');
+      const icon = item.querySelector('.faq-item__icon');
+      
+      question.addEventListener('click', () => {
+        const isOpen = question.getAttribute('aria-expanded') === 'true';
+        
+        // Fechar todos os outros itens
+        faqItems.forEach(otherItem => {
+          otherItem.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+          otherItem.querySelector('.faq-item__answer').style.maxHeight = null;
+          otherItem.querySelector('.faq-item__icon').textContent = '+';
+        });
+        
+        // Toggle item atual
+        if (!isOpen) {
+          question.setAttribute('aria-expanded', 'true');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          icon.textContent = '−';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
